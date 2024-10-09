@@ -6,13 +6,11 @@
 CS 401: Software Engineering & Design
 ======================================
 
-The objective of this course is to introduce students to advanced computing
-concepts in software engineering, software systems design, cloud computing,
-distributed systems, and computational engineering. Through a series of
-assignments spanning the course of the semester, students will build a
-cloud-based, computational system to interact with a time series dataset and
-provide a web-accessible interface to their system.
-
+The objective of this course is to introduce students to concepts in 
+software engineering and the design of software. Through a series of
+assignments spanning the course of the semester, students will learn 
+about these concepts while building out a functioning website through
+the concepts and topics discussed.
 
 .. toctree::
    :maxdepth: 1
@@ -45,7 +43,14 @@ provide a web-accessible interface to their system.
    homework/homework08.rst
    homework/final.rst
 
-
+.. toctree::
+   :maxdepth: 1
+   :caption: Project:
+   project/overview.rst
+   project/phase01.rst
+   project/phase02.rst
+   project/phase03.rst
+   project/phase04.rst
 
 
 Additional Resources
