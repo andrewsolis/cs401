@@ -3,7 +3,7 @@ Class Introduction
 
 | **Welcome to:**
 |
-| COE 332 – Software Engineering & Design, Spring 2024
+| CS 401 – Software Engineering & Design, Spring 2025
 | Department of Aerospace Engineering and Engineering Mechanics
 | The University of Texas at Austin
 

@@ -1,8 +1,8 @@
-# COE 332: Software Engineering and Design, Spring 2024
+# COE 401: Software Engineering and Design, Spring 2025
 
-[![Documentation Status](https://readthedocs.org/projects/coe-332-sp24/badge/?version=latest)](https://coe-332-sp24.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/cs401/badge/?version=latest)](https://cs401.readthedocs.io/en/latest/?badge=latest)
 
 
-This repo contains the lecture materials for COE 332.
+This repo contains the lecture materials for CS 401.
 
-https://coe-332-sp24.readthedocs.io/
+https://cs401.readthedocs.io/en/latest/
