@@ -1,9 +1,9 @@
-.. COE 332: Software Engineering & Design documentation master file, created by
+.. CS 401: Software Engineering & Design documentation master file, created by
    sphinx-quickstart on Thu Jan 11 21:27:48 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-COE 332: Software Engineering & Design
+CS 401: Software Engineering & Design
 ======================================
 
 The objective of this course is to introduce students to advanced computing
