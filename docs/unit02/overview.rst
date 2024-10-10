@@ -1,4 +1,4 @@
-Unit 5: Containerization and Automation
+Unit 2: Containerization and Automation
 =======================================
 
 In this unit we begin to isolate our work from our development environment through
