@@ -10,4 +10,5 @@ Resources
 * `Postman <https://www.postman.com/>`_
 * `NGINX <https://nginx.org/en/>`_
 * `Flask <https://flask.palletsprojects.com/en/3.0.x/>`_
+* `Git <https://git-scm.com/>`_
 * Last Line
