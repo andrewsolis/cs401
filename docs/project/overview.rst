@@ -11,4 +11,6 @@ Resources
 * `NGINX <https://nginx.org/en/>`_
 * `Flask <https://flask.palletsprojects.com/en/3.0.x/>`_
 * `Git <https://git-scm.com/>`_
+* `React <https://react.dev/>`_
+* `Node.js <https://nodejs.org/en>`_
 * Last Line
