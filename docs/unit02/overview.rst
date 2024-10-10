@@ -1,26 +1,25 @@
-Unit 2: Working with Common Data Formats
-========================================
+Unit 5: Containerization and Automation
+=======================================
 
-Please make sure you meet the following prerequisites before continuing past
-Unit 1:
-
-1. You can log in to the class server, student-login.tacc.utexas.edu
-2. You have a strong working knowledge of `Linux commands <../unit01/linux_essentials.html>`_
-3. You have a strong working knowledge of the basic `elements of Python3 <../unit01/python_refresher.html>`_
-4. You have a strong working knowledge of `version control with Git <../unit01/version_control_1.html>`_
+In this unit we begin to isolate our work from our development environment through
+a process called *containerization*. We will learn how to use existing containers,
+build our own containers, and push containers to a public container registry. We
+will also see how to automate some of our more tedious processes in order to speed
+up the development cycle.
 
 
-In Unit 2, we will begin to explore and work hands-on with essential data
-formats that we will use throughout the course. We will primarily be using
-Python3 to interact with and manipulate the data. Sample data sets for
-illustration purposes will be downloaded from various sources, including
-`NASA's open data site <https://data.nasa.gov/>`_.
+If you don't have one already, please create an account on
+`Docker Hub <https://hub.docker.com/signup>`_,
+which we will use extensively in this class. (The username does not have to be
+the same as your GitHub username, but it will make things less confusing later
+on if the usernames match).
 
 
 .. toctree::
    :maxdepth: 1
 
-   json
-   csv
-   xml
-   yaml
+   containers_1
+   containers_2
+   docker_compose
+
+
