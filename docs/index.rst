@@ -14,8 +14,9 @@ the concepts and topics discussed.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Course Schedule:
+   :caption: Course Schedule
 
+   calendar.rst
    unit01/overview
    unit02/overview
    unit03/overview
@@ -30,7 +31,7 @@ the concepts and topics discussed.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Homeworks:
+   :caption: Homeworks
 
    homework/homework01.rst
    homework/homework02.rst
@@ -45,14 +46,13 @@ the concepts and topics discussed.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Project:
+   :caption: Project
    
    project/overview.rst
    project/phase01.rst
    project/phase02.rst
    project/phase03.rst
    project/phase04.rst
-
 
 Additional Resources
 --------------------
