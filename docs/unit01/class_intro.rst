@@ -1,79 +1,79 @@
+.. role:: red
+
 Class Introduction
 ==================
 
 | **Welcome to:**
 |
 | CS 401 – Software Engineering & Design, Spring 2025
-| Department of Aerospace Engineering and Engineering Mechanics
-| The University of Texas at Austin
+| School of Natural Sciences and Mathematics
+| Chaminade University of Honolulu
 
-**Unique Number:**	14410
+**Unique Number:**	:red:`14410`
 
 **Instructors:**
 
-* Joe Allen, wallen@tacc.utexas.edu
-* Charlie Dey, charlie@tacc.utexas.edu
-* Joe Stubbs, jstubbs@tacc.utexas.edu
+* :red:`Andrew Solis, asolis@tacc.utexas.edu`
+
+**Time:** :red:`Tues/Thur 11:00am - 12:30pm`
 
 
-**Time:** Tues/Thur 11:00am - 12:30pm
+**Location:** :red:`ASE 1.112 A (in person)`
 
 
-**Location:** ASE 1.112 A (in person)
-
-
-**Teaching Assistant:** Aditya Anekar
+**Teaching Assistant:** :red:`TBD`
 
 
 **Important Links:**
 
-* Canvas: https://utexas.instructure.com/courses/1380167
-* Class Repo: https://coe-332-sp24.readthedocs.io/
-* Slack: https://tacc-learn.slack.com/ (#coe332-sp24)
+* Canvas: :red:`https://utexas.instructure.com/courses/1380167`
+* Class Repo: https://cs401.readthedocs.io/en/latest/
+* Slack: :red:`https://tacc-learn.slack.com/ (#coe332-sp24)`
 
 
 **Catalog Description:**
 
-Covers methods and tools for planning, designing, implementing, validating and
-maintaining large software systems. May include project work to build a software
-system as a team, using appropriate software engineering tools and techniques.
+This course will introduce the concepts, principles, techniques, standards and best practices, 
+and methods of software engineering to design and develop high-quality and cost-effective 
+software products and systems. This course will utilize computer architecture, data structures, 
+and object-oriented approaches. Students in this course will learn an overview to design and 
+develop software products and systems; software life cycle; specifications; cost and effort 
+estimation; and tools to effectively analyze, design, test, and maintain software.
 
 
 **Prerequisites:**
 
-Computational Engineering 322 with a grade of at least C-.
-
+EN 102, COM 101, and CS 202 or CS 205.
 
 **Knowledge, Skills, and Abilities Students Should Have Before Entering This Course:**
 
-This course assumes familiarity with the Python programming language and strong
-working knowledge of basic, high-level language programming concepts including
+This course assumes familiarity with object-oriented programming (Java, Python). 
+Also a strong working knowledge of basic, high-level language programming concepts including
 data structures, conditionals, loops, and functions. We also assume a basic,
 working knowledge of the Linux command line. We will briefly review programming
 concepts in Linux and Python during the first week of class, the first homework
 assignment will be based on these topics, and we will make every effort to help
 students who are less familiar with these concepts. Ultimately, each student is
-expected to and responsible for mastering this material. This is not an
-introductory programming class and we will not have time to give a comprehensive
+expected to be responsible for mastering this material. Since this is not an
+introductory programming class we will not have time to give a comprehensive
 treatment of all of these topics.
 
 
 **Knowledge, Skills, and Abilities Students Gain from this Course (Learning Outcomes):**
 
 The objective of this course is to introduce students to advanced computing
-concepts in software engineering, software systems design, cloud computing,
-distributed systems, and computational engineering. Through a series of
+concepts in software engineering and software systems design. Through a series of
 assignments spanning the course of the semester, students will build a
-cloud-based, computational system to interact with a time series data set
-and provide a web-accessible interface to their system.
+interactive website to gain knowledge in developing a fully feature software application,
+the process and workflow of such a system, and how to evaluate and test a system.
 
 
 **Relationship of Course to Program Outcomes:**
 
-This course contributes to the ABET Criterion 3 student outcomes that took
+:red:`This course contributes to the ABET Criterion 3 student outcomes that took
 effect with the Fall 2019 semester. For more information, see Criteria for
 Accrediting Engineering Programs, 2020-2021 at
-https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediting-engineering-programs-2020-2021/
+https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediting-engineering-programs-2020-2021/`
 
 .. list-table::
    :widths: 95 5
@@ -99,10 +99,10 @@ https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediti
 
 **ABET Program Criteria Achieved:**
 
-Program criteria are unique to each degree program and are to be compiled from
+:red:`Program criteria are unique to each degree program and are to be compiled from
 the program criteria given for each degree program and listed in table format
 below. The faculty should check which of the program criteria are achieved in
-the course.
+the course.`
 
 .. list-table::
    :widths: 30 5 30 5 30 5

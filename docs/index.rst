@@ -38,11 +38,9 @@ the concepts and topics discussed.
    homework/homework03.rst
    homework/homework04.rst
    homework/homework05.rst
-   homework/midterm.rst
-   homework/homework06.rst
+   homework/homework06.rst    
    homework/homework07.rst
    homework/homework08.rst
-   homework/final.rst
 
 .. toctree::
    :maxdepth: 1

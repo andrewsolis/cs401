@@ -1,4 +1,4 @@
-Python Refresher
+Python Introduction
 ================
 
 To be successful in this class, students should be able to:
