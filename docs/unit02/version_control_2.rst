@@ -48,15 +48,15 @@ home page of the repository on GitHub includes the string we need to identify it
    Follow the instructions for pushing an existing repository.
 
 
-Back on class server in the local Git repo, link it to the repo on GitHub and confirm
+Back inside your terminal in the local Git repo, link it to the repo on GitHub and confirm
 the link was created:
 
 .. code-block:: console
 
-   [student-login]$ git remote add origin git@github.com:wjallen/python-test.git
-   [student-login]$ git remote -v
-   origin  git@github.com:wjallen/python-test.git (fetch)
-   origin  git@github.com:wjallen/python-test.git (push)
+   [terminal]$ git remote add origin https://github.com/andrewsolis/python-test.git
+   [terminal]$ git remote -v
+   origin	https://github.com/andrewsolis/python-test.git (fetch)
+   origin	https://github.com/andrewsolis/python-test.git (push)
 
 .. attention::
 
@@ -72,26 +72,26 @@ up SSH keys, click on:
 
 Your account => Settings => SSH and GPG keys => New SSH key
 
-In the "Title" box, add a memorable name for this key like "student-login". In the "Key"
-box, cut and paste the contents of your existing public key on the class server.
-You can find it by executing the command:
+In the "Title" box, add a memorable name for this key like "terminal". In the "Key"
+box, cut and paste the contents of your existing public key if you have one on your
+computer. You can find it by executing the command:
 
 .. code-block:: console
 
-   [student-login]$ cat ~/.ssh/id_rsa.pub
+   [terminal]$ cat ~/.ssh/id_rsa.pub
    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF8crdmqgk2GhRmsLPcREWjzc9zb2B....
    ........................................................................
 
 
-If you do not have an existing SSH key, it is easy to make your own. For this class,
-we will name the SSH key generated for GitHub slightly different than the standard
-key name so as not to accidentally overwrite the keys we will use later on to log
-in to our Jetstream VMs.
+If you do not have an existing SSH key, it is easy to make your own.
+We will name the SSH key generated for GitHub slightly different than the standard
+key name so as not to accidentally overwrite keys.
 
 .. code-block:: console
 
-   [student-login]$ mkdir -p ~/.ssh/ && ssh-keygen -f ~/.ssh/github_rsa -t rsa -b 3072 -N ""
-   [student-login]$ cat ~/.ssh/github_rsa.pub
+   [terminal]$ cd ~/.ssh
+   [terminal]$ ssh-keygen -f github_rsa
+   [terminal]$ cat github_rsa.pub
    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF8crdmqgk2GhRmsLPcREWjzc9zb2B....
    ........................................................................
 
@@ -110,8 +110,8 @@ repository to the repository on GitHub:
 
 .. code-block:: console
 
-   [student-login]$ git branch -M main
-   [student-login]$ git push -u origin main
+   [terminal]$ git branch -M main
+   [terminal]$ git push -u origin main
    Warning: Permanently added the ECDSA host key for IP address '140.82.112.4' to the list of known hosts.
    Counting objects: 3, done.
    Delta compression using up to 8 threads.
@@ -129,10 +129,10 @@ you can expect to follow the changes with the commands:
 .. code-block:: console
 
    # Make some edits to "example_file.py"
-   [student-login]$ git status
-   [student-login]$ git add example_file.py
-   [student-login]$ git commit -m "description of changes"
-   [student-login]$ git push
+   [terminal]$ git status
+   [terminal]$ git add example_file.py
+   [terminal]$ git commit -m "description of changes"
+   [terminal]$ git push
 
 
 
@@ -144,7 +144,7 @@ a full copy of the ``python-test`` repo including all the commit history by perf
 
 .. code-block:: console
 
-   [student-login]$ git clone git@github.com:wjallen/python-test.git
+   [terminal]$ git clone https://github.com/andrewsolis/python-test.git
    Cloning into 'python-test'...
    remote: Enumerating objects: 15, done.
    remote: Counting objects: 100% (15/15), done.
@@ -161,8 +161,8 @@ changes back down.
 
 .. code-block:: console
 
-   [student-login]$ git remote update    # checks to see if there are updates in the remote
-   [student-login]$ git pull             # pulls those updates down to local
+   [terminal]$ git remote update    # checks to see if there are updates in the remote
+   [terminal]$ git pull             # pulls those updates down to local
 
 .. warning::
 

@@ -1,3 +1,4 @@
 docs/_build/
 docs/docsenv/
 docs/html/
+.DS_Store
