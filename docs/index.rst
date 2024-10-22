@@ -1,3 +1,5 @@
+.. role:: red
+
 .. CS 401: Software Engineering & Design documentation master file, created by
    sphinx-quickstart on Thu Jan 11 21:27:48 2024.
    You can adapt this file completely to your liking, but it should at least
@@ -27,6 +29,7 @@ the concepts and topics discussed.
    unit08/overview
    unit09/overview
    unit10/overview
+   unit11/overview
 
 
 .. toctree::
@@ -55,6 +58,6 @@ the concepts and topics discussed.
 Additional Resources
 --------------------
 
-* Slack: https://tacc-learn.slack.com/
-* Class Repo: https://coe-332-sp24.readthedocs.io/
-* Canvas: https://utexas.instructure.com/courses/1380167
+* Slack: :red:`https://tacc-learn.slack.com/`
+* Class Repo: https://cs401.readthedocs.io/en/latest/
+* Canvas: :red:`https://utexas.instructure.com/courses/1380167`

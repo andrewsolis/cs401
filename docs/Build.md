@@ -6,3 +6,7 @@
 
 > cd html  
   python -m http.server
+
+## DEV
+
+> make livehtml

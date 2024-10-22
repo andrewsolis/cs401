@@ -75,22 +75,13 @@ collaboration among different people.
 Setting up Git
 --------------
 
-Log on to the class server and check which version of Git is in your
-``PATH``.
-
-.. note::
-
-   Below, replace ``username`` with your TACC username.
+Check which version of Git is in your ``PATH``.
 
 .. code-block:: console
 
-   [local]$ ssh username@student-login.tacc.utexas.edu
-   (enter password)
-   (enter token)
-
-   [student-login]$ which git
+   [terminal]$ which git
    /usr/bin/git
-   [student-login]$ git --version
+   [terminal]$ git --version
    git version 2.25.1
 
 When we use Git on a new computer for the first time, we need to configure a few
@@ -132,12 +123,12 @@ and for working with Git (if you haven't done it already):
 .. code-block:: console
 
    [student-login]$ cd ~/
-   [student-login]$ mkdir coe-332    # you may already have a folder for this class
-   [student-login]$ cd coe-332
+   [student-login]$ mkdir cs401    # you may already have a folder for this class
+   [student-login]$ cd cs401
    [student-login]$ mkdir my-first-git-repo
    [student-login]$ cd my-first-git-repo/
    [student-login]$ pwd
-   /home/username/coe-332/my-first-git-repo
+   /home/username/cs401/my-first-git-repo
 
 Then we will use a Git command to initialize this directory as a new Git
 repository - or a place where Git can start to organize versions of our files.
@@ -145,7 +136,7 @@ repository - or a place where Git can start to organize versions of our files.
 .. code-block:: console
 
    [student-login]$ git init
-   Initialized empty Git repository in /home/username/coe-332/my-first-git-repo/.git/
+   Initialized empty Git repository in /home/username/cs401/my-first-git-repo/.git/
 
 If we use ``ls -a``, we can see that Git has created a hidden directory called
 ``.git``:
