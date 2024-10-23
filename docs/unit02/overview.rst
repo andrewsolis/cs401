@@ -6,9 +6,9 @@ throughout the course for assignements as well as projects
 to support collaboration and issue tracking for development of
 a software application.
 
-Prerequisites:
-  * `git <https://git-scm.com/>`_
-  * `GitHub <https://github.com/>`_
+If you don't have one already, please create an account on
+`GitHub <https://github.com/>`_, and verify that `git <https://git-scm.com/>`_
+is installed on your system, and if not please install.
 
 .. toctree::
    :maxdepth: 1
