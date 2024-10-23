@@ -1,18 +1,14 @@
-Unit 6: APIs and Flask
-======================
+Unit 3: Software Design Concepts
+================================
 
-In this unit, we will be introduced to Application Programming Interfaces
-(APIs). This introduction will form the foundation of our ultimate goal to
-create large, complex, Python-based applications that are accessible through
-the web. The particular Python web framework we will be working with most is
-called Flask.
+In this mini-unit, we will briefly introduce the major Software Design concepts
+and principles that we will be practicing throughout the semester. We will also
+briefly cover some different types of diagrams for software design, as well as
+tools to create diagrams.
 
 .. toctree::
    :maxdepth: 1
 
-   intro_to_apis
-   intro_to_flask
-   advanced_flask
-   flask_docker
-   flask_special_topics
+   intro_software_design
+   diagrams
 

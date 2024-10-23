@@ -47,14 +47,6 @@ Similarly, arrows between components represent different types of connections.
     methods from another class).
   * For a diagram containing microservices, arrows represent the communication between services. 
 
-.. figure:: ./images/microservices-diag.png
-    :width: 1000px
-    :align: center
-    :alt: An example of a microservices diagram
-    
-    An example of a microservices diagram
-
-
 
 Behavioral Diagrams
 -------------------
@@ -101,33 +93,36 @@ Some UML diagrams, such as the class diagram, are precise enough to be able to g
 While this is a neat idea, in practice some software engineers find UML heavyweight and cumbersome.
 If you are interested in UML, there are a number of tutorials on the web.
 
-Here is an example description of a C4 UML Plant diagram describing a hypothetical COE 332 final project:
+Here is an example description of a class digram created in `PlantUML <https://plantuml.com/>`_ diagram describing a hypothetical CS 401 final project:
 
 .. code-block:: console
 
     @startuml
-    !include C4_Container.puml
-
-    LAYOUT_TOP_DOWN()
-    LAYOUT_WITH_LEGEND()
-
-    title System Diagram for Example COE 332 Final Project
-
-    Person(scientist, Scientist, "A scientist interested in studying sun spots")
-
-    System_Boundary(c1, "Sun Spots Analysis Platform") {
-        Container(api, "RESTful API", "Python, Flask", "Provides endpoints for retrieving data and launching analysis jobs.")
-        Container(worker, "Worker", "Python worker, docker container", "Receives jobs from the task queue, and works them to completion.")
-        ContainerDb(database, "Redis", "Redis Database", "Stores sun spots dataset and information and jobs in the system.")
-        Container(task_queue, "Task Queue", "Redis Task Queue", "Stores pending jobs in the system")
+    class "Video Game"{
+      + name: string
+      + release date: string
+      + genre : string []
+      + platform : string []
+      + game engine : string
+      + Publisher
+      + Director
+      + Developer
     }
-    Rel_Down(scientist, api, "Uses", "HTTP/S")
 
-    Rel_Down(task_queue, worker, "Dequeues jobs")
-    Rel_Down(database, worker, "Reads from and writes to")
-    Rel_Down(api, database, "Reads from and writes to", "python, redis")
-    Rel_Down(api, task_queue, "Adds new jobs to queue")
+    class People {
+      + name : string
+      + dob  : string
+      + current role : string
+      + previous roles : string []
 
+    }
+
+    class Company {
+      + name : string
+      + founded: string
+      + Video Games
+      + People
+    }
     @enduml
 
 This generates the following diagram:
@@ -164,3 +159,8 @@ And if you want to make diagrams from UML...
     :alt: A screenshot of the kroki.io docs.
     
     From the kroki.io documentation.
+
+Additional Resources
+--------------------
+* `PlantUML <https://plantuml.com/>`_
+* `UML Diagram Tutorial <https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/>`_

@@ -1,3 +1,5 @@
+.. role:: red
+
 Introduction to Software Design
 ===============================
 
@@ -72,7 +74,7 @@ allows different parts of the software to be modified independently and created 
 You likely already know the concept of abstraction from math and science courses. The real world is very complicated.
 With abstraction, we replace an exact concept with a simplified model. For example, the Bohr model is an abstraction of the actual atom. 
 
-You have seen examples of abstractions in software also. For instance, we saw how the Python function ``open()`` returns
+You have seen examples of abstractions in software also. For instance, the Python function ``open()`` returns
 a "file object" (cf., https://docs.python.org/3/glossary.html#term-file-object). A file object is an abstraction representing
 data stored in different formats. With a file object, you can do certain actions, represented by functions, e.g.,:
 
@@ -109,12 +111,12 @@ means that the results obtained from executing the software at one time can be o
 amount of time this semester working with techniques that improve the portability of the software we develop.
 
 
-Software Design Goals for COE 332
+Software Design Goals for CS 401
 ---------------------------------
-During the course of the semester, you will build a large (by some measure), distributed sofware 
-system for data analysis. Your system will comprise many components and thousands of lines of code. An
+During the course of the semester, you will build a software system through a complete website.
+Your system will comprise many components and thousands of lines of code. :red:`An
 example illustration of a typical final class project is shown below, to give an indication of where we 
-are headed.
+are headed.`
 
 .. figure:: images/ex_arch_cls_proj.png
     :width: 700px
@@ -122,7 +124,7 @@ are headed.
 
 As we add components and complexity, these software design principles will become increasingly important.
 
-Our goals for COE 332 are to illustrate these design concepts so that you can recognize them and apply them,
-not just towards the design of distributed systems and/or data analysis, but all kinds of different software.
-While in this course we'll illustrate these principles in the context of distributed systems, they are
+Our goals for CS 401 are to illustrate these design concepts so that you can recognize them and apply them,
+not just towards the design of fully functional website, but all kinds of different software.
+While in this course we'll illustrate these principles in the context of website software, they are
 broadly applicable to all large software projects. 
