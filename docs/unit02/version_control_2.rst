@@ -272,16 +272,16 @@ EXERCISE
 
 Let's next work on a **fork** plus **pull request** in the GitHub web interface.
 
-* Navigate to this repository: https://github.com/wjallen/coe-332-forking-demo
+* Navigate to this repository: https://github.com/andrewsolis/python-test
 * Click the "Fork" button near the top right and fork it to your own user space
-* Now you could either ``git clone`` your fork to the class server, put in a new
+* Now you could either ``git clone`` your fork, put in a new
   file, then ``git add`` => ``git commit`` => ``git push``; OR you could click
   "Add file" in the GitHub web interface and create a new file that way
 * Navigate again to the "Pull requests" tab and click to create a "New pull request"
-* Make sure the original repo (``wjallen``) is set as the base and your fork
+* Make sure the original repo (``andrewsolis``) is set as the base and your fork
   is set as the head
 * Create the pull request and provide enough detail for the repository owner
-  (``wjallen``) to know whether he should accept your pull request or not
+  (``andrewsolis``) to know whether he should accept your pull request or not
 
 
 Consult the documentation in the base repository (if documentation exists) and
@@ -317,4 +317,5 @@ Additional Resources
 * `About Pull Requests <https://help.github.com/articles/about-pull-requests>`_
 * `About Licenses <https://help.github.com/articles/licensing-a-repository/>`_
 * `GitFlow Model <https://nvie.com/posts/a-successful-git-branching-model/>`_
+* `Merging vs Rebasing <https://www.atlassian.com/git/tutorials/merging-vs-rebasing>`_
 * `More on different git workflows <https://www.atlassian.com/git/tutorials/comparing-workflows>`_
