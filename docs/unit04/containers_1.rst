@@ -17,41 +17,6 @@ After going through this module, students should be able to:
 * **Design Principles:** Additionally, we will see how containers contribute to
   the portability of software projects
 
-
-
-Logging in to the Jetstream VMs
--------------------------------
-
-We will all be running Docker on our own private VMs that are accessible through
-the ``student-login`` gateway. It takes two hops to log in to your VM:
-
-.. note::
-
-   Below, replace ``username`` with your TACC username.
-
-.. code-block:: console
-
-   [local]$ ssh username@student-login.tacc.utexas.edu
-   (enter password)
-   (enter token)
-
-   [student-login]$ ssh username-COE332-vm
-   (no password or token required)
-
-   [user-vm]$ whoami
-   ubuntu
-   [user-vm]$ hostname -f
-   username-coe332-vm.js2local
-
-
-
-.. note::
-
-   This is a new machine. Don't forget, you likely want to run git config, pip
-   install, and possibly some other commands to set up your environment.
-
-
-
 What is a Container?
 --------------------
 
@@ -178,7 +143,7 @@ student VM, and try running the following:
 
 .. code-block:: console
 
-   [user-vm]$ docker version
+   [terminal]$ docker version
    Client:
     Version:           24.0.5
     API version:       1.43
@@ -208,11 +173,6 @@ student VM, and try running the following:
      GitCommit:        
 
 
-.. warning::
-
-   Please let the instructors know if you get any errors on issuing the above
-   command.
-
 EXERCISE
 ~~~~~~~~
 
@@ -224,8 +184,8 @@ Working with Images from Docker Hub
 -----------------------------------
 
 To introduce ourselves to some of the most essential Docker commands, we will go
-through the process of listing images that are currently available on your student
-server, we will pull a 'hello-world' image from Docker Hub, then we will run the
+through the process of listing images that are currently available system, 
+we will pull a 'hello-world' image from Docker Hub, then we will run the
 'hello-world' image to see what it says.
 
 List images on your server with the ``docker images`` command. This peeks
@@ -234,7 +194,7 @@ and how large they are:
 
 .. code-block:: console
 
-   [user-vm]$ docker images
+   [terminal]$ docker images
    REPOSITORY            TAG       IMAGE ID       CREATED        SIZE
    guacamole/guacamole   <none>    a385e28f9fd6   20 months ago   642MB
    guacamole/guacd-dev   <none>    315a12ba560b   21 months ago   228MB
@@ -247,7 +207,7 @@ image:
 
 .. code-block:: console
 
-   [user-vm]$ docker pull hello-world
+   [terminal]$ docker pull hello-world
    Using default tag: latest
    latest: Pulling from library/hello-world
    0e03bdcc26d7: Pull complete
@@ -262,7 +222,7 @@ that has been configured as the 'default command' when the image was built:
 
 .. code-block:: console
 
-   [user-vm]$ docker run hello-world
+   [terminal]$ docker run hello-world
 
    Hello from Docker!
    This message shows that your installation appears to be working correctly.
@@ -290,7 +250,7 @@ Check to see if any containers are still running using ``docker ps``:
 
 .. code-block:: console
 
-   [user-vm]$ docker ps
+   [terminal]$ docker ps
    CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 
@@ -326,7 +286,7 @@ Scroll down to find the Python official image called ``python``, then
 click on that `image <https://hub.docker.com/_/python>`_.
 
 We see a lot of information about how to use the image, including information about the different 
-"tags" available. We see tags such as ``3.13-rc``, ``3.12.1``, ``3.12``, ``3``, etc.
+"tags" available. We see tags such as ``3.13-rc``, ``3.13.0``, ``3.12``, ``3``, etc.
 We'll discuss tags in detail later, but for now, does anyone have a guess as to what
 the Python tags refer to? 
 
@@ -335,11 +295,11 @@ available locally:
 
 .. code-block:: console
 
-   [user-vm]$ docker pull python
+   [terminal]$ docker pull python
    ...
-   [user-vm]$ docker images
+   [terminal]$ docker images
    ...
-   [user-vm]$ docker inspect python
+   [terminal]$ docker inspect python
    ...
 
 .. tip::
@@ -356,15 +316,15 @@ see what is in there. Imagine you are ssh-ing to a different Linux server, have
 root access, and can see what files, commands, environment, etc., is available.
 
 Before starting an interactive shell inside the container, execute the following
-commands on your private VM (we will see why in a minute):
+commands on your system (if you even can):
 
 .. code-block:: console
 
-   [user-vm]$ whoami
-   ubuntu
-   [user-vm]$ pwd
-   /home/ubuntu
-   [user-vm]$ cat /etc/os-release
+   [terminal]$ whoami
+   asolis
+   [terminal]$ pwd
+   /home/asolis
+   [terminal]$ cat /etc/os-release
    PRETTY_NAME="Ubuntu 22.04.3 LTS"
    NAME="Ubuntu"
    VERSION_ID="22.04"
@@ -382,7 +342,7 @@ Now start the interactive shell inside a Python container:
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm -it python /bin/bash
+   [terminal]$ docker run --rm -it python /bin/bash
    root@fc5b620c5a88:/#
 
 Here is an explanation of the command options:
@@ -422,15 +382,15 @@ EXERCISE
 ~~~~~~~~
 
 Before you exit the container, try running the command ``python``. What happens?
-Compare that with running the command ``python`` directly on your student VM. 
+Compare that with running the command ``python`` directly on your system. 
 
 
 Run a Command Inside a Container
 --------------------------------
 
-Back out on your student VM, we now know we have a container image called
-``python`` that has a particular version of Python (3.12.1) that is 
-otherwise not available on your student server. The 3.12.1 Python interpreter,  
+Back out on your system, we now know we have a container image called
+``python`` that has a particular version of Python (3.13.0) that is 
+otherwise not available on your system. The 3.13.0 Python interpreter,  
 it's standard library, and all of the dependencies of those are included in the 
 container image and 
 are *isolated* from everything else. This image (``python``) is portable
@@ -443,11 +403,11 @@ to use a software application inside an image. Docker allows you to spin up an
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm python whoami
+   [terminal]$ docker run --rm python whoami
    root
-   [user-vm]$ docker run --rm python pwd
+   [terminal]$ docker run --rm python pwd
    /
-   [user-vm]$ docker run --rm python cat /etc/os-release
+   [terminal]$ docker run --rm python cat /etc/os-release
    PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
    NAME="Debian GNU/Linux"
    VERSION_ID="12"
@@ -457,8 +417,8 @@ to use a software application inside an image. Docker allows you to spin up an
    HOME_URL="https://www.debian.org/"
    SUPPORT_URL="https://www.debian.org/support"
    BUG_REPORT_URL="https://bugs.debian.org/"
-   [user-vm]$ docker run -it --rm python
-   Python 3.12.1 (main, Feb  1 2024, 04:22:19) [GCC 12.2.0] on linux
+   [terminal]$ docker run -it --rm python
+   Python 3.13.0 (main, Feb  1 2024, 04:22:19) [GCC 12.2.0] on linux
    Type "help", "copyright", "credits" or "license" for more information.
    >>> 
 
@@ -516,13 +476,13 @@ If all else fails, display the help text:
 
 .. code-block:: console
 
-   [user-vm]$ docker --help
+   [terminal]$ docker --help
    shows all docker options and summaries
 
 
 .. code-block:: console
 
-   [user-vm]$ docker COMMAND --help
+   [terminal]$ docker COMMAND --help
    shows options and summaries for a particular command
 
 Additional Resources
