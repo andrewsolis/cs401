@@ -97,42 +97,41 @@ Here is an example description of a class digram created in `PlantUML <https://p
 
 .. code-block:: console
 
-    @startuml
-    class "Video Game"{
-      + name: string
-      + release date: string
-      + genre : string []
-      + platform : string []
-      + game engine : string
-      + Publisher
-      + Director
-      + Developer
-    }
+  @startuml
+  class "Video Game"{
+    + name: string
+    + release date: string
+    + genre : string []
+    + platform : string []
+    + game engine : string
+  }
 
-    class People {
-      + name : string
-      + dob  : string
-      + current role : string
-      + previous roles : string []
+  class People {
+    + name : string
+    + dob  : string
+    + current role : string
+    + previous roles : string []
+  }
 
-    }
+  class Company {
+    + name : string
+    + founded: string
+  }
 
-    class Company {
-      + name : string
-      + founded: string
-      + Video Games
-      + People
-    }
-    @enduml
+  "Video Game" "0..*" -- "1..*" People
+  "Video Game" "0..*" -- "0..*" Company
+  People "1..*" -- "0..1" Company
+
+  @enduml
 
 This generates the following diagram:
 
-.. figure:: ./images/example-uml-plant-diag.png
-    :width: 500px
+.. figure:: ./images/plantuml.png
+    :width: 300px
     :align: center
-    :alt: A sequence diagram of the OAuth2 authorization code flow.
+    :alt: A class diagram for video game database website
     
-    A sequence diagram of the OAuth2 authorization code flow.
+    A class diagram for video game database website
 
 
 Options for Creating Diagrams
@@ -144,6 +143,8 @@ There are a lot of options for creating diagrams:
      arranges, etc. Free with a google account. 
   2. draw.io - Similar to google slides but some find it to be more ergonomic to use. Free.
   3. Microsoft Powerpoint - Similar to the other options above; requires access to Microsoft Office. 
+  4. `PlantUML <https://plantuml.com/>`_ - create class and multiple different diagrams. Free.
+  5. `dbdigram.io <https://dbdiagram.io/>`_ - create entity-relationship diagrams based on database.
   
 And if you want to make diagrams from UML...
   4. Visual Paradigm - This is kind of like the others above where you click and drag boxes and arrows 
@@ -162,5 +163,4 @@ And if you want to make diagrams from UML...
 
 Additional Resources
 --------------------
-* `PlantUML <https://plantuml.com/>`_
 * `UML Diagram Tutorial <https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/>`_
