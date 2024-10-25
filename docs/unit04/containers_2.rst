@@ -16,21 +16,15 @@ find and use it. After going through this module, students should be able to:
 Getting Set Up
 --------------
 
-*Scenario:* You are a developer who has written some code for reading and
-parsing meteorite landing data in JSON format. You now want to distribute that
-code for others to use in what you know to be a stable production environment
+*Scenario:* You are a developer who has written code in python. 
+You now want to distribute that code for others 
+to use in what you know to be a stable production environment
 (including OS and dependency versions). End users may want to use this application
-on their local workstations, in the cloud, or on an HPC cluster.
+on their local workstations, in the cloud, etc. 
 
 
 The first step in a typical container development workflow entails installing
 and testing an application interactively within a running Docker container.
-
-.. note::
-
-   We recommend doing this on your Jetstream VMs. But, one of the most
-   important features of Docker is that it is platform agnostic. These steps
-   could be done anywhere Docker is installed.
 
 
 To begin, make a new folder for this work and prepare to gather some important
@@ -39,10 +33,10 @@ files.
 
 .. code-block:: console
 
-   [user-vm]$ mkdir -p coe-332/docker-exercise/
-   [user-vm]$ cd coe-332/docker-exercise/
-   [user-vm]$ pwd
-   /home/ubuntu/coe-332/docker-exercise
+   [terminal]$ mkdir -p cs401/docker-exercise/
+   [terminal]$ cd cs401/docker-exercise/
+   [terminal]$ pwd
+   /home/asolis/cs401/docker-exercise
 
 Specifically, you need your ``ml_data_analysis.py`` script and the input data
 file called ``Meteorite_Landings.json``. You can make copies of your own, our
@@ -51,12 +45,12 @@ we can just make an empty one with no contents for now.
 
 .. code-block:: console
 
-   [user-vm]$ pwd
-   /home/ubuntu/coe-332/docker-exercise
-   [user-vm]$ touch Dockerfile
-   [user-vm]$ wget https://raw.githubusercontent.com/tacc/coe-332-sp24/main/docs/unit05/scripts/Meteorite_Landings.json
-   [user-vm]$ wget https://raw.githubusercontent.com/tacc/coe-332-sp24/main/docs/unit05/scripts/ml_data_analysis.py
-   [user-vm]$ ls
+   [terminal]$ pwd
+   /home/asolis/cs401/docker-exercise
+   [terminal]$ touch Dockerfile
+   [terminal]$ wget https://raw.githubusercontent.com/tacc/cs401-sp24/main/docs/unit05/scripts/Meteorite_Landings.json
+   [terminal]$ wget https://raw.githubusercontent.com/tacc/cs401-sp24/main/docs/unit05/scripts/ml_data_analysis.py
+   [terminal]$ ls
    Dockerfile  Meteorite_Landings.json  ml_data_analysis.py
 
 .. warning::
@@ -87,7 +81,7 @@ how we will containerize it. Use ``docker run`` to interactively attach to a fre
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm -it -v $PWD:/code ubuntu:20.04 /bin/bash
+   [terminal]$ docker run --rm -it -v $PWD:/code ubuntu:20.04 /bin/bash
    [root@7ad568453e0b /]#
 
 Here is an explanation of the options:
@@ -356,7 +350,7 @@ generally takes the form:
 
 .. code-block:: console
 
-   [user-vm]$ docker build -t <dockerhubusername>/<code>:<version> .
+   [terminal]$ docker build -t <dockerhubusername>/<code>:<version> .
 
 The ``-t`` flag is used to name or 'tag' the image with a descriptive name and
 version. Optionally, you can preface the tag with your **Docker Hub username**.
@@ -369,7 +363,7 @@ To build the image, use:
 
 .. code-block:: console
 
-   [user-vm]$ docker build -t username/ml_data_analysis:1.0 .
+   [terminal]$ docker build -t username/ml_data_analysis:1.0 .
 
 .. note::
 
@@ -381,14 +375,14 @@ also use `docker inspect` to find out more information about the image.
 
 .. code-block:: console
 
-   [user-vm]$ docker images
+   [terminal]$ docker images
    REPOSITORY                 TAG        IMAGE ID       CREATED              SIZE
    username/ml_data_analysis  1.0        2883079fad18   About a minute ago   446MB
    ...
 
 .. code-block:: console
 
-   [user-vm]$ docker inspect username/ml_data_analysis:1.0
+   [terminal]$ docker inspect username/ml_data_analysis:1.0
 
 
 If you need to rename your image, you can either re-tag it with ``docker tag``, or
@@ -408,7 +402,7 @@ because the code is already in the container:
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm -it username/ml_data_analysis:1.0 /bin/bash
+   [terminal]$ docker run --rm -it username/ml_data_analysis:1.0 /bin/bash
    ...
    [root@c5cf05edddcd /]# ls /code
    ml_data_analysis.py
@@ -451,10 +445,10 @@ the container once it stops.
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm -it -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json username/ml_data_analysis:1.0 /bin/bash
+   [terminal]$ docker run --rm -it -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json username/ml_data_analysis:1.0 /bin/bash
    ...
    ### Same command as above, but easier to read:
-   [user-vm]$ docker run --rm \
+   [terminal]$ docker run --rm \
                          -it \
                          -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json \
                          username/ml_data_analysis:1.0 \
@@ -482,7 +476,7 @@ flag, because we need to create a volume mount so that our data
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm \
+   [terminal]$ docker run --rm \
                          -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json \
                          username/ml_data_analysis:1.0 \
                          ml_data_analysis.py /data/Meteorite_Landings.json
@@ -509,16 +503,16 @@ organization where you have write privileges in order to push it:
 
 .. code-block:: console
 
-   [user-vm]$ docker login
+   [terminal]$ docker login
    ...
-   [user-vm]$ docker push username/ml_data_analysis:1.0
+   [terminal]$ docker push username/ml_data_analysis:1.0
 
 
 You and others will now be able to pull a copy of your container with:
 
 .. code-block:: console
 
-   [user-vm]$ docker pull username/ml_data_analysis:1.0
+   [terminal]$ docker pull username/ml_data_analysis:1.0
 
 
 As a matter of best practice, it is highly recommended that you store your
