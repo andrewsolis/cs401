@@ -45,8 +45,8 @@ def compute_collatz( num : int ) -> List[int]:
     while num != 1:
 
         if num % 2 == 0:
-
-            num = int(num) / int(2)
+             
+            num = num // 2
             result.append( num )
 
         else:
@@ -66,14 +66,19 @@ def print_collatz( collatz_list : List[int] ):
     '''
 
     print( collatz_list[0], end="")
+    # print( collatz_list)
 
     for i in range( 1, len(collatz_list ) ):
         print( f' -> { collatz_list[i] }', end="" )
+    
+    # put ending of line 
+    print()
 
 
 def main():
 
     print('Collatz')
+    print('=======\n')
 
     with open('input.txt') as file:
 
@@ -88,6 +93,9 @@ def main():
             num_collatz = compute_collatz( num )
 
             print_collatz( num_collatz )
+
+            print(f'num sequences: {len(num_collatz) - 1}\n' )
+
 
 
 
