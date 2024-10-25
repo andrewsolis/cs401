@@ -38,8 +38,8 @@ files.
    [terminal]$ pwd
    /home/asolis/cs401/docker-exercise
 
-Specifically, you need your ``ml_data_analysis.py`` script and the input data
-file called ``Meteorite_Landings.json``. You can make copies of your own, our
+Specifically, you need your ``collatz.py`` script and the input data
+file called ``input.txt``. You can make copies of your own, our
 download sample copies from the links below. You also need a ``Dockerfile``, and
 we can just make an empty one with no contents for now.
 
@@ -48,10 +48,10 @@ we can just make an empty one with no contents for now.
    [terminal]$ pwd
    /home/asolis/cs401/docker-exercise
    [terminal]$ touch Dockerfile
-   [terminal]$ wget https://raw.githubusercontent.com/tacc/cs401-sp24/main/docs/unit05/scripts/Meteorite_Landings.json
-   [terminal]$ wget https://raw.githubusercontent.com/tacc/cs401-sp24/main/docs/unit05/scripts/ml_data_analysis.py
+   [terminal]$ wget https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit04/scripts/collatz.py
+   [terminal]$ wget https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit04/scripts/input.txt
    [terminal]$ ls
-   Dockerfile  Meteorite_Landings.json  ml_data_analysis.py
+   Dockerfile collatz.py input.txt
 
 .. warning::
 
@@ -74,8 +74,8 @@ code for the first time:
 4. What environment variables may be important?
 
 We can work through these questions by performing an **interactive installation**
-of our Python script. Our development environment (e.g. the student-login server)
-is a Linux server running Ubuntu 20.04. We know our code works there, so that is
+of our Python script. My development environment is running python 3.12.4
+but yours may be different. Verify the code works and then you can proceed with 
 how we will containerize it. Use ``docker run`` to interactively attach to a fresh
 `Ubuntu 20.04 container <https://hub.docker.com/_/ubuntu/tags?page=1&name=20.04>`_.
 
