@@ -120,6 +120,7 @@ packages we have installed. We can do this with:
   [root@7ad568453e0b /]# apt-get update
   [root@7ad568453e0b /]# apt-get upgrade
   [root@7ad568453e0b /]# apt-get install curl git vim software-properties-common
+  [root@7ad568453e0b /]# add-apt-repository ppa:deadsnakes/ppa
   ...
 
 .. note::
@@ -243,18 +244,23 @@ The RUN Instruction
 ~~~~~~~~~~~~~~~~~~~
 
 We can install updates, install new software, or download code to our image by
-running commands with the RUN instruction. In our case, our only dependencies
-were Python3 and the "pytest" library. So, we will use a few RUN instructions to
-install them. Keep in mind that the the ``docker build`` process cannot handle
+running commands with the RUN instruction. In our case, our dependencies
+were curl, git, vim, software-properties-common, and Python3. 
+So, we will use a few RUN instructions to install them. 
+Keep in mind that the the ``docker build`` process cannot handle
 interactive prompts, so we use the ``-y`` flag with ``yum`` and ``pip3``.
 
 .. code-block:: dockerfile
 
    RUN apt-get update
    RUN apt-get upgrade -y
-   RUN apt-get install -y python3
-   RUN apt-get install -y python3-pip
-   RUN pip3 install pytest==8.0.0
+   RUN apt-get install -y curl git vim 
+   
+   RUN DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common
+   RUN add-apt-repository -y ppa:deadsnakes/ppa
+   RUN apt-get install -y python3.12
+   RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+   RUN python3.12 get-pip.py
 
 Each RUN instruction creates an intermediate image (called a 'layer'). Too many
 layers makes the Docker image less performant, and makes building less
@@ -267,11 +273,17 @@ building later on:
 .. code-block:: dockerfile
 
    RUN apt-get update && \
-       apt-get upgrade -y && \
-       apt-get install -y python3 && \
-       apt-get install -y python3-pip
+    apt-get upgrade -y && \
+    apt-get install -y curl git vim 
+    
+   RUN DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common 
 
-   RUN pip3 install pytest==8.0.0
+   RUN add-apt-repository -y ppa:deadsnakes/ppa
+
+   RUN apt-get install -y python3.12
+
+   RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+       python3.12 get-pip.py
 
 .. tip::
 
@@ -294,7 +306,7 @@ instructions:
 
 .. code-block:: dockerfile
 
-   COPY ml_data_analysis.py /code/ml_data_analysis.py
+   COPY collatz.py /code/collatz.py
 
 
 And, don't forget to perform another RUN instruction to make the script
@@ -302,7 +314,7 @@ executable:
 
 .. code-block:: dockerfile
 
-   RUN chmod +rx /code/ml_data_analysis.py
+   RUN chmod +rx /code/collatz.py
 
 
 
@@ -329,18 +341,22 @@ The contents of the final Dockerfile should look like:
 .. code-block:: dockerfile
    :linenos:
 
-   FROM ubuntu:20.04 
+   FROM ubuntu:20.04
 
    RUN apt-get update && \
-       apt-get upgrade -y && \
-       apt-get install -y python3 && \
-       apt-get install -y python3-pip
+      apt-get upgrade -y && \
+      apt-get install -y curl git vim software-properties-common 
 
-   RUN pip3 install pytest==8.0.0
+   RUN add-apt-repository -y ppa:deadsnakes/ppa
 
-   COPY ml_data_analysis.py /code/ml_data_analysis.py
+   RUN apt-get install -y python3.12
 
-   RUN chmod +rx /code/ml_data_analysis.py
+   RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+      python3.12 get-pip.py
+
+   COPY collatz.py /code/collatz.py
+
+   RUN chmod +rx /code/collatz.py
 
    ENV PATH="/code:$PATH"
 
@@ -367,7 +383,7 @@ To build the image, use:
 
 .. code-block:: console
 
-   [terminal]$ docker build -t username/ml_data_analysis:1.0 .
+   [terminal]$ docker build -t username/collatz:1.0 .
 
 .. note::
 
@@ -381,12 +397,12 @@ also use `docker inspect` to find out more information about the image.
 
    [terminal]$ docker images
    REPOSITORY                 TAG        IMAGE ID       CREATED              SIZE
-   username/ml_data_analysis  1.0        2883079fad18   About a minute ago   446MB
+   username/collatz  1.0        2883079fad18   About a minute ago   446MB
    ...
 
 .. code-block:: console
 
-   [terminal]$ docker inspect username/ml_data_analysis:1.0
+   [terminal]$ docker inspect username/collatz:1.0
 
 
 If you need to rename your image, you can either re-tag it with ``docker tag``, or
@@ -406,20 +422,20 @@ because the code is already in the container:
 
 .. code-block:: console
 
-   [terminal]$ docker run --rm -it username/ml_data_analysis:1.0 /bin/bash
+   [terminal]$ docker run --rm -it username/collatz:1.0 /bin/bash
    ...
    [root@c5cf05edddcd /]# ls /code
-   ml_data_analysis.py
+   collatz.py
    [root@c5cf05edddcd /]# cd /home
    [root@c5cf05edddcd home]# pwd
    /home
-   [root@c5cf05edddcd home]# ml_data_analysis.py Meteorite_Landings.json
+   [root@c5cf05edddcd home]# collatz.py input.txt
    Traceback (most recent call last):
-     File "/code/ml_data_analysis.py", line 96, in <module>
+     File "/code/collatz.py", line 96, in <module>
        main()
-     File "/code/ml_data_analysis.py", line 82, in main
+     File "/code/collatz.py", line 82, in main
        with open(sys.argv[1], 'r') as f:
-   FileNotFoundError: [Errno 2] No such file or directory: 'Meteorite_Landings.json'
+   FileNotFoundError: [Errno 2] No such file or directory: 'input.txt'
 
 Here is an explanation of the options:
 
@@ -432,9 +448,9 @@ Here is an explanation of the options:
    /bin/bash       # shell to start inside container
 
 
-Uh oh! We forgot about ``Meteorite_Landings.json``! We get a FileNotFoundError
-in Python3. This is because we did not (1) copy the JSON file into the container
-at build time, nor did we (2) copy the JSON file into the container at run
+Uh oh! We forgot about ``input.txt``! We get a FileNotFoundError
+in Python3. This is because we did not (1) copy the file into the container
+at build time, nor did we (2) copy the file into the container at run
 time.
 
 We should pause at this moment to think about how we want to distribute this
@@ -449,25 +465,27 @@ the container once it stops.
 
 .. code-block:: console
 
-   [terminal]$ docker run --rm -it -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json username/ml_data_analysis:1.0 /bin/bash
+   [terminal]$ docker run --rm -it -v $PWD/input.txt:/data/input.txt username/collatz:1.0 /bin/bash
    ...
    ### Same command as above, but easier to read:
    [terminal]$ docker run --rm \
                          -it \
-                         -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json \
-                         username/ml_data_analysis:1.0 \
+                         -v $PWD/input.txt:/data/input.txt \
+                         username/collatz:1.0 \
                          /bin/bash
    
    [root@dc0d6bf1875c /]# pwd
    /
    [root@dc0d6bf1875c /]# ls /data
-   Meteorite_Landings.json
+   input.txt
    [root@dc0d6bf1875c /]# ls /code
-   ml_data_analysis.py
-   [root@dc0d6bf1875c /]# ml_data_analysis.py /data/Meteorite_Landings.json
-   83857.3
-   Northern & Eastern
-   ... etc
+   collatz.py
+   [root@dc0d6bf1875c /]# collatz.py /data/input.txt
+   Collatz
+   =======
+
+   12
+   ...
 
 
 
@@ -476,16 +494,19 @@ non-interactively. Notice we are calling the container again with ``docker run``
 but instead of specifying an interactive (``-it``) run, we just issue the command
 as we want to call it on the command line. Also, notice the return of the ``-v``
 flag, because we need to create a volume mount so that our data
-(``Meteorite_Landings.json``) is available inside the container.
+(``input.txt``) is available inside the container.
 
 .. code-block:: console
 
    [terminal]$ docker run --rm \
-                         -v $PWD/Meteorite_Landings.json:/data/Meteorite_Landings.json \
-                         username/ml_data_analysis:1.0 \
-                         ml_data_analysis.py /data/Meteorite_Landings.json
-   Northern & Eastern
-   ... etc
+                         -v $PWD/input.txt:/data/input.txt \
+                         username/collatz:1.0 \
+                         collatz.py /data/input.txt
+   Collatz
+   =======
+
+   12
+   ...
 
 Much simpler and cleaner! Our only local dependencies are the Docker runtime and
 some input data that we provide. Then we pull and run the image, mounting our
@@ -509,14 +530,14 @@ organization where you have write privileges in order to push it:
 
    [terminal]$ docker login
    ...
-   [terminal]$ docker push username/ml_data_analysis:1.0
+   [terminal]$ docker push username/collatz:1.0
 
 
 You and others will now be able to pull a copy of your container with:
 
 .. code-block:: console
 
-   [terminal]$ docker pull username/ml_data_analysis:1.0
+   [terminal]$ docker pull username/collatz:1.0
 
 
 As a matter of best practice, it is highly recommended that you store your
