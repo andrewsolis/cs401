@@ -2,18 +2,17 @@ Docker Compose
 ==============
 
 Up to this point, we have been looking at single-container applications - small
-units of code that are containerized, executed *ad hoc* to generate or read a
-JSON file, then exit on completion. But what if we want to do something more
+units of code that are containerized, executed *ad hoc* to generate or read a file, 
+then exit on completion. But what if we want to do something more
 complex? For example, what if our goal is to orchestrate a multi-container
-application consisting of, e.g., a Flask app, a database, a message queue, an
-authentication service, and more.
+application consisting of, e.g., a Flask app, a database, a front-end service, 
+and more.
 
 **Docker compose** is a tool for managing multi-container applications. A YAML
 file is used to define all of the application service, and a few simple commands
 can be used to spin up or tear down all of the services.
 
-In this module, we will get a first look at Docker compose. Later in this course
-we will do a deeper dive into advanced container orchestration. After going
+In this module, we will get a first look at Docker compose. After going
 through this module, students should be able to:
 
 * Translate Docker run commands into YAML files for Docker compose
@@ -27,97 +26,95 @@ Another Script, Another Container
 ---------------------------------
 
 We have been working a lot with a script for reading in and analyzing a
-JSON file of meteorite landing data. Let's quickly write a new script to
+simple text file. Let's quickly write a new script to
 generate that data, then we will package it into its own container. Consider the
-following script for **generating** sample Meteorite Landing data like we have
+following script for **generating** sample number like we have
 been working with:
 
 .. code-block:: python3
-    :linenos:
+   :linenos:
 
-    #!/usr/bin/env python3
-    import json
-    import random
-    import sys
-    import names
+   import random
+   import sys
+   import names
 
-    NUM = 10
-    CLASSES = ['CI1', 'CR2-an', 'CV3', 'EH4', 'H4', 'H5', 'H6', 'L5', 'L6', 'LL3-6', 'LL5']
+   '''
+   Collatz Generator Code for CS 401
 
-    def main():
+   Author: Andrew Solis
+   '''
 
-        data = {'meteorite_landings': [{} for _ in range (NUM)]}
+   NUM = 20
 
-        for i in range(NUM):
-            rand_lat = '{:.4f}'.format(random.uniform(-90.0000, 90.0000))
-            rand_lon = '{:.4f}'.format(random.uniform(-90.0000, 90.0000))
-            data['meteorite_landings'][i]['name'] = names.get_first_name()
-            data['meteorite_landings'][i]['id'] = str(10000 + 1 + i)
-            data['meteorite_landings'][i]['recclass'] = random.choice(CLASSES)
-            data['meteorite_landings'][i]['mass (g)'] = str(random.randrange(1, 10000))
-            data['meteorite_landings'][i]['reclat'] = rand_lat
-            data['meteorite_landings'][i]['reclong'] = rand_lon
-            data['meteorite_landings'][i]['GeoLocation'] = f'({rand_lat}, {rand_lon})'
-
-        with open(sys.argv[1], 'w') as o:
-            json.dump(data, o, indent=2)
-            print(f'Data written to {sys.argv[1]}!')
-
-    if __name__ == '__main__':
-        main()
+   def main():
 
 
-Copy that into a file called ``gen_ml_data.py``, save it, make it executable, and
+      for i in range(NUM):
+
+         rand_num = random.randint(1, 1000)
+
+         with open(sys.argv[1], 'a') as file:
+               file.write( str(rand_num ) + '\n')
+         
+
+      print(f'Data written to {sys.argv[1]}')
+
+      print(f'Codename { names.get_first_name() }')
+
+   if __name__ == '__main__':
+      main()
+
+
+Copy that into a file called ``gen_collatz.py``, save it, make it executable, and
 test it. You'll find that this script requires a **command line argument**. Meaning
 we have to invoke it AND pass some information on the command line in order to get
 it to work. In this case, it is expecting the name of the output file.
 
 .. code-block:: console
 
-   # copy contents into file called ``gen_ml_data.py`` and save
-   [user-vm]$ chmod +rx gen_ml_data.py
-   [user-vm]$ ./gen_ml_data.py
+   # copy contents into file called ``gen_collatz.py`` and save
+   [user-vm]$ chmod +rx gen_collatz.py
+   [user-vm]$ python3.12 gen_collatz.py
    Traceback (most recent call last):
-     File "./gen_ml_data.py", line 29, in <module>
+     File "./gen_collatz.py", line 29, in <module>
        main()
-     File "./gen_ml_data.py", line 25, in main
+     File "./gen_collatz.py", line 25, in main
        with open(sys.argv[1], 'w') as o:
    IndexError: list index out of range
 
    # need to provide output filename on command line
-   [user-vm]$ ./gen_ml_data.py data.json
-   Data written to data.json!
+   [user-vm]$ python3.12 gen_collatz.py data.txt
+   Data written to data.txt.
+   Codename Sharon
    [user-vm]$ ls
-   data.json  Dockerfile  gen_ml_data.py  Meteorite_Landings.json  ml_data_analysis.py
-   [user-vm]$ head -n11 data.json
-   {
-     "meteorite_landings": [
-       {
-         "name": "Sandra",
-         "id": "10001",
-         "recclass": "EH4",
-         "mass (g)": "4119",
-         "reclat": "73.8716",
-         "reclong": "14.8207",
-         "GeoLocation": "(73.8716, 14.8207)"
-       },
+   data.txt  Dockerfile  gen_collatz.py  input.txt  collatz.py
+   [user-vm]$ head -n11 data.txt
+   409
+   1
+   371
+   622
+   6
+   229
+   617
+   236
+   778
+   165
+   306
 
 Containerizing this script should be easy enough - we already worked through
-containerizing another very similar script. Let's say for this new script we do
-not need the ``pytest`` dependency, because there is not really anything
-interesting to test. But, we do need a different dependency: the Python3
+containerizing another very similar script. But, lets say we need a different dependency: the Python3
 ``names`` library.
 
 To make things a little more clear, rename the existing Dockerfile as
-``Dockerfile-analysis``, and make a copy of it called ``Dockerfile-gen``.
+``Dockerfile-program``, and make a copy of it called ``Dockerfile-gen``.
 
 .. code-block:: console
 
-   [user-vm]$ mv Dockerfile Dockerfile-analysis
-   [user-vm]$ cp Dockerfile-analysis Dockerfile-gen
+   [user-vm]$ mv Dockerfile Dockerfile-program
+   [user-vm]$ cp Dockerfile-program Dockerfile-gen
    [user-vm]$ ls
-   data.json       Dockerfile-analysis      Dockerfile-gen
-   gen_ml_data.py  Meteorite_Landings.json  ml_data_analysis.py
+   Dockerfile-gen     Dockerfile-program collatz.py         
+   data.txt           gen_collatz.py     input.txt
 
 Edit ``Dockerfile-gen`` as follows:
 
