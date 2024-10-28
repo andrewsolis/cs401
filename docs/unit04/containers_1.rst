@@ -117,6 +117,9 @@ images to identify specific versions of images. It is mostly public, and many
 Summing Up
 ----------
 
+The key difference to understand between a VM and a container is where the
+virtualization Happens. For a VM the virtualization happens at the **hardware level**
+where as for containers the virtualization happens at the **OS level**.
 If you are developing an app or web service, you will almost certainly want to
 work with containers. First you must either **build** an image from a
 Dockerfile, or **pull** an image from a public registry. Then, you **run** (or

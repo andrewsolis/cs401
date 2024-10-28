@@ -43,6 +43,12 @@ file called ``input.txt``. You can make copies of your own, our
 download sample copies from the links below. You also need a ``Dockerfile``, and
 we can just make an empty one with no contents for now.
 
+.. math::
+   f(n)=\begin{cases}
+   n/2  & \text{if $n \equiv$ 0 (mod 2)},\\
+   3n+1 & \text{if $n \equiv$ 1 (mod 2)}.
+   \end{cases}
+
 .. code-block:: console
 
    [terminal]$ pwd
@@ -74,7 +80,7 @@ code for the first time:
 4. What environment variables may be important?
 
 We can work through these questions by performing an **interactive installation**
-of our Python script. My development environment is running python 3.12.4
+of our Python script. My development environment is running python 3.12
 but yours may be different. Verify the code works and then you can proceed with 
 how we will containerize it. Use ``docker run`` to interactively attach to a fresh
 `Ubuntu 20.04 container <https://hub.docker.com/_/ubuntu/tags?page=1&name=20.04>`_.
@@ -113,6 +119,7 @@ packages we have installed. We can do this with:
 
   [root@7ad568453e0b /]# apt-get update
   [root@7ad568453e0b /]# apt-get upgrade
+  [root@7ad568453e0b /]# apt-get install curl git vim software-properties-common
   ...
 
 .. note::
@@ -129,17 +136,13 @@ assume for now we need it).
 
 .. code-block:: console
 
-   [root@7ad568453e0b /]# apt-get install python3
+   [root@7ad568453e0b /]# apt-get install python3.12
    ...
-   [root@7ad568453e0b /]# apt-get install python3-pip
-   ...
-   [root@7ad568453e0b /]# python3 --version
-   Python 3.8.10
-   [root@7ad568453e0b /]# pip3 install pytest==8.0.0
-   Collecting pytest==8.0.0
+   [root@7ad568453e0b /]# python3.12 --version
+   Python 3.12.7
+   [root@7ad568453e0b /]# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+   [root@7ad568453e0b /]# python3.12 get-pip.py
      ...
-   Installing collected packages: exceptiongroup, iniconfig, packaging, tomli, pluggy, pytest
-   Successfully installed exceptiongroup-1.2.0 iniconfig-2.0.0 packaging-23.2 pluggy-1.4.0 pytest-8.0.0 tomli-2.0.1
 
 .. warning::
 
@@ -155,7 +158,7 @@ Install and Test Your Code
 At this time, we should make a small edit to the code that will make it a little
 more flexible and more amenable to running in a container. (Note: You may need to
 ``apt-get install ...`` your favorite text editor). Instead of hard coding
-the filename 'Meteorite_Landings.json' in the script, let's make a slight
+the filename 'input.txt' in the script, let's make a slight
 modification so we can pass the filename on the command line. In the script, add
 this line near the top:
 
@@ -174,7 +177,7 @@ And change the ``with open...`` statements to these, as appropriate:
 .. code-block:: python3
 
    with open(sys.argv[1], 'r') as f:
-       ml_data = json.load(f)
+      ...
 
 
 
@@ -184,7 +187,7 @@ process. However, we can make it executable and add it to the user's `PATH`.
 .. code-block:: console
 
    [root@7ad568453e0b /]# cd /code
-   [root@7ad568453e0b /]# chmod +rx ml_data_analysis.py
+   [root@7ad568453e0b /]# chmod +rx collatz.py
    [root@7ad568453e0b /]# export PATH=/code:$PATH
 
 Now test with the following:
@@ -192,12 +195,13 @@ Now test with the following:
 .. code-block:: console
 
    [root@7ad568453e0b /]# cd /home
-   [root@7ad568453e0b /]# cp /code/Meteorite_Landings.json .
-   [root@7ad568453e0b /]# ml_data_analysis.py Meteorite_Landings.json
-   83857.3
-   Northern & Eastern
-   ...etc
+   [root@7ad568453e0b /]# cp /code/input.txt .
+   [root@7ad568453e0b /]# python3.12 collatz.py input.txt
+   Collatz
+   =======
 
+   12
+   ...
 
 We now have functional versions of our script 'installed' in this container.
 Now would be a good time to execute the `history` command to see a record of the
