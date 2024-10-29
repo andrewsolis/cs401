@@ -34,6 +34,8 @@ been working with:
 .. code-block:: python3
    :linenos:
 
+   #!/usr/bin/env python3.12
+
    import random
    import sys
    import names
@@ -73,8 +75,8 @@ it to work. In this case, it is expecting the name of the output file.
 .. code-block:: console
 
    # copy contents into file called ``gen_collatz.py`` and save
-   [user-vm]$ chmod +rx gen_collatz.py
-   [user-vm]$ python3.12 gen_collatz.py
+   [terminal]$ chmod +rx gen_collatz.py
+   [terminal]$ gen_collatz.py
    Traceback (most recent call last):
      File "./gen_collatz.py", line 29, in <module>
        main()
@@ -83,12 +85,12 @@ it to work. In this case, it is expecting the name of the output file.
    IndexError: list index out of range
 
    # need to provide output filename on command line
-   [user-vm]$ python3.12 gen_collatz.py data.txt
+   [terminal]$ gen_collatz.py data.txt
    Data written to data.txt.
    Codename Sharon
-   [user-vm]$ ls
+   [terminal]$ ls
    data.txt  Dockerfile  gen_collatz.py  input.txt  collatz.py
-   [user-vm]$ head -n11 data.txt
+   [terminal]$ head -n11 data.txt
    409
    1
    371
@@ -110,9 +112,9 @@ To make things a little more clear, rename the existing Dockerfile as
 
 .. code-block:: console
 
-   [user-vm]$ mv Dockerfile Dockerfile-program
-   [user-vm]$ cp Dockerfile-program Dockerfile-gen
-   [user-vm]$ ls
+   [terminal]$ mv Dockerfile Dockerfile-program
+   [terminal]$ cp Dockerfile-program Dockerfile-gen
+   [terminal]$ ls
    Dockerfile-gen     Dockerfile-program collatz.py         
    data.txt           gen_collatz.py     input.txt
 
@@ -120,21 +122,29 @@ Edit ``Dockerfile-gen`` as follows:
 
 .. code-block:: Dockerfile
    :linenos:
-   :emphasize-lines: 8,10,12
+   :emphasize-lines: 16,18,20
 
    FROM ubuntu:20.04
-   
+
    RUN apt-get update && \
-       apt-get upgrade -y && \
-       apt-get install -y python3 && \
-       apt-get install -y python3-pip
-   
-   RUN pip3 install names==0.3.0
-   
-   COPY gen_ml_data.py /code/gen_ml_data.py
-   
-   RUN chmod +rx /code/gen_ml_data.py
-   
+      apt-get upgrade -y && \
+      apt-get install -y curl git vim 
+      
+   RUN DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common 
+
+   RUN add-apt-repository -y ppa:deadsnakes/ppa
+
+   RUN apt-get install -y python3.12
+
+   RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+      python3.12 get-pip.py
+
+   RUN pip install names
+
+   COPY gen_collatz.py /code/gen_collatz.py
+
+   RUN chmod +rx /code/gen_collatz.py
+
    ENV PATH="/code:$PATH"
 
 
@@ -144,7 +154,7 @@ need to modify our command line a little bit to build it:
 
 .. code-block:: console
 
-   [user-vm]$ docker build -t username/gen_ml_data:1.0 -f Dockerfile-gen .
+   [terminal]$ docker build -t username/gen_collatz:1.0 -f Dockerfile-gen .
 
 After the image is successfully built, change directories to a new folder just
 to be sure you are not running the local scripts or looking at the local data.
@@ -152,13 +162,14 @@ Then, test the container as follows:
 
 .. code-block:: console
 
-   [user-vm]$ mkdir test
-   [user-vm]$ cd test
-   [user-vm]$ ls
-   [user-vm]$ docker run --rm username/gen_ml_data:1.0 gen_ml_data.py ml.json
-   Data written to ml.json!
+   [terminal]$ mkdir test
+   [terminal]$ cd test
+   [terminal]$ ls
+   [terminal]$ docker run --rm username/gen_collatz:1.0 gen_collatz.py data.txt
+   Data written to data.txt
+   Codename Alex
 
-If you list your local files, can you find ``ml.json``? No! This is because
+If you list your local files, can you find ``data.txt``? No! This is because
 whatever data generated inside the container is lost when the container
 completes its task. What we need to do is use the ``-v`` flag to mount a directory
 somewhere inside the container, write data into that directory, then the data will
@@ -166,14 +177,15 @@ be captured after the container exists. For example:
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm -v $PWD:/data username/gen_ml_data:1.0 gen_ml_data.py /data/ml.json
-   Data written to ml.json!
+   [terminal]$ docker run --rm -v $PWD:/data username/gen_collatz:1.0 gen_collatz.py /data/data.txt
+   Data written to data.txt.
+   Codename Sandra
 
 .. note::
 
    To reiterate, because we mounted our current location as a folder called "/data"
    (``-v $PWD:/data``), and we made sure to write the output file to that location in
-   the container (``gen_ml_data.py /data/ml.json``), then we get to keep the file
+   the container (``gen_collatz.py /data/data.txt``), then we get to keep the file
    after the container exits, and it shows up in our current location (``$PWD``).
 
 Alas, there is one more issue to address. The new file is owned by root, simply
@@ -184,16 +196,17 @@ that should be used inside the container.
 
 .. code-block:: console
 
-   [user-vm]$ ls -l
+   [terminal]$ ls -l
    total 4
-   -rw-r--r--. 1 root root 2098 Feb 21 22:39 ml.json
-   [user-vm]$ rm ml.json
-   rm: remove write-protected regular file ml.json’? y
-   [user-vm]$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) username/gen_ml_data:1.0 gen_ml_data.py /data/ml.json
-   Data written to /data/ml.json!
-   [user-vm]$ ls -l
+   -rw-r--r--. 1 root root 2098 Feb 21 22:39 data.txt
+   [terminal]$ rm data.txt
+   rm: remove write-protected regular file data.txt’? y
+   [terminal]$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) username/gen_collatz:1.0 gen_collatz.py /data/data.txt
+   Data written to /data/data.txt.
+   Codename Donna
+   [terminal]$ ls -l
    total 4
-   -rw-r--r--. 1 ubuntu G-815499 2098 Feb 21 22:41 ml.json
+   -rw-r--r--. 1 ubuntu G-815499 2098 Feb 21 22:41 data.txt
 
 
 
@@ -217,8 +230,8 @@ container looked like the following:
 
 .. code-block:: console
 
-   [user-vm]$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) username/gen_ml_data:1.0 gen_ml_data.py /data/ml.json
-   [user-vm]$ docker run --rm -v $PWD/ml.json:/data/ml.json username/ml_data_analysis:1.0 ml_data_analysis.py /data/ml.json
+   [terminal]$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) username/gen_collatz:1.0 gen_collatz.py /data/data.txt
+   [terminal]$ docker run --rm -v $PWD/data.txt:/data/data.txt username/ml_data_analysis:1.0 ml_data_analysis.py /data/data.txt
 
 The above ``docker run`` commands can be loosely translated into a YAML file.
 Navigate to the folder that contains your Python scripts and Dockerfiles, then
@@ -226,11 +239,11 @@ create a new empty file called ``docker-compose.yml``:
 
 .. code-block:: console
 
-   [user-vm]$ pwd
+   [terminal]$ pwd
    /home/ubuntu/coe-332/docker-exercise
-   [user-vm]$ touch docker-compose.yml
-   [user-vm]$ ls
-   docker-compose.yml  Dockerfile-analysis  Dockerfile-gen  gen_ml_data.py  ml_data_analysis.py  test/
+   [terminal]$ touch docker-compose.yml
+   [terminal]$ ls
+   docker-compose.yml  Dockerfile-analysis  Dockerfile-gen  gen_collatz.py  ml_data_analysis.py  test/
 
 
 Next, open up ``docker-compose.yml`` with your favorite text editor and type /
@@ -248,11 +261,11 @@ paste in the following text:
            build:
                context: ./
                dockerfile: ./Dockerfile-gen
-           image: username/gen_ml_data:1.0
+           image: username/gen_collatz:1.0
            volumes:
                - ./test:/data
            user: "1000:1000"
-           command: gen_ml_data.py /data/ml.json
+           command: gen_collatz.py /data/data.txt
        analyze-data:
            build:
                context: ./
@@ -262,7 +275,7 @@ paste in the following text:
            image: username/ml_data_analysis:1.0
            volumes:
                - ./test:/data
-           command: ml_data_analysis.py /data/ml.json
+           command: ml_data_analysis.py /data/data.txt
    ...
 
 .. warning::
@@ -276,7 +289,7 @@ version 3 of Docker compose.
 
 The ``services`` section defines the configuration of individual container
 instances that we want to orchestrate. In our case, we define two called
-``gen-data`` for the gen_ml_data functionality, and ``analyze-data`` for
+``gen-data`` for the gen_collatz functionality, and ``analyze-data`` for
 the ml_data_analysis functionality.
 
 Each of those services is configured with its own Docker image,
@@ -311,8 +324,8 @@ command line tools, try issuing the following two commands:
 
 .. code-block:: console
 
-   [user-vm]$ docker-compose version
-   [user-vm]$ docker-compose config
+   [terminal]$ docker-compose version
+   [terminal]$ docker-compose config
 
 The first command prints the version of Docker compose installed, and the second
 searches your current directory for ``docker-compose.yml`` and checks that it
@@ -323,12 +336,12 @@ name of the service as defined in your YAML file:
 
 .. code-block:: console
 
-   [user-vm]$ ls test/     # currently empty
-   [user-vm]$ docker-compose run gen-data
-   Data written to /data/ml.json!
-   [user-vm]$ ls test/
-   ml.json               # new file!
-   [user-vm]$ docker-compose run analyze-data
+   [terminal]$ ls test/     # currently empty
+   [terminal]$ docker-compose run gen-data
+   Data written to /data/data.txt!
+   [terminal]$ ls test/
+   data.txt               # new file!
+   [terminal]$ docker-compose run analyze-data
    6004.5
    Southern & Eastern
    ... etc.

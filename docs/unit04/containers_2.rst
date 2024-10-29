@@ -177,7 +177,7 @@ And change the ``with open...`` statements to these, as appropriate:
 
 .. code-block:: python3
 
-   with open(sys.argv[1], 'r') as f:
+   with open(sys.argv[1], 'r') as file:
       ...
 
 
@@ -197,7 +197,7 @@ Now test with the following:
 
    [root@7ad568453e0b /]# cd /home
    [root@7ad568453e0b /]# cp /code/input.txt .
-   [root@7ad568453e0b /]# python3.12 collatz.py input.txt
+   [root@7ad568453e0b /]# collatz.py input.txt
    Collatz
    =======
 
@@ -345,7 +345,9 @@ The contents of the final Dockerfile should look like:
 
    RUN apt-get update && \
       apt-get upgrade -y && \
-      apt-get install -y curl git vim software-properties-common 
+      apt-get install -y curl git vim 
+      
+   RUN DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common 
 
    RUN add-apt-repository -y ppa:deadsnakes/ppa
 
