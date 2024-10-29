@@ -49,16 +49,20 @@ Setup and Installation
 
 The Flask library is not part of the Python standard library but can be
 installed with standard tools like ``pip3``. In addition to making Flask available to
-import into a Python program, it will also expose some new command line tools. On
-your Jetstream VM, perform the following:
+import into a Python program, it will also expose some new command line tools. 
+For example:
 
 .. code-block:: console
 
-   [user-vm]$ pip3 install --user flask
+   [terminal]$ mkdir api
+   [terminal]$ cd api
+   [terminal]$ python3 -m venv venv
+   [terminal]$ source venv/bin/activate # Windows: venv/scripts/Activate 
+   (venv)[terminal]$ pip install flask
    ...
    Successfully installed flask-3.0.2
 
-   [user-vm]$ flask --help
+   (venv) [terminal]$ flask --help
    Usage: flask [OPTIONS] COMMAND [ARGS]...
 
      A general utility script for Flask applications.
@@ -94,7 +98,7 @@ your Jetstream VM, perform the following:
 A Hello World Flask App
 -----------------------
 
-In a new directory on the class server, create a file called ``app.py`` and open
+In your `api` directory, create a file called ``app.py`` and open
 it for editing. Enter the following lines of code:
 
 .. code-block:: python3
@@ -118,7 +122,7 @@ Finally, the ``app.run()`` method launches the development server. The
 ``debug=True`` option tells Flask to print verbose debug statements while the
 server is running. The ``host=0.0.0.0`` option instructs the server to listen
 on all network interfaces; basically this means you can reach the server from
-inside and outside the host VM.
+inside and outside the host machine.
 
 
 Run the Flask App
@@ -131,7 +135,7 @@ running in debug mode using the ``--debug`` flag.
 
 .. code-block:: console
 
-   [user-vm]$ flask --app app --debug run
+   (venv) [terminal]$ flask --app app --debug run
    * Serving Flask app 'app'
    * Debug mode: on
    WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -215,7 +219,7 @@ Try the following, for example:
 
 .. code-block:: console
 
-   [user-vm]$ curl https://api.github.com
+   [terminal]$ curl https://api.github.com
 
 Make a Request
 --------------
@@ -228,9 +232,9 @@ To make a request to your Flask app, type the following in the new terminal:
 
 .. code-block:: console
 
-   [user-vm]$ curl 127.0.0.1:5000
+   [terminal]$ curl 127.0.0.1:5000
    - or -
-   [user-vm]$ curl localhost:5000
+   [terminal]$ curl localhost:5000
 
 
 You should see something like the following response:
@@ -364,7 +368,7 @@ restart the Flask app); you should see:
 
 .. code-block:: console
 
-   [user-vm]$ curl localhost:5000/
+   [terminal]$ curl localhost:5000/
    Hello, world!
 
 Routes with URL Parameters
@@ -412,12 +416,12 @@ Now, the Flask app supports multiple routes with different functionalities:
 
 .. code-block:: console
 
-   [user-vm]$ curl localhost:5000/
+   [terminal]$ curl localhost:5000/
    Hello, world!
-   [user-vm]$ curl localhost:5000/joe
-   Hello, joe!
-   [user-vm]$ curl localhost:5000/jane
-   Hello, jane!
+   [terminal]$ curl localhost:5000/andrew
+   Hello, andrew!
+   [terminal]$ curl localhost:5000/kelly
+   Hello, kelly!
 
 
 EXERCISE
