@@ -188,28 +188,6 @@ be captured after the container exists. For example:
    the container (``gen_collatz.py /data/data.txt``), then we get to keep the file
    after the container exits, and it shows up in our current location (``$PWD``).
 
-Alas, there is one more issue to address. The new file is owned by root, simply
-because it is root who created the file inside the container. This is one minor
-Docker annoyance that we run in to from time to time. The simplest fix is to use
-one more ``docker run`` flag (``-id``)to specify the user and group ID namespace
-that should be used inside the container.
-
-.. code-block:: console
-
-   [terminal]$ ls -l
-   total 4
-   -rw-r--r--. 1 root root 2098 Feb 21 22:39 data.txt
-   [terminal]$ rm data.txt
-   rm: remove write-protected regular file data.txt’? y
-   [terminal]$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) username/gen_collatz:1.0 gen_collatz.py /data/data.txt
-   Data written to /data/data.txt.
-   Codename Donna
-   [terminal]$ ls -l
-   total 4
-   -rw-r--r--. 1 ubuntu G-815499 2098 Feb 21 22:41 data.txt
-
-
-
 EXERCISE
 ~~~~~~~~
 
@@ -223,89 +201,87 @@ Write a Compose File
 --------------------
 
 Docker compose works by interpreting rules declared in a YAML file (typically
-called ``docker-compose.yml``). The rules we will write will replace the
+called ``docker compose.yml``). The rules we will write will replace the
 ``docker run`` commands we have been using, and which have been growing quite
 complex. For example, the commands we used to run our JSON parsing scripts in a
 container looked like the following:
 
 .. code-block:: console
 
-   [terminal]$ docker run --rm -v $PWD:/data -u $(id -u):$(id -g) username/gen_collatz:1.0 gen_collatz.py /data/data.txt
-   [terminal]$ docker run --rm -v $PWD/data.txt:/data/data.txt username/ml_data_analysis:1.0 ml_data_analysis.py /data/data.txt
-
+   [terminal]$ docker run --rm -v $PWD:/data username/gen_collatz:1.0 gen_collatz.py /data/data.txt
+   [terminal]$ docker run --rm -v $PWD/data.txt:/data/data.txt username/collatz:1.0 collatz.py /data/data.txt
 The above ``docker run`` commands can be loosely translated into a YAML file.
 Navigate to the folder that contains your Python scripts and Dockerfiles, then
-create a new empty file called ``docker-compose.yml``:
+create a new empty file called ``docker compose.yml``:
 
 .. code-block:: console
 
    [terminal]$ pwd
-   /home/ubuntu/coe-332/docker-exercise
-   [terminal]$ touch docker-compose.yml
+   /home/asolis/docker-exercise
+   [terminal]$ touch docker compose.yml
    [terminal]$ ls
-   docker-compose.yml  Dockerfile-analysis  Dockerfile-gen  gen_collatz.py  ml_data_analysis.py  test/
+   Dockerfile-gen     collatz.py         docker compose.yml
+   Dockerfile-program gen_collatz.py     test/
 
 
-Next, open up ``docker-compose.yml`` with your favorite text editor and type /
+Next, open up ``docker compose.yml`` with your favorite text editor and type /
 paste in the following text:
 
 .. code-block:: yaml
    :linenos:
-   :emphasize-lines: 9,12,18
+   :emphasize-lines: 9,19
 
    ---
    version: "3"
 
    services:
-       gen-data:
-           build:
+      gen-data:
+         build:
                context: ./
                dockerfile: ./Dockerfile-gen
-           image: username/gen_collatz:1.0
-           volumes:
+         image: username/gen_collatz:1.0
+         volumes:
                - ./test:/data
-           user: "1000:1000"
-           command: gen_collatz.py /data/data.txt
-       analyze-data:
-           build:
+         command: gen_collatz.py /data/data.txt
+      analyze-data:
+         build:
                context: ./
-               dockerfile: ./Dockerfile-analysis
-           depends_on:
+               dockerfile: ./Dockerfile-program
+         depends_on:
                - gen-data
-           image: username/ml_data_analysis:1.0
-           volumes:
+         image: username/collatz:1.0
+         volumes:
                - ./test:/data
-           command: ml_data_analysis.py /data/data.txt
+         command: collatz.py /data/data.txt
    ...
 
 .. warning::
 
-   The highlighted lines above may need to be edited with your username / userid /
-   groupid in order for this to work. See instructions below.
+   The highlighted lines above may need to be edited with your username in order for this to work. 
+   See instructions below.
 
 
 The ``version`` key must be included and simply denotes that we are using
 version 3 of Docker compose.
 
+.. note::
+   You may receive an error saying that the ``version`` key is obsolete and can safely be removed.
+
 The ``services`` section defines the configuration of individual container
 instances that we want to orchestrate. In our case, we define two called
 ``gen-data`` for the gen_collatz functionality, and ``analyze-data`` for
-the ml_data_analysis functionality.
+the collatz program functionality.
 
 Each of those services is configured with its own Docker image,
-a mounted volume (equivalent to the ``-v`` option for ``docker run``), a user
-namespace (equivalent to the ``-u`` option for ``docker run``), and a default
+a mounted volume (equivalent to the ``-v`` option for ``docker run``), and a default
 command to run.
 
-Please note that the image name above should be changed to use your image. Also,
-the user ID / group ID are specific to ``ubuntu`` - to find your user and group
-ID, execute the Linux commands ``id -u`` and ``id -g``.
 
 .. note::
 
    The top-level ``services`` keyword shown above is just one important part of
-   Docker compose. Later in this course we will look at named volumes and
-   networks which can be configured and created with Docker compose.
+   Docker compose. To learn about aboth important parts of a compose file 
+   please visit the `Docker Compose Docs <https://docs.docker.com/compose/>`_.
 
 
 Running Docker Compose
@@ -316,39 +292,40 @@ commands:
 
 .. code-block:: console
 
-   docker-compose <verb> <parameters>
+   docker compose <verb> <parameters>
 
-Just like Docker, you can pass the ``--help`` flag to ``docker-compose`` or to
+Just like Docker, you can pass the ``--help`` flag to ``docker compose`` or to
 any of the verbs to get additional usage information. To get started on the
 command line tools, try issuing the following two commands:
 
 .. code-block:: console
 
-   [terminal]$ docker-compose version
-   [terminal]$ docker-compose config
+   [terminal]$ docker compose version
+   [terminal]$ docker compose config
 
 The first command prints the version of Docker compose installed, and the second
-searches your current directory for ``docker-compose.yml`` and checks that it
+searches your current directory for ``docker compose.yml`` and checks that it
 contains only valid syntax.
 
-To run one of these services, use the ``docker-compose run`` verb, and pass the
+To run one of these services, use the ``docker compose run`` verb, and pass the
 name of the service as defined in your YAML file:
 
 .. code-block:: console
 
    [terminal]$ ls test/     # currently empty
-   [terminal]$ docker-compose run gen-data
-   Data written to /data/data.txt!
+   [terminal]$ docker compose run gen-data
+   Data written to /data/data.txt.
+   Codename Alice.
    [terminal]$ ls test/
    data.txt               # new file!
-   [terminal]$ docker-compose run analyze-data
-   6004.5
-   Southern & Eastern
-   ... etc.
+   [terminal]$ docker compose run analyze-data
+   Collatz
+   =======
+   ...
 
 
 Now we have an easy way to run our *ad hoc* services consistently and
-reproducibly. Not only does ``docker-compose.yml`` make it easier to run our
+reproducibly. Not only does ``docker compose.yml`` make it easier to run our
 services, it also represents a record of how we intend to interact with this
 container.
 
@@ -360,17 +337,17 @@ Essential Docker Compose Command Summary
 +------------------------+------------------------------------------------+
 | Command                | Usage                                          |
 +========================+================================================+
-| docker-compose version | Print version information                      |
+| docker compose version | Print version information                      |
 +------------------------+------------------------------------------------+
-| docker-compose config  | Validate docker-compose.yml syntax             |
+| docker compose config  | Validate docker compose.yml syntax             |
 +------------------------+------------------------------------------------+
-| docker-compose up      | Spin up all services                           |
+| docker compose up      | Spin up all services                           |
 +------------------------+------------------------------------------------+
-| docker-compose down    | Tear down all services                         |
+| docker compose down    | Tear down all services                         |
 +------------------------+------------------------------------------------+
-| docker-compose build   | Build the images listed in the YAML file       |
+| docker compose build   | Build the images listed in the YAML file       |
 +------------------------+------------------------------------------------+
-| docker-compose run     | Run a container as defined in the YAML file    |
+| docker compose run     | Run a container as defined in the YAML file    |
 +------------------------+------------------------------------------------+
 
 
