@@ -3,7 +3,7 @@ Introduction to APIs
 
 In this section, we will discuss Application Programming Interfaces (APIs)
 focusing on Web APIs, and in particular REST APIs. We will learn how to interact
-with APIs using Python scripts. After going through this module, students should
+with APIs using Python. After going through this module, students should
 be able to:
 
 * Identify and describe Web APIs (including REST APIs).
@@ -45,13 +45,13 @@ that connects one piece of software to another. Specifically, APIs:
 * Provide errors when the consuming software doesn't fulfill the contract of the API or when
   unexpected circumstances are encountered.
 
-We have already been working with APIs. For example, the Python ``json`` library
+For example, the Python ``json`` library
 presents us with an API for working with JSON data. Try opening up the Python3
 interactive interpreter:
 
 .. code-block:: console
 
-   [user-vm]$ python3
+   [terminal]$ python3
    Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
    Type "help", "copyright", "credits" or "license" for more information.
    >>> 
@@ -422,7 +422,7 @@ pip3:
 
 .. code-block:: console
 
-   [user-vm]$ pip3 install --user requests
+   [terminal]$ pip3 install --user requests
    ...
    Successfully installed requests-2.25.1
 
@@ -431,17 +431,17 @@ in the interactive Python interpreter:
 
 .. code-block:: console
 
-   [user-vm]$ python3
-   Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
-   Type "help", "copyright", "credits" or "license" for more information.
-   >>> import requests
-   >>> 
+   [terminal]$ python3
+    Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
 
 
 The basic usage of the ``requests`` library is as follows:
 
 .. code-block:: python3
-
+   
+   >>> import requests
+   >>> 
    >>> # make a request: typical format
    >>> # response = requests.<method>(url=some_url, data=some_message, <other options>)
    >>>

@@ -3,9 +3,8 @@ Unit 5: APIs and Flask
 
 In this unit, we will be introduced to Application Programming Interfaces
 (APIs). This introduction will form the foundation of our ultimate goal to
-create large, complex, Python-based applications that are accessible through
-the web. The particular Python web framework we will be working with most is
-called Flask.
+create large, complex, web-based software application. The particular web framework 
+we will be working with most is called Flask.
 
 .. toctree::
    :maxdepth: 1
