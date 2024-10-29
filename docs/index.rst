@@ -24,12 +24,6 @@ the concepts and topics discussed.
    unit03/overview
    unit04/overview
    unit05/overview
-   unit06/overview
-   unit07/overview
-   unit08/overview
-   unit09/overview
-   unit10/overview
-   unit11/overview
 
 
 .. toctree::
