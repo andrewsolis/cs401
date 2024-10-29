@@ -13,8 +13,7 @@ functions for our REST API. After going through this module, students should be 
 
 .. note::
 
-   We will continue to work on the the individual student VMs. Like last time, it will be helpful for you to
-   have two SSH terminals open to your VM at the same time so you can run your Flask application in
+   It will be helpful for you to have two SSH terminals open at the same time so you can run your Flask application in
    one terminal and test it in the other.
 
 
