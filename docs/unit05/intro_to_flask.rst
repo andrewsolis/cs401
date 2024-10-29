@@ -427,7 +427,7 @@ Now, the Flask app supports multiple routes with different functionalities:
 EXERCISE
 ~~~~~~~~
 
-Let's use the sample Meteorite Landing data (`see here <https://raw.githubusercontent.com/TACC/coe-332-sp24/main/docs/unit02/sample-data/Meteorite_Landings.json>`_)
+Let's use a sample of grocery store items data found (`here <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit05/scripts/grocery.json>`_)
 to define some more interesting routes. We will create a route that allows a user
 to download the entire dataset over HTTP. Consider the following:
 
@@ -444,9 +444,9 @@ steps:
 
 Once implemented, test the function using ``curl``.
 
-Next, write one more route to access the information of a specific meteorite.
+Next, write one more route to access the information of a specific item.
 In REST API parlance, assume the whole data set is a "collection", and the data
-from one meteorite is an "item" of that collection.
+from one grocery store item is an "item" of that collection.
 
 
 Additional Resources
