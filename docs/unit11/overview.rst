@@ -1,18 +1,26 @@
-Unit 6: APIs and Flask
-======================
+Unit 2: Working with Common Data Formats
+========================================
 
-In this unit, we will be introduced to Application Programming Interfaces
-(APIs). This introduction will form the foundation of our ultimate goal to
-create large, complex, Python-based applications that are accessible through
-the web. The particular Python web framework we will be working with most is
-called Flask.
+Please make sure you meet the following prerequisites before continuing past
+Unit 1:
+
+1. You can log in to the class server, student-login.tacc.utexas.edu
+2. You have a strong working knowledge of `Linux commands <../unit01/linux_essentials.html>`_
+3. You have a strong working knowledge of the basic `elements of Python3 <../unit01/python_refresher.html>`_
+4. You have a strong working knowledge of `version control with Git <../unit01/version_control_1.html>`_
+
+
+In Unit 2, we will begin to explore and work hands-on with essential data
+formats that we will use throughout the course. We will primarily be using
+Python3 to interact with and manipulate the data. Sample data sets for
+illustration purposes will be downloaded from various sources, including
+`NASA's open data site <https://data.nasa.gov/>`_.
+
 
 .. toctree::
    :maxdepth: 1
 
-   intro_to_apis
-   intro_to_flask
-   advanced_flask
-   flask_docker
-   flask_special_topics
-
+   json
+   csv
+   xml
+   yaml
