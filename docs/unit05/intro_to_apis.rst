@@ -477,3 +477,21 @@ web APIs are accessible to any software running in an environment with a stable 
 software components distributed across different computers (and even the entire internet) that work together. The 
 precise locations of the software components won't matter and, when combined with other techniques, we will be able
 to freely move those components around and still have a fully functioning system.  
+
+Web APIs Development Tools
+--------------------------------------
+
+Given the wide use of REST API's their is an existing ecosystem of software available for development of APIs. 
+These normally have ways of performing common HTTP request types we've discussed such as GET and POST.
+They also can offer the ability to design API's before implementation, and provide ways for documenting
+the API as it is developed. This makes it easier for publishing APIs into a format that can be understood
+and used by folks using the API.
+
+Examples:
+
+* `Postman <https://www.postman.com/>`_
+* `Swagger <https://swagger.io/>`_
+* `FastAPI <https://fastapi.tiangolo.com/>`_ (CLI)
+
+POSTMAN TUTORIAL
+~~~~~~~~
