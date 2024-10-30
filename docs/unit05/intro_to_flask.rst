@@ -57,7 +57,7 @@ For example:
    [terminal]$ mkdir api
    [terminal]$ cd api
    [terminal]$ python3 -m venv venv
-   [terminal]$ source venv/bin/activate # Windows: venv/scripts/Activate 
+   [terminal]$ source venv/bin/activate # Windows: venv\Scripts\Activate 
    (venv)[terminal]$ pip install flask
    ...
    Successfully installed flask-3.0.2
