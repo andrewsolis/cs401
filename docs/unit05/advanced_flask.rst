@@ -101,16 +101,15 @@ Typed URL Parameters
 ---------------------
 
 We can specify the types of the URL parameters we are expecting using the syntax ``<type:variable_name>``. 
-For example, we could change our ``degrees_for_id`` route declaration as follows, to indicate we required the ``id``
+For example, if we want to specify an int for a particular route we could delcare it as follows, to indicate we required the ``id``
 variable to be an integer:
 
 .. code-block:: python3
    
-   @app.route('/degrees/<int:id>', methods=['GET'])
-   def degrees_for_id(id):
-       # implementation...
+   @app.route('/data/<int:id>', methods=['GET'])
+   ...
 
-With the above definition, a request like ``GET /degrees/A`` will no longer match our ``degrees_for_id`` route
+If we use something similar for our ``degrees_for_id`` route with the above definition, a request like ``GET /degrees/A`` will no longer match our ``degrees_for_id`` route
 while a request like ``GET /degrees/2`` will ``call degrees_for_id`` with an integer type for the ``id``
 variable. 
 
@@ -220,8 +219,6 @@ session in another window and:
 * Verify that ``r.content`` is what you expect.
 * Use ``r.json()`` to decode the response and compare the type to that of ``r.content``.
 
-Then, repeat the above with the ``/degrees/<id>/degrees`` endpoint. 
-
 
 HTTP Content Type Headers
 -------------------------
@@ -248,7 +245,10 @@ EXERCISE 6
    lines that start with a ``<``.
 2) Use ``curl`` again to make the same request, but this time pass the ``--head``
    option instead of the ``-v``; this will show you **only** the headers being
-   returned in the response.
+   returned in the response. 
+.. warning::
+
+   some options might be different or unavailable on Windows
 3) Inside a Python shell, use ``requests`` to make the same GET request to your ``/degrees``
    endpoint, and capture the result in a variable, ``r``. Inspect the ``r.headers`` attribute.
    What is the type of ``r.headers``?
@@ -256,7 +256,7 @@ EXERCISE 6
 
 .. code-block:: console
 
-   [user-vm]$ curl localhost:5000/degrees -v
+   [terminal]$ curl localhost:5000/degrees -v
    * Trying 127.0.0.1:5000...
    * TCP_NODELAY set
    * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -366,7 +366,7 @@ issuing some ``curl`` requests in another window, e.g.,
 
 .. code-block:: console
 
-   [user-vm]$ curl http://api.example.com/degrees?start=1993
+   [terminal]$ curl http://api.example.com/degrees?start=1993
 
 
 Let's use this idea to update our ``degrees_api`` to only return the years starting from the
@@ -424,7 +424,7 @@ value for the ``start`` parameter? Try it and see what happens:
 
 .. code-block:: console
 
-   [user-vm]$ curl http://127.0.0.1:5000/degrees?start=abc
+   [terminal]$ curl http://127.0.0.1:5000/degrees?start=abc
 
 
 Yikes! If we try this we get a long traceback that ends like this:
@@ -602,16 +602,16 @@ Curling this route with a ``GET`` request returns the entire list of degrees:
 
 .. code-block:: console
 
-   [user-vm]$ curl http://127.0.0.1:5000/degrees
+   [terminal]$ curl http://127.0.0.1:5000/degrees
    -or-
-   [user-vm]$ curl -X GET http://127.0.0.1:5000/degrees
+   [terminal]$ curl -X GET http://127.0.0.1:5000/degrees
 
 But now we are able to make a ``DELETE`` request to this route, where it is expecting
 to receive a JSON data packet containing the id of the item to delete:
 
 .. code-block:: console
 
-   [user-vm]$ curl -X DELETE http://127.0.0.1:5000/degrees \
+   [terminal]$ curl -X DELETE http://127.0.0.1:5000/degrees \
                    -H 'Content-Type: application/json' \
                    -d '{"id": 4}'
 
