@@ -13,7 +13,7 @@ module, students should be able to:
 * Assemble the different components needed for a containerized microservice into on directory.
 * Establish and document requirements (e.g. dependencies, Python packages) for the project.
 * Build and run in the background a containerized Flask microservice.
-* Map ports on the Jetstream VM to ports inside a container, and use ``curl`` with the
+* Map ports on your system to ports inside a container, and use ``curl`` with the
   the correct ports to make requests to and generate responses from the microservice.
 * Deploy the microservice with docker-compose
 * **Design Principles:** By combining Flask and Docker, we will see how both contribute to
@@ -30,9 +30,9 @@ First, create a new directory for this exercise, and change directories to it:
 
 .. code-block:: console
 
-   [user-vm]$ mkdir flask-container && cd flask-container
-   [user-vm]$ pwd
-   /home/ubuntu/flask-container
+   [terminal]$ mkdir flask-container && cd flask-container
+   [terminal]$ pwd
+   /home/asolis/flask-container
 
 Then, create a new ``app.py`` (or copy an existing one) into this folder. It
 should have the following contents:
@@ -67,6 +67,14 @@ our example here, create a file called ``requirements.txt`` and add the followin
 .. code-block:: console
 
    Flask==3.0.2
+
+.. tip::
+
+   You can also check which version of flask you are doing by running ``pip list`` to show your installed packages. 
+   These can also be saved to your file by running the command
+
+   ``pip freeze > requirements.txt``
+
 
 This indicates that our project requires the ``Flask`` package, version number ``3.0.2``.
 You can specify your requirements in more lenient ways -- for example, we could have
@@ -147,9 +155,9 @@ Save the file and build the image with the following command:
 
 .. code-block:: console
 
-   [user-vm]$ docker build -t username/flask-helloworld:1.0 .
+   [terminal]$ docker build -t username/flask-helloworld:1.0 .
 
-.. warning:
+.. warning::
 
    Don't forget to replace ``<username>`` with your Docker Hub username.
 
@@ -160,22 +168,22 @@ To create an instance of your image (a "container"), use the following command:
 
 .. code-block:: console
 
-   [user-vm]$ docker run --name "flask-helloworld-app" -d -p 5000:5000 username/flask-helloworld:1.0
+   [terminal]$ docker run --name "flask-helloworld-app" -d -p 5000:5000 username/flask-helloworld:1.0
 
 The ``-d`` flag detaches your terminal from the running container - i.e. it
-runs the container in the background. The ``-p`` flag maps a port on the Jetstream
-VM (5000, in the above case) to a port inside the container (again 5000, in the
+runs the container in the background. The ``-p`` flag maps a port on the machine
+(5000, in the above case) to a port inside the container (again 5000, in the
 above case). In the above example, the Flask app was set up to use the
 default port inside the container (5000), and we can access that through our
-specified port on Jetstream (5000). This explicit mapping is convenient if you 
-have multiple services running on the same VM and you want to avoid port
+specified port at 5000. This explicit mapping is convenient if you 
+have multiple services running on the same system and you want to avoid port
 collisions. 
 
 Check to see that things are up and running with:
 
 .. code-block:: console
 
-   [user-vm]$ docker ps -a
+   [terminal]$ docker ps -a
 
 The list should have a container with the name you gave it, an ``UP`` status,
 and the port mapping that you specified.
@@ -185,9 +193,9 @@ the following:
 
 .. code-block:: console
 
-   [user-vm]$ docker logs "your-container-name"
+   [terminal]$ docker logs "your-container-name"
    -or-
-   [user-vm]$ docker logs "your-container-ID"
+   [terminal]$ docker logs "your-container-ID"
 
 
 Access Your Microservice
@@ -199,9 +207,9 @@ port 5000:
 
 .. code-block:: console
 
-   [user-vm]$ curl localhost:5000/
+   [terminal]$ curl localhost:5000/
    Hello, world!
-   [user-vm]$ curl localhost:5000/Joe
+   [terminal]$ curl localhost:5000/Joe
    Hello, Joe!
 
 
@@ -214,9 +222,9 @@ Finally, don't forget to stop your running container and remove it.
 
    CONTAINER ID   IMAGE                           COMMAND           CREATED         STATUS         PORTS                                       NAMES
    a785237628d6   username/flask-helloworld:1.0   "python app.py"   4 minutes ago   Up 4 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   flask-helloworld-app
-   [user-vm]$ docker stop a785237628d6
+   [terminal]$ docker stop a785237628d6
    a785237628d6
-   [user-vm]$ docker rm a785237628d6
+   [terminal]$ docker rm a785237628d6
    a785237628d6
 
 
@@ -242,8 +250,7 @@ containers.
 Moreover, so far we have been looking at single-container applications. 
 But what if we want to do something more complex involving multiple containers? In this course, 
 our goal is to ultimately develop and orchestrate a multi-container
-application consisting of, e.g., a Flask app, a database, a message queue, an
-authentication service, and more.
+application consisting of, e.g., a Flask app, a database, a web front-end, and more.
 
 
 Write a Compose File
@@ -257,7 +264,7 @@ application container looked like the following:
 
 .. code-block:: console
 
-   [user-vm]$ docker run --name "flask-helloworld-app" -d -p 5000:5000 username/flask-helloworld:1.0
+   [terminal]$ docker run --name "flask-helloworld-app" -d -p 5000:5000 username/flask-helloworld:1.0
 
 The above ``docker run`` command can be translated into a YAML file.
 Navigate to the folder that contains your Python scripts and Dockerfiles, then
@@ -265,10 +272,10 @@ create a new empty file called ``docker-compose.yml``:
 
 .. code-block:: console
 
-   [user-vm]$ pwd
-   /home/ubuntu/flask-contaienr
-   [user-vm]$ touch docker-compose.yml
-   [user-vm]$ ls
+   [terminal]$ pwd
+   /home/asolis/flask-contaienr
+   [terminal]$ touch docker-compose.yml
+   [terminal]$ ls
    Dockerfile  app.py  docker-compose.yaml  requirements.txt
 
 
@@ -280,7 +287,6 @@ paste in the following text:
    :emphasize-lines: 9
 
    ---
-   version: "3"
 
    services:
        flask-app:
@@ -291,15 +297,11 @@ paste in the following text:
            container_name: flask-helloworld-app
            ports:
                - "5000:5000"
-   ...
 
 .. note::
 
    Be sure to update the highlighted line above with your username.
 
-
-The ``version`` key must be included and simply denotes that we are using
-version 3 of Docker compose.
 
 The ``services`` section defines the configuration of individual container
 instances that we want to orchestrate. In our case, we define just one container
@@ -309,7 +311,7 @@ name should be unique within the docker-compose.yml file.
 The ``flask-app`` service is configured with its own Docker image, including a
 reference to a Dockerfile to be used to ``build`` the image, a recognizable name
 for the running container, and a port mapping for the Flask service. Recall from
-the `previous unit <../unit05/docker_compose.html>`_ that other speicifcations
+the `previous unit <../unit03/docker_compose.html>`_ that other speicifcations
 can be defined in this file including a list of mounted volumes, user IDs for
 running the service, default commands, and many others. The choice of which 
 options to use entirely depends on the app and the context.
@@ -324,14 +326,14 @@ options to use entirely depends on the app and the context.
 Running Docker Compose
 ----------------------
 
-To run our Flask application container, we simply use the ``docker-compose up`` 
+To run our Flask application container, we simply use the ``docker compose up`` 
 verb, which will start up all containers defined in the file. Alternatively,
-we could use ``docker-compose run`` and pass the name of a service to run, in this
+we could use ``docker compose run`` and pass the name of a service to run, in this
 case, ``flask-app``:
 
 .. code-block:: console
 
-   [user-vm]$ docker-compose up 
+   [terminal]$ docker compose up 
    Creating network "flask-container_default" with the default driver
    Creating flask-helloworld-app ... done
    Attaching to flask-helloworld-app
@@ -352,7 +354,7 @@ Note that ``docker-compose`` starts the container in the foreground and takes ov
 
 .. code-block:: console
 
-   [user-vm] docker ps -a 
+   [terminal] docker ps -a 
    CONTAINER ID   IMAGE                           COMMAND           CREATED          STATUS                     PORTS     NAMES
    289ea2d0fed6   username/flask-helloworld:1.0   "python app.py"   32 seconds ago   Exited (0) 4 seconds ago             flask-helloworld-app
 
@@ -361,7 +363,7 @@ To start the service in the background, use the ``-d`` flag:
 
 .. code-block:: console
 
-   [user-vm]$ docker-compose up -d
+   [terminal]$ docker compose up -d
 
 Once the service is running, perform some curl commands to test the running Flask
 app before stopping the service with:
@@ -369,7 +371,7 @@ app before stopping the service with:
 
 .. code-block:: console
 
-   [user-vm]$ docker-compose down
+   [terminal]$ docker compose down
 
 
 
@@ -379,17 +381,17 @@ Essential Docker Compose Command Summary
 +------------------------+------------------------------------------------+
 | Command                | Usage                                          |
 +========================+================================================+
-| docker-compose version | Print version information                      |
+| docker compose version | Print version information                      |
 +------------------------+------------------------------------------------+
-| docker-compose config  | Validate docker-compose.yml syntax             |
+| docker compose config  | Validate docker-compose.yml syntax             |
 +------------------------+------------------------------------------------+
-| docker-compose up      | Spin up all services                           |
+| docker compose up      | Spin up all services                           |
 +------------------------+------------------------------------------------+
-| docker-compose down    | Tear down all services                         |
+| docker compose down    | Tear down all services                         |
 +------------------------+------------------------------------------------+
-| docker-compose build   | Build the images listed in the YAML file       |
+| docker compose build   | Build the images listed in the YAML file       |
 +------------------------+------------------------------------------------+
-| docker-compose run     | Run a container as defined in the YAML file    |
+| docker compose run     | Run a container as defined in the YAML file    |
 +------------------------+------------------------------------------------+
 
 
