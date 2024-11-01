@@ -24,7 +24,7 @@ the concepts and topics discussed.
    unit03/overview
    unit04/overview
    unit05/overview
-
+   unit06/overview
 
 .. toctree::
    :maxdepth: 1
