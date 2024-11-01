@@ -6,8 +6,8 @@ Writing Unit Tests for Flask
 ----------------------------
 
 There are several different approaches for writing *unit tests* for Flask apps,
-some of which are included in the Flask documentation. The approach I like the
-best, and which is most congruent with the topics we already covered in this class,
+some of which are included in the Flask documentation. One approach 
+which is most congruent with the topics we already covered in this class,
 is to instead write *integration tests*. 
 
 For these tests, the key thing is that you have to have an actual copy of your
@@ -18,13 +18,69 @@ tests is not to check / validate that the right data is being returned; rather,
 the goal is to make sure the routes work and return the right kind of response.
 
 If your code also has standalone functions separate from the functions decorated
-as Flask routes, (e.g., in the case of the ISS data you may have written
-standalone functions for finding the time closest to now or computing average
-speed that are called from other functions), then you would still want to import
+as Flask routes, (e.g., you may have written helper functions inside of your file
+that are not routes but help process or retrieve data), then you would still want to import
 those and test them as normal in your unit test file.
 
-Consider the following pytest snippet that tests the /epochs and /epochs/<epoch>
-routes for the ISS tracker:
+Consider the previous code we made for getting degrees with different HTTP requests.
+
+.. code-block:: python3
+   :linenos:
+
+   from flask import Flask
+   from flask import request
+
+   data = [ {'id': 0, 'year': 1990, 'degrees': 5818},
+            {'id': 1, 'year': 1991, 'degrees': 5725},
+            {'id': 2, 'year': 1992, 'degrees': 6005},
+            {'id': 3, 'year': 1993, 'degrees': 6123},
+            {'id': 4, 'year': 1994, 'degrees': 6096} ]
+
+
+   app = Flask(__name__)
+
+   @app.route('/degrees', methods=['GET', 'DELETE'])
+   def degrees():
+
+      global data
+
+      if request.method == 'GET':
+         return(data)
+      elif request.method == 'DELETE':
+         content = request.get_json()
+         new_data = []
+         for item in data:
+               if item['id'] != content['id']:
+                  new_data.append(item)
+         data = new_data
+         return(data)
+
+   if __name__ == '__main__':
+      app.run(debug=True, host='0.0.0.0')
+
+   @app.route('/degrees/<int:id>', methods=['GET'])
+   def degrees_for_id(id):
+
+      for x in data:
+         if x['id'] == id:
+               return x
+      
+      return f"Error: ID {id} not found."
+
+   @app.route('/degrees/<int:id>/degrees', methods=['GET'])
+   def only_degrees_for_id(id):
+
+      for x in data:
+         if x['id'] == id:
+               return {'id' : id, 'degrees': x['degrees'] }
+         
+      return f"Error: ID {id} not found."
+
+   if __name__ == '__main__':
+      app.run(debug=True, host='0.0.0.0')
+
+Look at the following pytest snippet that tests the /degrees and /degrees/<int:id>
+routes:
 
 
 .. code-block:: python3
@@ -33,17 +89,16 @@ routes for the ISS tracker:
    import pytest
    import requests
 
-   response1 = requests.get('http://127.0.0.1:5000/epochs')
-   a_representative_epoch = response1.json()[0]
-   response2 = requests.get('http://127.0.0.1:5000/epochs/'+a_representative_epoch)
+   response1 = requests.get('http://127.0.0.1:5000/degrees')
+   response2 = requests.get('http://127.0.0.1:5000/degrees/' +str(single_degree['id']))
 
-   def test_epochs_route():
-       assert response1.status_code == 200
-       assert isinstance(response1.json(), list) == True
+   def test_degrees_route():
+      assert response1.status_code == 200
+      assert isinstance(response1.json(), list) == True
 
-   def test_specific_epoch_route():
-       assert response2.status_code == 200
-       assert isinstance(response2.json(), dict) == True
+   def test_specific_degree_route():
+      assert response2.status_code == 200
+      assert isinstance(response2.json(), dict) == True
 
 
 
@@ -64,26 +119,19 @@ called ``ngrok`` can be used to provide a reverse proxy on the fly.
    To do this, you need an ngrok account and access token, which can be
    obtained `here <https://dashboard.ngrok.com/signup>`_
 
-First, install ``ngrok``:
-
-.. code-block:: console
-
-   [user-vm]$ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
-                   sudo gpg --dearmor -o /etc/apt/keyrings/ngrok.gpg && \
-                   echo "deb [signed-by=/etc/apt/keyrings/ngrok.gpg] https://ngrok-agent.s3.amazonaws.com buster main" | \
-                   sudo tee /etc/apt/sources.list.d/ngrok.list && \
-                   sudo apt update && sudo apt install ngrok
+First, install ``ngrok`` by following the tutorial `here <https://dashboard.ngrok.com/get-started/setup/windows>`_ 
+once your account is created and setup.
 
 Confirm ``ngrok`` is working and add your
 `access token <https://dashboard.ngrok.com/get-started/your-authtoken>`_:
 
 .. code-block:: console
 
-   [user-vm]$ ngrok --help
+   [terminal]$ ngrok --help
    NAME:
      ngrok - tunnel local ports to public URLs and inspect traffic
    ...
-   [user-vm]$ ngrok config add-authtoken <TOKEN>
+   [terminal]$ ngrok config add-authtoken <TOKEN>
    Authtoken saved to configuration file: /home/ubuntu/.config/ngrok/ngrok.yml
 
 
@@ -92,7 +140,7 @@ do the following:
 
 .. code-block:: console
 
-   [user-vm]$ ngrok http http://localhost:5000
+   [terminal]$ ngrok http http://localhost:5000
 
 
 This will lock your terminal into an interface that looks like the following:
@@ -101,20 +149,22 @@ This will lock your terminal into an interface that looks like the following:
 
    ngrok
    
-   K8s Gateway API https://ngrok.com/early-access/kubernetes-gateway-api
-   
+   Policy Management Examples http://ngrok.com/apigwexamples        
+
    Session Status                online
-   Account                       username (Plan: Free)
-   Version                       3.8.0
+   Account                       andrew solis (Plan: Free)   
+   Update                        update available (version 3.18.2, Ctrl-U to update)
+   Version                       3.17.0
    Region                        United States (us)
-   Latency                       37ms
+   Latency                       34ms
    Web Interface                 http://127.0.0.1:4040
-   Forwarding                    https://9750-129-141-63-209.ngrok-free.app -> http://localhost:5000
-   
+   Forwarding                    https://022d-136-62-4-166.ngrok-free.app -> http://localhost:5000
+
    Connections                   ttl     opn     rt1     rt5     p50     p90
+                                 0       0       0.00    0.00    0.00    0.00
 
 Navigate to or curl the link provided to access your Flask app from outside
-the Jetstream VM. Press ``Ctrl+C`` to quit forwarding.
+your system. Press ``Ctrl+C`` to quit forwarding.
 
 
 Flask and HTML
