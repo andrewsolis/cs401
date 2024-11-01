@@ -1,0 +1,35 @@
+{
+    "items" : 
+    [
+        {
+            "product_name":"Table Cloth 53x53 White",
+            "brand":"Jayo",
+            "category":"Frozen Foods",
+            "price":1.4,
+            "quantity":457,
+            "unit":"kg",
+            "organic":false,
+            "barcode":6853907888259,
+            "customer_reviews":2.7,
+            "customer_reviews_count":774
+        },
+
+        {"product_name":"Langers - Mango Nectar","brand":"Buzzbean","category":"Bakery","price":5.4,"quantity":954,"unit":"oz","organic":true,"barcode":8009292744485,"customer_reviews":1.0,"customer_reviews_count":297},
+
+        {"product_name":"Cream - 18%","brand":"Cogidoo","category":"Meat","price":95.46,"quantity":354,"unit":"g","organic":true,"barcode":2681293909108,"customer_reviews":3.7,"customer_reviews_count":176},
+
+        {"product_name":"Tart Shells - Sweet, 3","brand":"Youspan","category":"Dairy","price":81.29,"quantity":526,"unit":"g","organic":true,"barcode":3796292046507,"customer_reviews":0.1,"customer_reviews_count":290},
+
+        {"product_name":"Wine - Saint - Bris 2002, Sauv","brand":"Edgeblab","category":"Frozen Foods","price":63.8,"quantity":206,"unit":"oz","organic":false,"barcode":5389547418529,"customer_reviews":1.5,"customer_reviews_count":264},
+
+        {"product_name":"Bread - Burger","brand":"Talane","category":"Produce","price":43.2,"quantity":578,"unit":"g","organic":false,"barcode":5858601374277,"customer_reviews":0.2,"customer_reviews_count":881},
+
+        {"product_name":"Yoghurt Tubes","brand":"Pixope","category":"Dairy","price":88.81,"quantity":848,"unit":"lb","organic":false,"barcode":6130648041250,"customer_reviews":2.1,"customer_reviews_count":592},
+
+        {"product_name":"Scallops - U - 10","brand":"Riffwire","category":"Bakery","price":4.61,"quantity":209,"unit":"oz","organic":false,"barcode":4341351714852,"customer_reviews":2.8,"customer_reviews_count":953},
+
+        {"product_name":"Juice - Orange, Concentrate","brand":"Twiyo","category":"Frozen Foods","price":45.53,"quantity":381,"unit":"oz","organic":false,"barcode":5440030573627,"customer_reviews":1.8,"customer_reviews_count":697},
+
+        {"product_name":"Energy Drink - Redbull 355ml","brand":"Tazzy","category":"Produce","price":26.32,"quantity":504,"unit":"oz","organic":false,"barcode":8838718124671,"customer_reviews":0.2,"customer_reviews_count":318}
+    ]
+}

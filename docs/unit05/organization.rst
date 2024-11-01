@@ -37,32 +37,34 @@ the functions defined within, then the internal variable ``__name__`` will inste
 be set to the name of the script. Thus, the ``main()`` function is not called,
 but other functions defined in this script would be available.
 
-Consider the script we wrote in the previous unit for analyzing the Meteorite
-Landings JSON file (called ``ml_data_analysis.py``):
+Consider the script used for reading grocery items stored in a JSON file (called ``groceries.py``)
+that also does a few computations:
 
 .. code-block:: python3
     :linenos:
 
     import json
 
-    def compute_average_mass(a_list_of_dicts, a_key_string):
-        total_mass = 0.
+    def compute_average_quantity(a_list_of_dicts, a_key_string):
+        total_quantity = 0
         for item in a_list_of_dicts:
-            total_mass += float(item[a_key_string])
-        return(total_mass / len(a_list_of_dicts) )
+            total_quantity += item[ a_key_string ]
 
-    def check_hemisphere(latitude, longitude):
-        location = 'Northern' if (latitude > 0) else 'Southern'
-        location = f'{location} & Eastern' if (longitude > 0) else f'{location} & Western'
-        return(location)
+        return int( total_quantity / len( a_list_of_dicts ) )
 
-    with open('Meteorite_Landings.json', 'r') as f:
-        ml_data = json.load(f)
+    def check_total_price( price, quantity ):
+        total_price = price * quantity
+        return total_price
 
-    print(compute_average_mass(ml_data['meteorite_landings'] ,'mass (g)' ))
+    with open('groceries.json', 'r') as f:
+        grocery_data = json.load( f )
 
-    for row in ml_data['meteorite_landings']:
-        print(check_hemisphere(float(row['reclat']), float(row['reclong'])))
+
+    print( compute_average_quantity( grocery_data, 'quantity' ) )
+
+    for row in grocery_data:
+        total_price = check_total_price( float( row['price']), float( row['quantity'] ) ) 
+        print(f'Total Price: {total_price:.2f}')
 
 
 To reorganize this code, we would put the file read operation and the two function
@@ -70,51 +72,52 @@ calls into a main function:
 
 .. code-block:: python3
     :linenos:
-    :emphasize-lines: 14,23-24
+    :emphasize-lines: 14,24-25
 
     import json
 
-    def compute_average_mass(a_list_of_dicts, a_key_string):
-        total_mass = 0.
+    def compute_average_quantity(a_list_of_dicts, a_key_string):
+        total_quantity = 0
         for item in a_list_of_dicts:
-            total_mass += float(item[a_key_string])
-        return(total_mass / len(a_list_of_dicts) )
+            total_quantity += item[ a_key_string ]
 
-    def check_hemisphere(latitude, longitude):
-        location = 'Northern' if (latitude > 0) else 'Southern'
-        location = f'{location} & Eastern' if (longitude > 0) else f'{location} & Western'
-        return(location)
+        return int( total_quantity / len( a_list_of_dicts ) )
 
-    def main():           # notice the below lines are now indented
-        with open('Meteorite_Landings.json', 'r') as f:
-            ml_data = json.load(f)
+    def check_total_price( price, quantity ):
+        total_price = price * quantity
+        return total_price
 
-        print(compute_average_mass(ml_data['meteorite_landings'] ,'mass (g)' ))
+    def main():
+        with open('groceries.json', 'r') as f:
+            grocery_data = json.load( f )
 
-        for row in ml_data['meteorite_landings']:
-            print(check_hemisphere(float(row['reclat']), float(row['reclong'])))
+        print( compute_average_quantity( grocery_data, 'quantity' ) )
+
+        for row in grocery_data:
+            total_price = check_total_price( float( row['price']), float( row['quantity'] ) ) 
+            print(f'Total Price: {total_price:.2f}')
 
     if __name__ == '__main__':
         main()
 
 
 If this code is imported into another Python3 script, that other script will have
-access to the ``compute_average_mass()`` and ``check_hemisphere()`` functions,
+access to the ``check_total_price()`` and ``compute_average_quantity()`` functions,
 but it will not execute the code in the ``main()`` function.
 
 EXERCISE
 ~~~~~~~~
 
 Write a new script to import the above code, assuming that above code is saved
-in a file called ``ml_data_analysis.py``:
+in a file called ``groceries.py``:
 
 .. code-block:: python3
     :linenos:
 
-    import ml_data_analysis     # assumes it is in this directory, or installed in known location
+    import groceries    # assumes it is in this directory, or installed in known location
 
-    print(ml_data_analysis.check_hemisphere(35.0, 70.0))
-    print(ml_data_analysis.check_hemisphere(-35.0, -70.0))
+    print( groceries.calc_total_price(3.50, 7.0) )
+    print( groceries.calc_total_price(20.5, 3) )
 
 Try executing this new script with and without protecting the imported code in a
 ``main()`` function. How do the outputs differ?
@@ -137,21 +140,21 @@ for multiple purposes or in multiple applications. The trick is to try to think
 ahead about how else you might use the function, think about what form the input
 data takes, and try not to hardcode indices or variable names.
 
-``compute_average_mass``
+``compute_average_quantity``
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-In our ``compute_average_mass`` function, we knew we needed to send it *something*,
-and we knew it needed to return an average mass. The main question was what form
+In our ``compute_average_quantity`` function, we knew we needed to send it *something*,
+and we knew it needed to return an average amount. The main question was what form
 should the input take?
 
 .. code-block:: python3
 
-   def compute_average_mass( xyz ):
+   def compute_average_quantity( xyz ):
        # do some computation
-       return(average_mass)
+       return(average_quantity)
 
 We could have just sent the function the entire dictionary data structure, then
-have it parse the data to get masses out. But if we did that, we would also need
+have it parse the data to get quantities out. But if we did that, we would also need
 to hardcode the name of the main key ``'meteorite_landings'`` as well as the name
 of the key referring to the masses ``'mass (g)'``.
 
