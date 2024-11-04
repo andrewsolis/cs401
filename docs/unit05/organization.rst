@@ -275,7 +275,7 @@ Next, you also need to make the script executable using the Linux command
 
 .. code-block:: console
 
-   [student-login]$ chmod u+x groceries.py
+   [terminal]$ chmod u+x groceries.py
 
 .. note::
 
@@ -286,7 +286,7 @@ invoking the interpreter on the command line:
 
 .. code-block:: console
 
-   [student-login]$ ./groceries.py
+   [terminal]$ ./groceries.py
 
 This is helpful to lock in a Python version (e.g. Python3) for a script that may
 be executed on multiple different machines or in various environments.

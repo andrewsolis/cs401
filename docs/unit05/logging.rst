@@ -68,7 +68,7 @@ Executing that code will output the following messages:
 
 .. code-block:: console
 
-   [student-login]$ python3 log_test.py
+   [terminal]$ python3 log_test.py
    WARNING:root:This is a WARNING message
    ERROR:root:This is an ERROR message
    CRITICAL:root:This is a CRITICAL message
@@ -94,7 +94,7 @@ be printed:
 
 .. code-block:: console
 
-   [student-login]$ python3 log_test.py
+   [terminal]$ python3 log_test.py
    DEBUG:root:This is a DEBUG message
    INFO:root:This is an INFO message
    WARNING:root:This is a WARNING message
@@ -140,7 +140,7 @@ about:
 
 * Timestamp: when the error occurred, also acts as a good reference point when
   referring to a specific log message
-* Hostname: what (virtual) machine the error occurred on, as you may have multiple
+* Hostname: what machine the error occurred on, as you may have multiple
   instances of an application running on different machines
 * Locale: what script and/or what function did the message originate from, helps
   to pinpoint where the message is coming from
@@ -176,13 +176,13 @@ pre-defined macros.
 
 .. code-block:: console
 
-   [student-login]$ python3 log_test.py 
-   [2024-01-27 21:13:36,258 student-login] log_test.py:<module>:15 - WARNING: This is a WARNING message
-   [2024-01-27 21:13:36,258 student-login] log_test.py:<module>:16 - ERROR: This is an ERROR message
-   [2024-01-27 21:13:36,258 student-login] log_test.py:<module>:17 - CRITICAL: This is a CRITICAL message
+   [terminal]$ python3 log_test.py 
+   [2024-01-27 21:13:36,258 terminal] log_test.py:<module>:15 - WARNING: This is a WARNING message
+   [2024-01-27 21:13:36,258 terminal] log_test.py:<module>:16 - ERROR: This is an ERROR message
+   [2024-01-27 21:13:36,258 terminal] log_test.py:<module>:17 - CRITICAL: This is a CRITICAL message
 
-   [student-login]$ python3 log_test.py -l CRITICAL
-   [2024-01-27 21:13:40,265 student-login] log_test.py:<module>:17 - CRITICAL: This is a CRITICAL message
+   [terminal]$ python3 log_test.py -l CRITICAL
+   [2024-01-27 21:13:40,265 terminal] log_test.py:<module>:17 - CRITICAL: This is a CRITICAL message
 
 
 
@@ -195,7 +195,7 @@ they are easily extracted.
 EXERCISE
 ~~~~~~~~
 
-Given the Meteorite Landings analysis script we have been working on, add some
+Given the groceries script we have been working on, add some
 logging throughout the script, focusing on DEBUG and ERROR messages.
 
 
@@ -203,80 +203,84 @@ logging throughout the script, focusing on DEBUG and ERROR messages.
    :linenos:
 
    #!/usr/bin/env python3
-   import json
-   from typing import List
+    import json
+    from typing import List
 
-   def compute_average_mass(a_list_of_dicts: List[dict], a_key_string: str) -> float:
-       """
-       Iterates through a list of dictionaries, pulling out values associated with
-       a given key. Returns the average of those values.
+    def compute_average_quantity(a_list_of_dicts, a_key_string)-> float:
+        """
+        Iterate through a list of dictionaries, pulling out values associated with
+        a given key. Returns the average of those values.
 
-       Args:
-           a_list_of_dicts (list): A list of dictionaries, each dict should have the
-                                   same set of keys.
-           a_key_string (string): A key that appears in each dictionary associated
-                                  with the desired value (will enforce float type).
+        Args:
+            a_list_of_dicts (list): A list of dictionaries, each dict should have the
+                                    same set of keys.
+            a_key_string (string): A key that appears in each dictionary associated
+                                with the desired value( will enforce float type).
 
-       Returns:
-           result (float): Average value.
-       """
-       total_mass = 0.
-       for item in a_list_of_dicts:
-           total_mass += float(item[a_key_string])
-       return(total_mass / len(a_list_of_dicts) )
+        Returns:
+            result (float): Average value.
+        """
 
-   def check_hemisphere(latitude: float, longitude: float) -> float:
-       """
-       Given latitude and longitude in decimal notation, returns which hemispheres
-       those coordinates land in.
-   
-       Args:
-           latitude (float): Latitude in decimal notation.
-           longitude (float): Longitude in decimal notation.
-   
-       Returns:
-           location (string): Short string listing two hemispheres.
-       """
-       location = 'Northern' if (latitude > 0) else 'Southern'
-       location = f'{location} & Eastern' if (longitude > 0) else f'{location} & Western'
-       return(location)
+        total_quantity = 0
+        for item in a_list_of_dicts:
+            total_quantity += item[ a_key_string ]
 
-   def count_classes(a_list_of_dicts: List[dict], a_key_string: str) -> dict:
-       """
-       Iterates through a list of dictionaries, and pulls out the value associated
-       with a given key. Counts the number of times each value occurs in the list of
-       dictionaries and returns the result.
+        return int( total_quantity / len( a_list_of_dicts ) )
 
-       Args:
-           a_list_of_dicts (list): A list of dictionaries, each dict should have the
-                                   same set of keys.
-           a_key_string (string): A key that appears in each dictionary associated
-                                  with the desired value.
+    def calc_total_price( price, quantity )-> float:
+        """
+        Given a price and quantity, calculate to total price of items in stock and return
+        the calculated amount.
 
-       Returns:
-           classes_observed (dict): Dictionary of class counts.
-       """
-       classes_observed = {}
-       for item in a_list_of_dicts:
-           if item[a_key_string] in classes_observed:
-               classes_observed[item[a_key_string]] += 1
-           else:
-               classes_observed[item[a_key_string]] = 1
-       return(classes_observed)
+        Args:
+            price (float): price of an item
+            quantity (float): amount of an item the grocery store has in stock
 
-   def main():
-       with open('Meteorite_Landings.json', 'r') as f:
-           ml_data = json.load(f)
+        Returns:
+            total_price (float): total calculated price of item.
+        """
+        
+        total_price = price * quantity
+        return total_price
 
-       print(compute_average_mass(ml_data['meteorite_landings'], 'mass (g)'))
+    def count_categories(a_list_of_dicts, a_key_string)-> dict:
+        """
+        Iterate through a list of dictionaries, counting the number of times
+        a particular category is found in the list. Returns a count of all
+        categories found and their amount.
 
-       for row in ml_data['meteorite_landings']:
-           print(check_hemisphere(float(row['reclat']), float(row['reclong'])))
+        Args:
+            a_list_of_dicts (list): A list of dictionaries, each dict should have the
+                                    same set of keys.
+            a_key_string (string): A key that appears in each dictionary associated
+                                string to check for counting.
 
-       print(count_classes(ml_data['meteorite_landings'], 'recclass'))
+        Returns:
+            categories_observed(dict): categories and their count.
+        """
 
-   if __name__ == '__main__':
-       main()
+        categories_observed = {}
+        for item in a_list_of_dicts:
+            if item[a_key_string] in categories_observed:
+                categories_observed[item[a_key_string]] += 1
+            else:
+                categories_observed[item[a_key_string]] = 1
+        return(categories_observed)
+
+    def main():
+        with open('groceries.json', 'r') as f:
+            grocery_data = json.load( f )
+
+        print( compute_average_quantity( grocery_data['items'], 'quantity' ) )
+
+        for row in grocery_data['items']:
+            total_price = calc_total_price( float( row['price']), float( row['quantity'] ) ) 
+            print(f'Total Price: {total_price:.2f}')
+
+        print( count_categories( grocery_data['items'], 'category' ) )
+
+    if __name__ == '__main__':
+        main()
 
 
 
