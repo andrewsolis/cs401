@@ -15,9 +15,9 @@ def main():
     with open('groceries.json', 'r') as f:
         grocery_data = json.load( f )
 
-    print( compute_average_quantity( grocery_data, 'quantity' ) )
+    print( compute_average_quantity( grocery_data['items'], 'quantity' ) )
 
-    for row in grocery_data:
+    for row in grocery_data['items']:
         total_price = calc_total_price( float( row['price']), float( row['quantity'] ) ) 
         print(f'Total Price: {total_price:.2f}')
 
