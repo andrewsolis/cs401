@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json
 
 def compute_average_quantity(a_list_of_dicts, a_key_string):

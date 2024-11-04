@@ -155,99 +155,98 @@ should the input take?
 
 We could have just sent the function the entire dictionary data structure, then
 have it parse the data to get quantities out. But if we did that, we would also need
-to hardcode the name of the main key ``'meteorite_landings'`` as well as the name
-of the key referring to the masses ``'mass (g)'``.
+to hardcode the name of the main key ``'items'`` as well as the name
+of the key referring to the quantities ``'quantity'``.
 
 
 .. code-block:: python3
 
    # BAD
-   def compute_average_mass( a_dictionary ):
-       total_mass = 0.
-       for item in a_dictionary['meteorite_landings']:
-           total_mass += float(item['mass (g)'])
-       return(total_mass / len(a_dictionary['meteorite_landings']) )
+   def compute_average_quantity( a_dictionary ):
+       total_quantity = 0.
+       for item in a_dictionary['items']:
+           total_quantity += float(item['quantity'])
+       return(total_quantity / len(a_dictionary['items']) )
 
-   print(compute_average_mass(ml_data))
+   print(compute_average_quantity(grocery_data))
 
-Since we will be working with lists of dictionaries most frequently in this class,
-it makes more sense to send it a list of dictionaries data structure and the
-name of the key to extract.
+It would be better practices to try and generalize this function
+by sending it a list of dictionaries data structure and the
+name of the key to extract. This way it can be used by others without needed
+to adhere to the restrictions in the previous code.
 
 
 .. code-block:: python3
 
    # GOOD
-   def compute_average_mass(a_list_of_dicts, a_key_string):
-       total_mass = 0.
+   def compute_average_quantity(a_list_of_dicts, a_key_string):
+       total_quantity = 0.
        for item in a_list_of_dicts:
-           total_mass += float(item[a_key_string])
-       return(total_mass / len(a_list_of_dicts) )
+           total_quantity += float(item[a_key_string])
+       return(total_quantity / len(a_list_of_dicts) )
 
-   print(compute_average_mass(ml_data['meteorite_landings'] ,'mass (g)' ))
-
-
+   print(compute_average_quantity(grocery_data['items'] ,'quantity' ))
 
 
-``check_hemisphere``
+
+
+``calc_total_price``
 ~~~~~~~~~~~~~~~~~~~~
 
-The ``check_hemisphere`` function is very similar - we send it *something* and
+The ``calc_total_price`` function is very similar - we send it *something* and
 it returns (or prints) a string.
 
 .. code-block:: python3
 
-   def check_hemisphere( xyz )
+   def calc_total_price( xyz )
        # run through some conditionals
-       return(location)
+       return(calculated_price)
 
 Here we could have also sent a list of dictionaries along with the names of two
-keys representing the latitude and longitude. That would have been ok, and would
-have worked for most of the data structures we use in this class.
+keys representing the quantities and price for a single item. That would have been ok.
 
 .. code-block:: python3
 
    # NOT TERRIBLE
-   def check_hemisphere(a_list_of_dicts, lat_key, long_key):
+   def calc_total_price(a_list_of_dicts, price_key, quantity_key):
        for item in a_list_of_dicts:
-           location = 'Northern' if (float(item[lat_key]) > 0) else 'Southern'
-           location = f'{location} & Eastern' if (float(item[long_key]) > 0) else f'{location} & Western'
-           print(location)
+            total_price = float(item[price_key]) * float(item[quantity_key]
+            print(total_price)
        return
 
-   check_hemisphere(ml_data['meteorite_landings'], 'reclat', 'reclong')
+   calc_total_price(grocery_data['items'], 'price', 'quantity')
 
 
 However, to make it even more generalizable, we could abstract one layer further
-and just send it two floats: latitude and longitude. That would make the function
+and just send it two floats: price and quantity. That would make the function
 useful for our list of dictionaries data structure, and for one-off checks given
 just a pair of floats:
 
 .. code-block:: python3
 
-   # BETTER
-   def check_hemisphere(latitude, longitude):
-       location = 'Northern' if (latitude > 0) else 'Southern'
-       location = f'{location} & Eastern' if (longitude > 0) else f'{location} & Western'
-       return(location)
+    # BETTER
+    def calc_total_price(price, quantity):
+        total_price = price * quantity
+        return(total_price)
 
-   for row in ml_data['meteorite_landings']:
-       print(check_hemisphere(float(row['reclat']), float(row['reclong'])))
+   for row in grocery_data['items']:
+       print(calc_total_price(float(row['price']), float(row['quantity'])))
 
 
 EXERCISE
 ~~~~~~~~
 
-Write a new function to count how many of each 'class' of meteorite there is
+Write a new function to count how many of each 'category' of items there is
 in the list. The output should look something like:
 
 .. code-block:: console
 
-   type, number
-   H, 1
-   H4, 2
-   L6, 6
-   ...etc
+    type, number
+    Frozen Foods : 3
+    Bakery : 2 
+    Meat : 1   
+    Dairy : 2  
+    Produce : 2
 
 Consider carefully what inputs you are sending to the function. How can you write
 it in a generalizable way?
@@ -276,14 +275,18 @@ Next, you also need to make the script executable using the Linux command
 
 .. code-block:: console
 
-   [student-login]$ chmod u+x ml_data_analysis.py
+   [student-login]$ chmod u+x groceries.py
+
+.. note::
+
+   Your command may be different if you are running on a Windows based machine.
 
 That enables you to call the Python3 code within as a standalone executable without
 invoking the interpreter on the command line:
 
 .. code-block:: console
 
-   [student-login]$ ./ml_data_analysis.py
+   [student-login]$ ./groceries.py
 
 This is helpful to lock in a Python version (e.g. Python3) for a script that may
 be executed on multiple different machines or in various environments.
