@@ -86,73 +86,76 @@ Let's look at one more example using a real function:
    Notice above we are using more-or-less complete sentences with proper grammar.
 
 
-Next, let's add docstrings to our ``ml_data_analysis.py`` code we have been
+Next, let's add docstrings to our ``groceries.py`` code we have been
 working on:
 
 .. code-block:: python3
     :linenos:
-    :emphasize-lines: 5-17,24-34,40-42
+    :emphasize-lines: 5-17,26-36,42-44
 
     #!/usr/bin/env python3
     import json
 
-    def compute_average_mass(a_list_of_dicts, a_key_string):
+    def compute_average_quantity(a_list_of_dicts, a_key_string):
         """
-        Iterates through a list of dictionaries, pulling out values associated with
+        Iterate through a list of dictionaries, pulling out values associated with
         a given key. Returns the average of those values.
 
         Args:
             a_list_of_dicts (list): A list of dictionaries, each dict should have the
                                     same set of keys.
             a_key_string (string): A key that appears in each dictionary associated
-                                   with the desired value (will enforce float type).
+                                with the desired value( will enforce float type).
 
         Returns:
             result (float): Average value.
         """
-        total_mass = 0.
-        for item in a_list_of_dicts:
-            total_mass += float(item[a_key_string])
-        return(total_mass / len(a_list_of_dicts) )
 
-    def check_hemisphere(latitude, longitude):
+        total_quantity = 0
+        for item in a_list_of_dicts:
+            total_quantity += item[ a_key_string ]
+
+        return int( total_quantity / len( a_list_of_dicts ) )
+
+    def calc_total_price( price, quantity ):
         """
-        Given latitude and longitude in decimal notation, returns which hemispheres
-        those coordinates land in.
+        Given a price and quantity, calculate to total price of items in stock and return
+        the calculated amount.
 
         Args:
-            latitude (float): Latitude in decimal notation.
-            longitude (float): Longitude in decimal notation.
+            price (float): price of an item
+            quantity (float): amount of an item the grocery store has in stock
 
         Returns:
-            location (string): Short string listing two hemispheres.
+            total_price (float): total calculated price of item.
         """
-        location = 'Northern' if (latitude > 0) else 'Southern'
-        location = f'{location} & Eastern' if (longitude > 0) else f'{location} & Western'
-        return(location)
+        
+        total_price = price * quantity
+        return total_price
 
-    def count_classes(a_list_of_dicts, a_key_string):
+    def count_categories(a_list_of_dicts, a_key_string):
         """
         ???
         """
-        classes_observed = {}
+        categories_observed = {}
         for item in a_list_of_dicts:
-            if item[a_key_string] in classes_observed:
-                classes_observed[item[a_key_string]] += 1
+            if item[a_key_string] in categories_observed:
+                categories_observed[item[a_key_string]] += 1
             else:
-                classes_observed[item[a_key_string]] = 1
-        return(classes_observed)
+                categories_observed[item[a_key_string]] = 1
+        return(categories_observed)
 
     def main():
-        with open('Meteorite_Landings.json', 'r') as f:
-            ml_data = json.load(f)
+        with open('groceries.json', 'r') as f:
+            grocery_data = json.load( f )
 
-        print(compute_average_mass(ml_data['meteorite_landings'], 'mass (g)'))
+        print( compute_average_quantity( grocery_data['items'], 'quantity' ) )
 
-        for row in ml_data['meteorite_landings']:
-            print(check_hemisphere(float(row['reclat']), float(row['reclong'])))
+        for row in grocery_data['items']:
+            total_price = calc_total_price( float( row['price']), float( row['quantity'] ) ) 
+            print(f'Total Price: {total_price:.2f}')
 
-        print(count_classes(ml_data['meteorite_landings'], 'recclass'))
+        print( count_categories( grocery_data['items'], 'category' ) )
 
     if __name__ == '__main__':
         main()
@@ -167,13 +170,13 @@ the Args and Returns sections.
 EXERCISE
 ~~~~~~~~
 
-Write the missing docstring for the ``count_classes()`` function above.
+Write the missing docstring for the ``count_categories()`` function above.
 
 
 EXERCISE
 ~~~~~~~~
 
-Open up the Python3 interactive interpreter. Import your ``ml_data_analysis.py``
+Open up the Python3 interactive interpreter. Import your ``groceries.py``
 methods. Use the commands ``dir()`` and ``help()`` to find and read the docstrings
 that you wrote.
 
@@ -212,27 +215,27 @@ Let's look at an example using a real function:
        return(result)
 
 
-Next, add type hints to the function definitions of the ``ml_data_analysis.py``
+Next, add type hints to the function definitions of the ``groceries.py``
 script (only showing snippets below):
 
 .. code-block:: python3
 
    from typing import List
-   def compute_average_mass(a_list_of_dicts: List[dict], a_key_string: str) -> float:
+   def compute_average_quantity(a_list_of_dicts: List[dict], a_key_string: str) -> float:
 
 .. code-block:: python3
 
-   def check_hemisphere(latitude: float, longitude: float) -> str:
+   def calc_total_price(price: float, quantity: float) -> float:
 
 .. code-block:: python3
 
-   def count_classes(a_list_of_dicts, a_key_string):  # what about this one?
+   def count_categories(a_list_of_dicts, a_key_string):  # what about this one?
 
 In the first example above we need to include the line ``from typing import List``
 to get access to a special object called ``List`` (capital **L**).
 We use that to object to not only hint that ``a_list_of_dicts`` should be a list,
 but it also includes information about what type of list we expect - in this case
-it is a list of dictionaries. In Python3.8 you cannot do this with the normal
+it is a list of dictionaries. In Python3.8 > you cannot do this with the normal
 ``list`` (lowercase **l**) object.
 
 Although Python3 does not check or enforce types at run time, there are other
