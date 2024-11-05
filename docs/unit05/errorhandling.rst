@@ -1,8 +1,7 @@
 Error Handling
 ==============
 
-Error handling is an important part of data science. Even syntactically-sound
-code can run into errors if the input data is messy. Being able to understand
+Error handling is an important part of any piece of software. Being able to understand
 error messages, anticipate where errors might happen, and program defensively 
 against errors will make your code more robust. After working through this 
 module, students should be able to:
@@ -36,44 +35,43 @@ Why Do We Need Error Handling?
 `Source <https://betterprogramming.pub/handling-errors-in-python-9f1b32952423>`_
 
 
-Errors in Data
+Common Errors
 --------------
 
-Imagine you have a data set of meteorite landings in a list-of-dictionaries 
-format, and that one of the descriptors for each meteorite was ``mass``. You
-might reasonable expect each ``mass`` to have a value that is a positive number.
+Imagine you have list-of-dictionaries format, similar to the groceries 
+data we have been using. One of the descriptors for each item was ``quantity``. You
+might reasonable expect each ``quantity`` to have a value that is a positive number.
 
 .. code-block:: python3 
 
-   >>> from ml_data_analysis import compute_average_mass
+   >>> from groceries import compute_average_quantity
    >>> 
-   >>> data = [ {'mass': 10},
-   ...          {'mass': 20},
-   ...          {'mass': 40},
-   ...          {'mass': 30} ]
+   >>> data = [ {'quantity': 10},
+   ...          {'quantity': 20},
+   ...          {'quantity': 40},
+   ...          {'quantity': 30} ]
    >>> 
-   >>> compute_average_mass(data, 'mass')
+   >>> compute_average_quantity(data, 'quantity')
    25.0
 
-We have been through the code in ``compute_average_mass`` many times at this
+We have been through the code in ``compute_average_quantity`` many times at this
 point and we are pretty sure it is free of errors. But, what if the error comes 
 from the data?
 
 .. code-block:: python3 
 
-   >>> from ml_data_analysis import compute_average_mass
-   >>> 
-   >>> data = [ {'mass': 10},
-   ...          {'mass': 20},
-   ...          {'mass': 40},
-   ...          {'mass': None} ]
-   >>> 
-   >>> compute_average_mass(data, 'mass')
-   Traceback (most recent call last):
-     File "<stdin>", line 1, in <module>
-     File "/home/wallen/coe-332/working-with-json/ml_data_analysis.py", line 6, in compute_average_mass
-       total_mass += float(item[a_key_string])
-   TypeError: float() argument must be a string or a number, not 'NoneType'
+  >>> from groceries import compute_average_quantity
+  >>> data = [ {'quantity': 10},
+  ...          {'quantity': 20},
+  ...          {'quantity': 40},
+  ...          {'quantity': None} ]
+  >>> compute_average_quantity(data, 'quantity')
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    File "/Users/ajs2987/projects/cs401/docs/unit05/scripts/groceries.py", line 22, in compute_average_quantity
+      total_quantity += float(item[ a_key_string ])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  TypeError: float() argument must be a string or a real number, not 'NoneType'
 
 
 At this point we need to make a choice. If we have input data which could be
@@ -191,17 +189,18 @@ A few notes:
 
 
 
-Consider again our meteorite landing data, and the original ``compute_average_mass``
+Consider again our grocery data, and the original ``compute_average_quantity``
 function:
 
 .. code-block:: python3
-   :linenos:
+  :linenos:
 
-   def compute_average_mass(a_list_of_dicts, a_key_string):
-       total_mass = 0.
-       for item in a_list_of_dicts:
-           total_mass += float(item[a_key_string])
-       return(total_mass / len(a_list_of_dicts) )
+  def compute_average_quantity(a_list_of_dicts, a_key_string):
+    total_quantity = 0.
+    for item in a_list_of_dicts:
+        total_quantity += float(item[ a_key_string ])
+
+    return ( total_quantity / len( a_list_of_dicts ) )
 
 
 
@@ -209,18 +208,19 @@ And update it as follows:
 
 
 .. code-block:: python3
-   :linenos:
+  :linenos:
 
-   def compute_average_mass_new(a_list_of_dicts, a_key_string):
-       total_mass = 0.
-       num_of_valid_masses = 0
-       for item in a_list_of_dicts:
-           try: 
-               total_mass += float(item[a_key_string])
-               num_of_valid_masses += 1
-           except TypeError:
-               logging.warning(f'encountered non-float value {item[a_key_string]} in compute_average_mass')
-       return(total_mass / num_of_valid_masses)
+  def compute_average_quantity(a_list_of_dicts, a_key_string):
+    total_quantity = 0.
+    num_valid_quantities = 0
+    for item in a_list_of_dicts:
+        try:
+            total_quantity += float(item[ a_key_string ])
+            num_valid_quantities += 1
+        except TypeError:
+            logging.warning(f'encountered non-float value {item[a_key_string]} in compute_average_quantity')
+    
+    return ( total_quantity / num_valid_quantities )
 
 
 If a ``TypeError`` is raised in the ``try`` block, (i.e. beause ``item[a_key_string]``
@@ -234,15 +234,15 @@ With this modified function, we can execute our lines of code from above:
 
 .. code-block:: python3 
 
-   >>> from ml_data_analysis import compute_average_mass_new
+   >>> from groceries import compute_average_quantity
    >>> 
-   >>> data = [ {'mass': 10},
-   ...          {'mass': 20},
-   ...          {'mass': 40},
-   ...          {'mass': None} ]
+   >>> data = [ {'quantity': 10},
+   ...          {'quantity': 20},
+   ...          {'quantity': 40},
+   ...          {'quantity': None} ]
    >>> 
-   >>> compute_average_mass_new(data, 'mass')
-   WARNING: encountered non-float value None in compute_average_mass_new
+   >>> compute_average_quantity(data, 'quantity')
+   WARNING: encountered non-float value None in compute_average_quantity
    23.333333333333332
 
 
