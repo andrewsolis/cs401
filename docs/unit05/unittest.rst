@@ -23,18 +23,19 @@ your code. They should demonstrate that things that are expected to work
 actually do work, and things that are expected to break raise appropriate errors.
 The Python ``pytest`` unit testing framework supports test automation, set up
 and shut down code for tests, and aggregation of tests into collections. It is
-not part of the Python Standard Library, so we must install it.
+not part of the Python Standard Library, so we must install it. Make sure to load
+a virtual environment if you are using one (which we highly recommend!).
 
 .. code-block:: console
 
-   [student-login]$ pip3 install --user pytest
+   [terminal]$ pip install pytest
 
-Find the `documentation here <https://docs.pytest.org/en/7.0.x/>`_.
+Find the `documentation here <https://docs.pytest.org>`_.
 
 Pull a copy of the
-`meteorite landings data analysis script <https://raw.githubusercontent.com/TACC/coe-332-sp24/main/docs/unit03/scripts/ml_data_analysis.py>`_
+`groceries script <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit05/scripts/groceries.py>`_
 we have been working on, and a copy of the
-`meteorite landings json file <https://raw.githubusercontent.com/TACC/coe-332-sp24/main/docs/unit02/sample-data/Meteorite_Landings.json>`_,
+`groceries json file <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit05/scripts/groceries.json>`_,
 if you don't have copies already.
 
 
@@ -42,17 +43,17 @@ Devise a Reasonable Test
 ------------------------
 
 The functions in this Python3 script are relatively simple, but how can we be
-sure they are working as intended? Let's begin with the ``compute_average_mass()``
+sure they are working as intended? Let's begin with the ``compute_average_quantity()``
 function. We might choose to test it manually using the Python3 interactive
 interpreter:
 
 .. code-block:: python3
 
-   >>> from ml_data_analysis import compute_average_mass
+   >>> from groceries import compute_average_quantity
    >>>
    >>> data = [{'thing': 1}, {'thing': 2}]
    >>>
-   >>> print(compute_average_mass(data, 'thing'))
+   >>> print(compute_average_quantity(data, 'thing'))
    1.5
 
 So simple! We import our code, hand-craft a simple data structure, and send the
@@ -68,19 +69,19 @@ prefix added at the beginning.
 
 .. code-block:: console
 
-   [student-login]$ ls
-   Meteorite_Landings.json  ml_data_analysis.py
-   [student-login]$ touch test_ml_data_analysis.py
-   [student-login]$ ls
-   Meteorite_Landings.json  ml_data_analysis.py  test_ml_data_analysis.py
+   [terminal]$ ls
+   groceries.json  groceries.py
+   [terminal]$ touch test_groceries.py
+   [terminal]$ ls
+   groceries.json  groceries.py  test_groceries.py
 
 
-Open up the script with VIM and put in our testing code from before:
+Open up the script and put in our testing code from before:
 
 .. code-block:: python3
    :linenos:
 
-   from ml_data_analysis import compute_average_mass
+   from groceries import compute_average_quantity
 
    data = [{'thing': 1}, {'thing': 2}]
    print(compute_average_mass(data, 'thing'))
@@ -90,7 +91,7 @@ Next try to execute the test script on the command line:
 
 .. code-block:: console
 
-   [student-login]$ python3 test_ml_data_analysis.py
+   [terminal]$ python test_groceries.py
    1.5
 
 Great! We assume the test is working. But we still have to look at the output
@@ -101,12 +102,13 @@ statement.
 
 .. code-block:: python3
    :linenos:
-   :emphasize-lines: 4
+   :emphasize-lines: 5
 
-   from ml_data_analysis import compute_average_mass
+   from groceries import compute_average_quantity
 
    data = [{'thing': 1}, {'thing': 2}]
-   assert(compute_average_mass(data, 'thing') == 1.5)
+
+   assert( compute_average_quantity( data, 'thing' ) == 1.5 )
 
 Now instead of printing the result, we use ``assert`` to make sure it is equal
 to our expected outcome. If the conditional is true, nothing will be printed. If
@@ -134,13 +136,13 @@ and there is an executable called ``pytest`` in your PATH:
 
 .. code-block:: console
 
-   [student-login]$ pytest --version
+   [terminal]$ pytest --version
    pytest 8.0.0
 
 
 Next, we just need to make a minor organizational change to our test code. We
 group all of our tests for a given function (e.g. all the tests for 
-``compute_average_mass``) into their own function. By convention, we typically
+``compute_average_quantity``) into their own function. By convention, we typically
 name that function as "``test_``" plus the name of the function we are testing.
 Pytest will automatically look in our working tree for files that start with the
 ``test_`` prefix, and execute the test functions within.
@@ -149,12 +151,12 @@ Pytest will automatically look in our working tree for files that start with the
    :linenos:
    :emphasize-lines: 3
 
-   from ml_data_analysis import compute_average_mass
+   from groceries import compute_average_quantity
 
-   def test_compute_average_mass():
-       assert compute_average_mass([{'a': 1}, {'a': 2}], 'a') == 1.5
-       assert compute_average_mass([{'a': 1}, {'a': 2}, {'a': 3}], 'a') == 2
-       assert compute_average_mass([{'a': 10}, {'a': 1}, {'a': 1}], 'a') == 4
+   def test_compute_average_quantity():
+      assert compute_average_quantity([{'a': 1}, {'a': 2}], 'a') == 1.5
+      assert compute_average_quantity([{'a': 1}, {'a': 2}, {'a': 3}], 'a') == 2
+      assert compute_average_quantity([{'a': 10}, {'a': 1}, {'a': 1}], 'a') == 4
 
 
 Call the ``pytest`` executable in your top directory, it will find your test
@@ -163,14 +165,15 @@ informative output:
 
 .. code-block:: console
 
-   =================================== test session starts =====================================
-   platform linux -- Python 3.8.10, pytest-8.0.0, pluggy-1.4.0
-   rootdir: /home/wallen/coe-332/code-organization
+   ==================== test session starts ====================
+   platform darwin -- Python 3.12.4, pytest-8.3.3, pluggy-1.5.0
+   rootdir: /Users/ajs2987/projects/cs401/docs/unit05/scripts
+   plugins: anyio-4.6.2.post1
    collected 1 item
-   
-   test_ml_data_analysis.py .                                                            [100%]
-   
-   ==================================== 1 passed in 0.01s ======================================
+
+   test_groceries.py .                                                                                                           [100%]
+
+   ===================== 1 passed in 0.01s =====================
 
 
 What Else Should We Test?
@@ -178,7 +181,7 @@ What Else Should We Test?
 
 The simple tests we wrote above seem almost trivial, but they are actually great
 sanity tests to tell us that our code is working. What other behaviors of our
-``compute_average_mass()`` function should we test? In no particular order, we
+``compute_average_quantity()`` function should we test? In no particular order, we
 could test the following non-exhaustive list:
 
 * If the list only contains one dictionary object, the function still behaves as
@@ -206,42 +209,43 @@ organize them into their own functions.
    :linenos:
    :emphasize-lines: 11
 
-   from ml_data_analysis import compute_average_mass
+   from groceries import compute_average_quantity
    import pytest
 
-   def test_compute_average_mass():
-       assert compute_average_mass([{'a': 1}], 'a') == 1
-       assert compute_average_mass([{'a': 1}, {'a': 2}], 'a') == 1.5
-       assert compute_average_mass([{'a': 1}, {'a': 2}, {'a': 3}], 'a') == 2
-       assert compute_average_mass([{'a': 10}, {'a': 1}, {'a': 1}], 'a') == 4
-       assert isinstance(compute_average_mass([{'a': 1}, {'a': 2}], 'a'), float) == True
+   def test_compute_average_quantity():
+      assert compute_average_quantity([{'a': 1}], 'a') == 1
+      assert compute_average_quantity([{'a': 1}, {'a': 2}], 'a') == 1.5
+      assert compute_average_quantity([{'a': 1}, {'a': 2}, {'a': 3}], 'a') == 2
+      assert compute_average_quantity([{'a': 10}, {'a': 1}, {'a': 1}], 'a') == 4
+      assert isinstance(compute_average_quantity([{'a': 1}, {'a': 2}], 'a'), float) == True
 
-   def test_compute_average_mass_exceptions():
-       with pytest.raises(ZeroDivisionError):
-           compute_average_mass([], 'a')                               # send an empty list
-       with pytest.raises(KeyError):
-           compute_average_mass([{'a': 1}, {'b': 1}], 'a')             # dictionaries not uniform
-       with pytest.raises(ValueError):
-           compute_average_mass([{'a': 1}, {'a': 'x'}], 'a')           # value not a float
-       with pytest.raises(KeyError):
-           compute_average_mass([{'a': 1}, {'a': 2}], 'b')             # key not in dicts
+   def test_compute_average_quantity_exceptions():
+      with pytest.raises(ZeroDivisionError):
+         compute_average_quantity([], 'a')                               # send an empty list
+      with pytest.raises(KeyError):
+         compute_average_quantity([{'a': 1}, {'b': 1}], 'a')             # dictionaries not uniform
+      with pytest.raises(ValueError):
+         compute_average_quantity([{'a': 1}, {'a': 'x'}], 'a')           # value not a float
+      with pytest.raises(KeyError):
+         compute_average_quantity([{'a': 1}, {'a': 2}], 'b')             # key not in dicts
 
 
 After adding the above tests, run ``pytest`` again:
 
 .. code-block:: console
 
-   =================================== test session starts =====================================
-   platform linux -- Python 3.8.10, pytest-8.0.0, pluggy-1.4.0
-   rootdir: /home/wallen/coe-332/code-organization
+   ==================== test session starts ====================
+   platform darwin -- Python 3.12.4, pytest-8.3.3, pluggy-1.5.0
+   rootdir: /Users/ajs2987/projects/cs401/docs/unit05/scripts
+   plugins: anyio-4.6.2.post1
    collected 2 items
-   
-   test_ml_data_analysis.py ..                                                           [100%]
-   
-   ==================================== 2 passed in 0.01s ======================================
+
+   test_groceries.py ..                                                                                                          [100%]
+
+   ===================== 2 passed in 0.02s =====================
 
 Success! The tests for our first function are passing. Our test suite essentially
-documents our intent for the behavior of the ``compute_average_mass()`` function.
+documents our intent for the behavior of the ``compute_average_quantity()`` function.
 And, if ever we change the code in that function, we can see if the behavior we
 intend still passes the test.
 
@@ -251,8 +255,8 @@ EXERCISE
 
 In the same test script, but under new test function definitions:
 
-* Write tests for the ``check_hemisphere()`` function
-* Write tests for the ``count_classes()`` function
+* Write tests for the ``calc_total_price()`` function
+* Write tests for the ``count_categories()`` function
 
 
 Capturing Standard Out
