@@ -1,14 +1,15 @@
-Unit 7: Databases, Persistence, and Redis
-=========================================
+Unit 7: Web Development
+======================
 
-In this unit, we will implement a Redis database to store our data sets
-such that they persist beyond the lifetime of our application containers.
-We will also learn how to query our data from within a Python script, and
-connect our containerized Flask API with a containerized Redis database.
+Any User Interface (UI) should be efffective in bridging
+the gap between the information being shown, and allowing users to interact
+with their system. Web technologies are one of the most commonly used development
+tools for software engineering. In this module we will explore concepts related to 
+web development. We will learn about styling and layouts of websites, as 
+well as what modern technologies are used for websites today.
 
 .. toctree::
    :maxdepth: 1
 
-   intro_to_redis
-   redis_and_flask
+   web_introduction
 

@@ -25,29 +25,16 @@ the concepts and topics discussed.
    unit04/overview
    unit05/overview
    unit06/overview
+   unit07/overview
 
 .. toctree::
    :maxdepth: 1
    :caption: Homeworks
 
-   homework/homework01.rst
-   homework/homework02.rst
-   homework/homework03.rst
-   homework/homework04.rst
-   homework/homework05.rst
-   homework/homework06.rst    
-   homework/homework07.rst
-   homework/homework08.rst
-
 .. toctree::
    :maxdepth: 1
    :caption: Project
    
-   project/overview.rst
-   project/phase01.rst
-   project/phase02.rst
-   project/phase03.rst
-   project/phase04.rst
 
 Additional Resources
 --------------------
