@@ -1,5 +1,5 @@
 Unit 7: Web Development
-======================
+=======================
 
 Any User Interface (UI) should be efffective in bridging
 the gap between the information being shown, and allowing users to interact
@@ -11,5 +11,4 @@ well as what modern technologies are used for websites today.
 .. toctree::
    :maxdepth: 1
 
-   web_introduction
 

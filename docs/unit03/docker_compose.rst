@@ -210,6 +210,7 @@ container looked like the following:
 
    [terminal]$ docker run --rm -v $PWD:/data username/gen_collatz:1.0 gen_collatz.py /data/data.txt
    [terminal]$ docker run --rm -v $PWD/data.txt:/data/data.txt username/collatz:1.0 collatz.py /data/data.txt
+
 The above ``docker run`` commands can be loosely translated into a YAML file.
 Navigate to the folder that contains your Python scripts and Dockerfiles, then
 create a new empty file called ``docker compose.yml``:

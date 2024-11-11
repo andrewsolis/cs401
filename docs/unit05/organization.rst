@@ -141,7 +141,7 @@ ahead about how else you might use the function, think about what form the input
 data takes, and try not to hardcode indices or variable names.
 
 ``compute_average_quantity``
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In our ``compute_average_quantity`` function, we knew we needed to send it *something*,
 and we knew it needed to return an average amount. The main question was what form

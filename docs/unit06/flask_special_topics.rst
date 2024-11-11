@@ -119,7 +119,7 @@ called ``ngrok`` can be used to provide a reverse proxy on the fly.
    To do this, you need an ngrok account and access token, which can be
    obtained `here <https://dashboard.ngrok.com/signup>`_
 
-First, install ``ngrok`` by following the tutorial `here <https://dashboard.ngrok.com/get-started/setup/windows>`_ 
+First, install ``ngrok`` by following this `tutorial <https://dashboard.ngrok.com/get-started/setup/windows>`_ 
 once your account is created and setup.
 
 Confirm ``ngrok`` is working and add your

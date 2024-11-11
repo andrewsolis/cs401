@@ -246,9 +246,11 @@ EXERCISE 6
 2) Use ``curl`` again to make the same request, but this time pass the ``--head``
    option instead of the ``-v``; this will show you **only** the headers being
    returned in the response. 
+
 .. warning::
 
    some options might be different or unavailable on Windows
+
 3) Inside a Python shell, use ``requests`` to make the same GET request to your ``/degrees``
    endpoint, and capture the result in a variable, ``r``. Inspect the ``r.headers`` attribute.
    What is the type of ``r.headers``?
