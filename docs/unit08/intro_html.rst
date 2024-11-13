@@ -37,6 +37,31 @@ Once completed your stucture should look similar to the one shown below:
 It's okay to not understand what these folders do just yet. The following explanations will give you a better understanding of what goes into 
 each of these folders/files.
 
+Python3 comes with a with a module for creating a simple `HTTP server <https://docs.python.org/3/library/http.server.html>`_. This allows you the ability
+to create a simple webserver for a specific directory. This is particularly useful if you want to test more than just the layout of your site, but also
+load javascript files and run those within the website. To create a simple http server for our project, navigate to the directory and then run
+the following command: 
+
+.. code-block:: console
+
+    [terminal]$ cd chaminadesite
+    [terminal]$ python -m http.server
+
+Once your server is up and running, navigate to http://localhost:8000/ to view your website. You should see a blank page with the text ``Hello world!``
+
+
+.. figure:: ./images/helloworld.png
+    :width: 600px
+    :align: center
+
+    Hello World Webpage
+
+.. note::
+
+   The command for python2 is a little different: ``python -m SimpleHTTPServer`` 
+
+Can you take a guess why we don't have to specify our `index.html` file in our web url?  
+
 What is HTML?
 --------------
 
@@ -46,7 +71,7 @@ a website. It consists of a series of **elements** which you use to wrap around 
 of the content to make them appear a certain way. Elements are created using **tag**\s that specify
 the type of element. We will explore some of the common elements found in HTML.
 
-Say we wanted to insert our sentence below into a tag.
+Say we wanted to modify the text in our `Hello World!` text inside our ``index.html`` to be this instead.
 
 .. code-block:: html
     :linenos:
@@ -67,7 +92,6 @@ There are 4 main parts of our HTML element:
 2. **Closing tag** - The same as the opening tag except it includes an extra slash to denote it is the closing tag, in our case ``</p>``. This is where the content for this tag ends.
 3. **Content** - This is what we place inside of our tag. In our case it is the sentence ``Chaminade University is where I go``, but it can get anything, including other tags.
 4. **Element** - This is the combination of everything. This includes our opening and closing tag, and content. Our element would be ``<p>Chaminade University is where I go.</p>``
-
 
 
 
