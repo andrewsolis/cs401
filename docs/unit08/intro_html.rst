@@ -24,13 +24,13 @@ one denoted below:
 4. ``styles`` **folder** - Folder containing *CSS* code to style our website. Contained within the ``sitename`` folder.
 5. ``scripts`` **folder** - Contains *Javascript* code for our website. Contained within the ``sitename`` folder.
 
-Create a folder named ``chaminadesite``. Then within that folder create the three previously mentioned folders. Also copy the ``index.html`` from 
-the git repo `here <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit08/resources/indexl.html>`_ and place it into the folder.
+Create a folder named ``newsite``. Then within that folder create the three previously mentioned folders. Also copy the ``index.html`` from 
+the git repo `here <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit08/resources/index.html>`_ and place it into the folder.
 Once completed your stucture should look similar to the one shown below:
 
 .. code-block:: console
 
-    [terminal]$ cd chaminadesite
+    [terminal]$ cd newsite
     [terminal]$ ls
     images index.html scripts styles
 
@@ -44,7 +44,7 @@ the following command:
 
 .. code-block:: console
 
-    [terminal]$ cd chaminadesite
+    [terminal]$ cd newsite
     [terminal]$ python -m http.server
 
 Once your server is up and running, navigate to http://localhost:8000/ to view your website. You should see a blank page with the text ``Hello world!``
@@ -62,8 +62,8 @@ Once your server is up and running, navigate to http://localhost:8000/ to view y
 
 Can you take a guess why we don't have to specify our `index.html` file in our web url?  
 
-What is HTML?
---------------
+HTML element
+------------
 
 HTML, or **H**\yper **T**\ext **M**\arkup **L**\anguage, is exactly what is sounds like. It
 is a *markup* language that defines the structure of the content, in this case the content for
@@ -71,12 +71,12 @@ a website. It consists of a series of **elements** which you use to wrap around 
 of the content to make them appear a certain way. Elements are created using **tag**\s that specify
 the type of element. We will explore some of the common elements found in HTML.
 
-Say we wanted to modify the text in our `Hello World!` text inside our ``index.html`` to be this instead.
+Say we are a delivery company, and we wanted to modify the text in our `Hello World!` text inside our ``index.html`` to be our motto instead.
 
 .. code-block:: html
     :linenos:
 
-    Chaminade University is where I go.
+    Our crew is replaceable, your package isn't!
 
 If we just had this simple sentence then we could insert it into a **paragraph** tag, which is denoted by
 using the **p** tag.
@@ -84,18 +84,160 @@ using the **p** tag.
 .. code-block:: html
     :linenos:
 
-    <p>Chaminade University is where I go.</p>
+    <p>Our crew is replaceable, your package isn't!</p>
 
 There are 4 main parts of our HTML element:
 
 1. **Opening Tag** - The name of the tag we like to use in our case ``<p>``. This is where the content for this particular tag starts. 
 2. **Closing tag** - The same as the opening tag except it includes an extra slash to denote it is the closing tag, in our case ``</p>``. This is where the content for this tag ends.
-3. **Content** - This is what we place inside of our tag. In our case it is the sentence ``Chaminade University is where I go``, but it can get anything, including other tags.
-4. **Element** - This is the combination of everything. This includes our opening and closing tag, and content. Our element would be ``<p>Chaminade University is where I go.</p>``
+3. **Content** - This is what we place inside of our tag. In our case it is the sentence ``Our crew is replaceable, your package isn't!``, but it can get anything, including other tags.
+4. **Element** - This is the combination of everything. This includes our opening and closing tag, and content. Our element would be ``<p>Our crew is replaceable, your package isn't!.</p>``
 
+Elements can also have `attributes`, like so:
+
+.. code-block:: html
+    :linenos:
+
+    <p class="title">Our crew is replaceable, your package isn't!</p>
+
+Here ``class="title"`` would be our attributes. You can think of attributes as extra information about the element that don't 
+appear in the actual content, but change the element. `class` would be the **attribute** name, and `title` would be the attribute **value**. 
+
+An HTML element can have multiple attributes that are space separated, but all follow the same, or similar format, as the previous example.
+
+.. note::
+
+   Some elements may have **boolean** attributes. These may not be followed by quotations mark, such as the **hidden** attribute: 
+   ``<p hidden>Our crew is replaceable, your package isn't!</p>``. This would work just the same if our attribute was ``hidden="true"``.
+
+Nesting Elements
+~~~~~~~~~~~~~~~~
+
+Other elements can be placed inside of others called **nesting**. For example, say we wanted to use the ``<strong>`` tag to make part of our text bold. 
+We could nest it within our ``<p>`` tag like below. Give it a try and see what it does.
+
+.. code-block:: html
+    :linenos:
+
+    <p class="title">Our <strong>crew</strong> is replaceable, your package isn't!</p>
+
+.. warning::
+
+    Always make sure that those elements that have an opening and closing tag are properly closed. Otherwise you may get an error.
+
+Void Elements
+~~~~~~~~~~~~~
+
+Some elements are also known as **void** elements where they do not have content. All the information in the tags is what is used for 
+rendering the element. For example, if we wanted to use the ``<img>`` tag to insert an image into our page. We could 
+place it just below our ``<p>`` tag. First copy the image `here <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit08/resources/index.html>`_
+into your ``images`` directory. Once it is there then place the following tag below:
+
+.. code-block:: html
+    :linenos:
+
+    <p class="title">Our <strong>crew</strong> is replaceable, your package isn't!</p>
+    <img src="images/planet_express.png" alt="My test image" />
+
+The two attributes in the ``img`` tag contain all the information necessary for our image, and you will notice that a **/** is at 
+the end of our tag. There is no content because no text, elements are needed to render the image, everything is taken care of
+by the tag alone.
+
+Anatomy of HTML Document
+------------------------
+
+Up to now we have only been messing with content inside of the ``<body>`` of our file. But if you look at the complete file there are
+multiple other elements spread through it. 
+
+.. code-block:: html
+    :linenos:
+
+    <!doctype html>
+    <html lang="en-US">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+            <title>Unnamed Title</title>
+        </head>
+        <body>
+            <!-- Content -->
+            ................
+        </body>
+    </html>
+
+Let's take a look at what each of these tags do:
+
+-  ``<!doctype html>`` - This is an arachaic statement that is simply required for it to run. When HTML first started it was good practice to define a doctype to automatically apply rules to test for errors in a file. 
+- ``<html></html>`` - This element wraps all content for the page and is sometimes known as the **root** element. A `lang` attribute may be included to specify the language of the website.
+- ``<head></head>`` - This acts as a container for all other content for the website/webpage that is **not** content you want to show up. This includes things like page descriptions, titles, CSS javascript files among other options.
+- ``<meta charset="utf-8">`` - This element sets the character encoding standard for our webpage, which in this case is **UTF-8**. This is the usual setting and is best to set to avoid possible errors.
+- ``<title></title>`` - Sets the title of your page, which appears in the browser tab page, or also the bookmark when saved.
+- ``<body></boddy>`` - Contains `all` content meant to shown on the website including text, images, videos, anything you can think of!
+
+Images
+------------------------
+
+Turning back to our `img` element, this element can be used for rendering images on our website. 
+
+.. code-block:: html
+    :linenos:
+
+    <img src="images/planet_express.png" alt="My test image" />
+
+From it we see there are two attributes: **src** and **alt**. 
+**src** contains the path to the image file we wish to render. The **alt** attribute is used as a descriptive text for users who cannot see the image.
+This can be for those who are visually impaired that use screen readers, or perhaps the image is no longer displaying and the **alt** text acts as a backup.
+Try changing the path for the **src** to something wrong and see what happens. 
+
+What happens if you try changing the src to a link to a picture instead of file on your computer?
+
+You can learn about the other attributes that are available for the **img** here https://www.w3schools.com/tags/tag_img.asp.
+
+Exercise 1
+~~~~~~~~~~
+Now that you have a general understanding of how HTML works, it's time to be creative. Modify your **index.html** based on the parameters listed below:
+
+1. Create a new website. You can use the skeleton of everything that was originally in the **index.html** file.
+#. Change the title to whatever title you like for your website. 
+#. Add a **p** tag with a description of your website.
+#. Add an image to your website. Use the previous provided link to specify the width and height of your **img** tag.
+
+So we have details about our website, but we also like to give it more structure than just the two tags we know now.
+
+Text markup
+-----------
+Certain elements allow to to specify when there are **headings** on your webpage. You can think of this similar to a book or article where subsections
+have smaller titles to specify each section. HTML contains 6 total levels of header sizes, though most of the time only 3 - 4 are used. 
+
+.. code-block:: html
+    :linenos:
+
+    <!-- 4 heading levels: -->
+    <h1>Biggeest text/title</h1>
+    <h2>first subheading</h2>
+    <h3>second level subheading</h3>
+    <h4>inception level subheading</h4>
+
+.. note::
+
+   An HTML **comment** is shown above with the following style: ``<!-- comment -->``
+
+As we saw before ``p`` elements are used for paragraphs of text.
+
+
+Exercise 2
+~~~~~~~~~~
+Try adding different header types to your ``index.html`` file.
+
+Lists
+~~~~~
+
+
+
+1. Span vs. Div
 
 
 Additional Resources
 --------------------
-
-* SOme of this materials is based on this module my Mozille to `Learn Web Development <https://developer.mozilla.org/en-US/docs/Learn>`_
+* `W3 Schools <https://www.w3schools.com/html/default.asp>`_
+* Some of this materials is based on this module my Mozille to `Learn Web Development <https://developer.mozilla.org/en-US/docs/Learn>`_
