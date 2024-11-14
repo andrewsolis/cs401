@@ -104,6 +104,8 @@ Here ``class="title"`` would be our attributes. You can think of attributes as e
 appear in the actual content, but change the element. `class` would be the **attribute** name, and `title` would be the attribute **value**. 
 
 An HTML element can have multiple attributes that are space separated, but all follow the same, or similar format, as the previous example.
+Attributes can be set with either single ``'`` or double ``"`` quotations. It is really up to the developer(s) which they prefer,
+but it is good practice to remain consistent to not confuse anyone looking at the source code.
 
 .. note::
 
@@ -299,7 +301,91 @@ In order to direct users to a different place, we need to place our path within 
     You might get unexpected results if you omit the ``https://`` or ``http://`` link, called the *protocol*.
 
 
-1. Span vs. Div
+Website Structure
+-----------------
+Web pages can look fairly complex and unique, but in general most of them follow a similar outline of containing similar components
+for each part of the website.
+
+- **header** - Row across the very top of the page. Usually stays the same on every page.
+- **navigation bar** - Links to the sites sections, represented by menu buttons, links, or tabs. Usually is the same across the pages, and generally a part of the header.
+- **main content** - Contains most of the content for the webpage, i.e. video, main story, map, etc.
+- **sidebar** - complementary information such as links, quotes, ads, etc. usually supplements what is inside the main content.
+- **footer** - Row across the bottom of the page that contains information such as fine print, copyright, notices, site map, and contact information. 
+
+With this in mind a typical website could look like the following:
+
+.. figure:: ./images/layout.png
+    :width: 600px
+    :align: center
+
+    Layout example
+
+.. note::
+
+    While this layout uses some of the common elements we have discusse, the actual styling for it's widths, height, colors, etc are done through CSS, which will be covered later.
+
+If we wanted to implement something similar, we could use HTML provided tags to do so.
+
+- **header**: ``<header>``
+- **navigation bar**: ``<nav>``
+- **main content**: ``<main>``
+- **sidebar**: ``<aside>`` (usually placed inside ``<main>``)
+- **footer**: ``<footer>``
+
+Exercise 2
+~~~~~~~~~~
+
+Now that we know a bit more about the layout of a page, it's time to apply it to our page. 
+Start from the base index.html file, use the same one you have and just modify it to meet these parameters.
+Imagine you have been hired to create a new website. 
+The folks are looking for a basic structure of the website with no styling just yet. 
+Follow the list of requirements below.
+
+- Set the title of the website
+- Inside of the body create the 5 required elements ``header``, ``nav``, ``main``, ``aside``, and ``footer`` (remember where ``aside`` goes)
+- Within the ``header`` add the following:
+    - header
+    - img
+- Within nav add the following:
+    - unordered list of three links
+- Within main add the following:
+    - heading
+    - paragraph with text
+- Within aside add the following:
+    - heading
+    - unorered list of 3 links related to website
+- Within footer add the following:
+    - paragraph with copyright text
+
+Once complete you should have something similar like below.
+
+.. figure:: ./images/finalwebsite.png
+    :width: 600px
+    :align: center
+
+    Initial Website
+
+Non-semantic wrappers
+~~~~~~~~~~~~~~~~~~~~~
+
+There are two specific elements which are common on websites. These act more as container elements from which other elements
+are inside that are actually rendered. The first is the ``<div>`` element. This is normally used for block level elements.
+This means elements that are to span the entire width of the webpage (usually). This is useful if we want to group things that
+don't necessarily follow into any of the elements we mentioned previously. 
+
+.. code-block:: html
+    :linenos:
+
+    <div>
+        <h2> Shopping Cart</h2>
+            <ul>
+                ...items...
+            </ul>
+    </div>
+
+``<span>`` is another common element, but is mostly used for wrapping around text you wish to style with CSS. This doesn't
+make the content go across the entire width the same that ``<div>`` does. Typically along with ``span`` the ``class`` attribute
+is set which we will cover later in this unit.
 
 Essential HTML Elements Summary
 --------------------------------
@@ -307,33 +393,37 @@ Essential HTML Elements Summary
 .. table:: 
     :widths: 20 60 20
 
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | Element        | Usage                                          | Link                                                              |
-    +================+================================================+===================================================================+
-    | <h(1-6)>       | Titles and subtitles                           | `link <https://www.w3schools.com/html/html_headings.asp>`_        |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <p>            | Block of text                                  | `link <https://www.w3schools.com/html/html_paragraphs.asp>`_      |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <!– comment –> | comment                                        | `link <https://www.w3schools.com/html/html_comments.asp>`_        |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <a>            | link                                           | `link <https://www.w3schools.com/html/html_links.asp>`_           |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <img>          | image                                          | `link <https://www.w3schools.com/html/html_images.asp>`_          |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <ul>           | unordered list                                 | `link <https://www.w3schools.com/html/html_lists_unordered.asp>`_ |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <ol>           | ordered list                                   | `link <https://www.w3schools.com/html/html_lists_ordered.asp>`_   |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <table>        | tables                                         | `link <https://www.w3schools.com/html/html_tables.asp>`_          |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <div>          | container (full width)                         | `link <https://www.w3schools.com/html/html_div.asp>`_             |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <span>         | container (inline)                             | `link <https://www.w3schools.com/tags/tag_span.asp>`_             |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <hr>           | horizontal line                                | `link <https://www.w3schools.com/tags/tag_hr.asp>`_               |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
-    | <br>           | line break                                     | `link <https://www.w3schools.com/tags/tag_br.asp>`_               |
-    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | Element        | Usage                        | Link                                                              |
+    +================+==============================+===================================================================+
+    | <h(1-6)>       | Titles and subtitles         | `link <https://www.w3schools.com/html/html_headings.asp>`_        |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <p>            | Block of text                | `link <https://www.w3schools.com/html/html_paragraphs.asp>`_      |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <!– text –>    | comment                      | `link <https://www.w3schools.com/html/html_comments.asp>`_        |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <a>            | link                         | `link <https://www.w3schools.com/html/html_links.asp>`_           |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <img>          | image                        | `link <https://www.w3schools.com/html/html_images.asp>`_          |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <ul>           | unordered list               | `link <https://www.w3schools.com/html/html_lists_unordered.asp>`_ |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <ol>           | ordered list                 | `link <https://www.w3schools.com/html/html_lists_ordered.asp>`_   |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <table>        | tables                       | `link <https://www.w3schools.com/html/html_tables.asp>`_          |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <div>          | container (full width)       | `link <https://www.w3schools.com/html/html_div.asp>`_             |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <span>         | container (inline)           | `link <https://www.w3schools.com/tags/tag_span.asp>`_             |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <hr>           | horizontal line              | `link <https://www.w3schools.com/tags/tag_hr.asp>`_               |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <br>           | line break                   | `link <https://www.w3schools.com/tags/tag_br.asp>`_               |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <strong>       | bold text                    | `link <https://www.w3schools.com/tags/tag_strong.asp>`_           |
+    +----------------+------------------------------+-------------------------------------------------------------------+
+    | <i>            | italic text                  | `link <https://www.w3schools.com/html/html_formatting.asp>`_      |
+    +----------------+------------------------------+-------------------------------------------------------------------+
 
 Additional Resources
 --------------------
