@@ -224,20 +224,118 @@ have smaller titles to specify each section. HTML contains 6 total levels of hea
 
 As we saw before ``p`` elements are used for paragraphs of text.
 
-
-Exercise 2
-~~~~~~~~~~
-Try adding different header types to your ``index.html`` file.
+Try adding different header types to your ``index.html`` file to see how they look.
 
 Lists
 ~~~~~
 
+Lots of text on website will end up using some form of lists. HTML has two types of elements for different types of List.
+
+1. **Unnordered List** - These are lists in which order does not matter, or no sense of numbering is valuable for the list being displayed.
+#. **Ordered List** - Lists in which order does matter, such as recipes.
+
+Imagine we wanted to replace all the content in our``body`` element with a list. What happens if you just use a ``p`` element?
+
+.. code-block:: html
+    :linenos:
+
+    <p>
+        Do my homework.
+        Then play video games.
+        Finally eat dinner.
+    </p>
+
+The text would just continue to be rendered as if it is all on one line. Even if you try adding spaces, new lines, it will still be on the same line.
+This is because the HTML parser that browsers use reduces all sequences of whitespaces and new lines into a single space when rendering.
+Whitespace however is user to still place in your code for readability. Just be sure to stick to a format so as not to confuse you are any
+other developers.
+
+HTML has 2 elements for each type of List: ``<ul>`` for unordered lists, and ``<ol>`` for ordered lists.
+Both use the nested element ``<li>`` to list out the elements to be listed.
+For example, if we wanted to change our list into an unordered list, we could do it like below.
+
+.. code-block:: html
+    :linenos:
+
+    <ul>
+        <li>Do my homework.        </li> 
+        <li>Then play video games. </li>         
+        <li>Finally eat dinner.    </li>     
+    </ul>
+
+Links
+~~~~~
+
+Link are an essential part of any website Adding a link can direct users to different parts of a website, a new website, forms, etc.
+Traditionally an ``a`` element is used, short for `anchor`. You can also make the text within a sentence a link.
+Everything that is in between the ``a`` is clickable text that acts as a link on the page.
+For example, say we wanted to change one of our list elements to be a link.
+
+.. code-block:: html
+    :linenos:
+
+    <ul>
+        <li> <a href="">Do my homework.</a> </li> 
+        <li>Then play video games. </li>         
+        <li>Finally eat dinner.    </li>     
+    </ul>
+
+Here **Do my homework.** acts as the link. What happens if you click it?
+In order to direct users to a different place, we need to place our path within the **href** attribute of the ``a`` element.
+
+.. code-block:: html
+    :linenos:
+
+    <ul>
+        <li> 
+            <a href="https://chaminade.edu/">Do my homework.</a> 
+        </li> 
+        <li> Then play video games. </li>         
+        <li> Finally eat dinner.    </li>     
+    </ul>
+
+.. note::
+
+    You might get unexpected results if you omit the ``https://`` or ``http://`` link, called the *protocol*.
 
 
 1. Span vs. Div
 
+Essential HTML Elements Summary
+--------------------------------
+
+.. table:: 
+    :widths: 20 60 20
+
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | Element        | Usage                                          | Link                                                              |
+    +================+================================================+===================================================================+
+    | <h(1-6)>       | Titles and subtitles                           | `link <https://www.w3schools.com/html/html_headings.asp>`_        |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <p>            | Block of text                                  | `link <https://www.w3schools.com/html/html_paragraphs.asp>`_      |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <!– comment –> | comment                                        | `link <https://www.w3schools.com/html/html_comments.asp>`_        |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <a>            | link                                           | `link <https://www.w3schools.com/html/html_links.asp>`_           |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <img>          | image                                          | `link <https://www.w3schools.com/html/html_images.asp>`_          |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <ul>           | unordered list                                 | `link <https://www.w3schools.com/html/html_lists_unordered.asp>`_ |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <ol>           | ordered list                                   | `link <https://www.w3schools.com/html/html_lists_ordered.asp>`_   |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <table>        | tables                                         | `link <https://www.w3schools.com/html/html_tables.asp>`_          |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <div>          | container (full width)                         | `link <https://www.w3schools.com/html/html_div.asp>`_             |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <span>         | container (inline)                             | `link <https://www.w3schools.com/tags/tag_span.asp>`_             |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <hr>           | horizontal line                                | `link <https://www.w3schools.com/tags/tag_hr.asp>`_               |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
+    | <br>           | line break                                     | `link <https://www.w3schools.com/tags/tag_br.asp>`_               |
+    +----------------+------------------------------------------------+-------------------------------------------------------------------+
 
 Additional Resources
 --------------------
 * `W3 Schools <https://www.w3schools.com/html/default.asp>`_
-* Some of this materials is based on this module my Mozille to `Learn Web Development <https://developer.mozilla.org/en-US/docs/Learn>`_
+* Some of this materials is based on Mozilla `Learn Web Development <https://developer.mozilla.org/en-US/docs/Learn>`_
