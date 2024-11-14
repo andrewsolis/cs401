@@ -13,7 +13,10 @@ Setup and Installation
 ----------------------
 
 You should still have your old directory from the previous module that covered HTML with the associated **index.html** file.
-Navigate to your directory. Set your index.html file to the base file `here <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit08/resources/index.html>`_.
+Navigate to your directory. You can use the ``index.html`` you created last time for Exercise 2 of the HTML, or
+copy an update version that is done `here <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit08/resources/index_css.html>`_.
+
+
 Run the following command to setup your small webserver, and navigate to http://localhost:8000/ to verify it is up and running.
 
 .. code-block:: console

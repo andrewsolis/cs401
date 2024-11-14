@@ -299,6 +299,7 @@ In order to direct users to a different place, we need to place our path within 
 .. note::
 
     You might get unexpected results if you omit the ``https://`` or ``http://`` link, called the *protocol*.
+    If you also just want your link to do nothing or not direct anywhere you can set your **href** as ``href="#"``.
 
 
 Website Structure
@@ -344,8 +345,9 @@ Follow the list of requirements below.
 - Set the title of the website
 - Inside of the body create the 5 required elements ``header``, ``nav``, ``main``, ``aside``, and ``footer`` (remember where ``aside`` goes)
 - Within the ``header`` add the following:
-    - header
+    - heading
     - img
+    - subheading below image (catchprase, motto, etc.)
 - Within nav add the following:
     - unordered list of three links
 - Within main add the following:
