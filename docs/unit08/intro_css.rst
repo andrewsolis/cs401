@@ -104,3 +104,195 @@ Types of Selectors
 ~~~~~~~~~~~~~~~~~~
 
 Up to this point we have only been applying our rulset to HTML elements. However, they are other selectors that are available through CSS that can help make our selections more specific.
+
+Element
+^^^^^^^
+
+**Element** selectors select all elements of a given type. We have seen these before when we specified we wanted to apply something to all ``p`` elements.
+
+Example
+
+.. code-block:: css
+    :linenos:
+    :emphasize-lines: 1,5
+
+    p{
+        color: red;
+    }
+
+    h1, h2, h3 {
+        font-size: 200%
+    }
+
+Class
+^^^^^
+
+**Class** selector is one of the most common selectors used in CSS. Elements on the page are given a name for the ``class`` attribute of an html element.
+Multiple classes can be applied to a single html element, by simply spacing out the class names.
+Say we wanted all our titles to have a class, and use a class to change the text color.
+
+.. code-block:: html
+    :linenos:
+    :emphasize-lines: 2, 7, 10
+
+    <header>
+        <h1 class="title gr">Planet Express!</h1>
+        ...
+    </header>
+    ...
+    <main>
+        <h2 class="title or">Main Content</h2>
+        ...
+        <aside>
+            <h3 class="title bl">Related content</h3>
+            ...
+        </aside>
+    </main>
+    <footer>
+        <p>Copyright Planet Express 2024</p>
+    </footer>
+
+We then specify a class in our ``style.css`` file using a period (**.**) in the selector place.
+
+.. code-block:: css
+    :linenos:
+
+    .title {
+        font-style: italic;
+    }
+
+    .gr {
+        color: green;
+    }
+
+    .or {
+        color: orange;
+    }
+
+    .bl {
+        color: blue;
+    }
+
+Try changing the color of all of your headlines to different colors using ``classes``.
+
+ID
+^^
+
+The ``ID`` selector is used similar to class where it can be applied to an HTML tag using the ``id`` attribute.
+However, the similarities stop there, as there are some key differences.
+
+1. The attribute is specified in a css file using the number or hash sign (**#**).
+2. An ID is expected to only be placed on a **SINGLE** html element. This is different from classes which can be placed across multiple elements.
+3. ID takes a precedence over class, meaning if you define a property in both an ID and Class specification, the ID will be used.
+
+.. code-block:: html
+    :linenos:
+    :caption: index.html
+
+    <header>
+            <h1 id="main_title" class="title gr">Planet Express!</h1>
+            <img src="./images/planet_express.png" alt="">
+    </header>
+
+.. code-block:: css
+    :linenos:
+    :caption: style.css
+
+    
+    #main_title {
+        color: rgb(121, 0, 0);
+    }
+
+
+.. warning::
+
+   Most code editors usually do not if an ID is only placed on a single element. 
+   This is more of a design pattern that is expected to be followed. 
+   With that in mind please be mindful of not accidentally using ID's in multiple places.
+
+
+Class and id selectors can be combined with element selectors to give even more specificity.
+
+.. code-block:: css
+    :linenos:
+    :caption: style.css
+
+    h1#main_title {
+        font-style: italic;
+    }
+    
+    h2.title {
+        color: rgb(121, 0, 0);
+    }
+
+Attribute Selectors
+^^^^^^^^^^^^^^^^^^^
+
+These selectors are used with element selectors to specify an element based on an attribute that it has. 
+This can be used to apply for elements that just have an attribute, or the attribute is set to a specific example.
+
+.. code-block:: css
+    :linenos:
+    
+    /* change all links with href attribute to black */
+    a[href] {
+        color: black;
+    }
+
+
+Pseudo-class Selector
+^^^^^^^^^^^^^^^^^^^^^
+
+These **pseudo-class** selectors are named so because they are styles given to signify a state of an element. 
+You can think of different styles that change as you explore a website such hovering over an element, the first line of an element, and more.
+
+.. code-block:: css
+    :linenos:
+    
+    /* link color when hovered over */
+    a:hover {
+        color: black;
+    }
+
+For a full list of all selectors, click here: `CSS Selectors <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors>`_.
+
+Exercise 1
+~~~~~~~~~~
+
+Remove all CSS in your current ``style.css`` file.
+Apply the following changes to your ``index.html`` file.
+
+Apply the follwing styles in your stylesheet file. Be sure to set your attributes as needed in your ``index.html`` file.
+
+- Give each header a different `color <https://www.w3schools.com/cssref/pr_text_color.php>`_ using a **class** selector
+- Give each header the **same** `font-family <https://developer.mozilla.org/en-US/docs/Web/CSS/font-family>`_ using a **class** selector
+- Set the **font-family** for the footer paragraph with the copyright using an **id** selector
+- set the color of all links in the ``nav`` HTML element using **any** selector
+- set the color of all links in the ``aside`` only on **hover** using the `hover <https://www.w3schools.com/cssref/sel_hover.php>`_ psuedo selector
+
+Remember that google and even AI are your friend (just not skynet)
+
+Using CSS
+---------
+
+Combinators
+-----------
+
+Specificity and Inheritance
+---------------------------
+
+
+The Box model
+-------------
+
+Flexbox
+-------
+
+
+
+Additional Resources
+--------------------
+* Some of this materials is based on Mozilla `Learn Web Development <https://developer.mozilla.org/en-US/docs/Learn>`_
+* `W3 Schools CSS <https://www.w3schools.com/css/css_intro.asp>`_
+* `CSS Flexbox Layout Guide <https://css-tricks.com/snippets/css/a-guide-to-flexbox/>`_
+* `CSS Guidelines Blog <https://cssguidelin.es/>`_
