@@ -256,6 +256,32 @@ You can think of different styles that change as you explore a website such hove
 
 For a full list of all selectors, click here: `CSS Selectors <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors>`_.
 
+CSS Units
+~~~~~~~~~~
+
+You might have noticed that for some styling to size things we used a unit such as ``px``. There are many CSS units that are 
+we are unable to cover in this course. If you are interested you can learn more about them here: `CSS Units <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units>`_
+
+In general there are a few that are worth mentioning that you will most commonly see and use.
+
+.. table:: 
+    :widths: 30 70
+
+    +----------------+-----------------------------------------------------------+
+    | Unit           | Details                                                   |
+    +================+===========================================================+
+    | ``px``         | Used to represents the size  in terms of "pixels"         |
+    +----------------+-----------------------------------------------------------+
+    | ``mm``         | milimeters                                                |
+    +----------------+-----------------------------------------------------------+
+    | ``vh``         | 1% of viewports height. i.e. 1% of iphone screen height   | 
+    +----------------+-----------------------------------------------------------+
+    | ``vw``         | 1% of viewports width. i.e. 1% of iphone screen width     | 
+    +----------------+-----------------------------------------------------------+
+    | ``%``          | percentage                                                | 
+    +----------------+-----------------------------------------------------------+
+
+
 Exercise 1
 ~~~~~~~~~~
 
@@ -386,7 +412,6 @@ Combinators
 Specificity and Inheritance
 ---------------------------
 
-
 The Box model
 -------------
 
@@ -394,5 +419,6 @@ Additional Resources
 --------------------
 * Some of this materials is based on Mozilla `Learn Web Development <https://developer.mozilla.org/en-US/docs/Learn>`_
 * `W3 Schools CSS <https://www.w3schools.com/css/css_intro.asp>`_
+* `W3 Schools CSS Units <https://www.w3schools.com/cssref/css_units.php>`_
 * `CSS Flexbox Layout Guide <https://css-tricks.com/snippets/css/a-guide-to-flexbox/>`_
 * `CSS Guidelines Blog <https://cssguidelin.es/>`_
