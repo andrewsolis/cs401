@@ -270,10 +270,115 @@ Apply the follwing styles in your stylesheet file. Be sure to set your attribute
 - set the color of all links in the ``nav`` HTML element using **any** selector
 - set the color of all links in the ``aside`` only on **hover** using the `hover <https://www.w3schools.com/cssref/sel_hover.php>`_ psuedo selector
 
-Remember that google and even AI are your friend (just not skynet)
+Remember that google and even AI are your friend (just not skynet).
 
 Using CSS
 ---------
+
+Up to now we have only been adding our styles to a stylesheet that we then load in our html file. 
+While this is a traditional way of adding styles to a webpage, there are two other ways.
+Let's see and compare all three.
+
+
+External Stylesheet
+~~~~~~~~~~~~~~~~~~~
+
+This is the way we have been using, where we reference a stylesheet and load it.
+
+.. code-block:: html
+    :linenos:
+    :emphasize-lines: 7
+
+    <!doctype html>
+    <html lang="en-US">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+            <title>Planet Express</title>
+            <link href="styles/style.css" rel="stylesheet" />
+        </head>
+        ...
+        </body>
+    </html>
+
+This has some useful advantages. We only need to referenced those stylesheets applied on a webpage, and if we wanted to we could
+re-use a stylesheet on multiple webpages.
+
+However, this still has some disadvantages. If we are using a css style that is fairly general, (i.e. change all ``p`` tags) we run
+the risk of altering other styles in different pages that use the same stylesheet. 
+
+Later on we will explore how to setup some frameworks to minimize this issue.
+
+Internal Stylesheet
+~~~~~~~~~~~~~~~~~~~
+
+An **Internal Stylesheet** resides inside the HTML document. A special element, ``<style>`` is used within the ``<head>`` tag
+that is used to store the CSS rulesets for that page.
+
+.. code-block:: html
+    :linenos:
+    :emphasize-lines: 7-19
+
+    <!doctype html>
+    <html lang="en-US">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+            <title>Planet Express</title>
+            <style>
+                .main_title {
+                    color: brown;
+                }
+
+                .second_title {
+                    color: chartreuse;
+                }
+
+                .lower_title {
+                    color:deeppink;
+                }
+            </style>
+        </head>
+        <body>
+        ...
+        </body>
+    </html>
+
+Internal stylesheets are useful where you may not have acces to the external CSS files and only need to make changes on a single page.
+
+However, for sites with multiple web pages it can start to be cumbersome. If you need the same styles for multiple pages, then they
+will have to placed inside each respective HTML file.
+
+Inline styles
+~~~~~~~~~~~~~
+
+**Inline** styles affect a single HTML element. The ``style`` attribute is modified using semicolon-separated values.
+
+.. code-block:: html
+    :linenos:
+    :emphasize-lines: 10
+
+    <!doctype html>
+    <html lang="en-US">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+            <title>Planet Express</title>
+        </head>
+        <body>
+            <header>
+                <h1 style="font-size: 15px; font-family:'Courier New';">Planet Express!</h1>
+                <img src="./images/planet_express.png" alt="">
+            </header>
+        ...
+        </body>
+    </html>
+
+.. warning::
+
+    This type of CSS should used as a last resort. This can quickly make HTML hard to read. It also does not allow a separation
+    between code and content. This can also require multiple edits within a single page which can start to increase from a single change.
+    I won't say not to use it cause even I still see it used, but definitely try and limit it as much as possible if all other attempts fail.
 
 Combinators
 -----------
@@ -284,11 +389,6 @@ Specificity and Inheritance
 
 The Box model
 -------------
-
-Flexbox
--------
-
-
 
 Additional Resources
 --------------------
