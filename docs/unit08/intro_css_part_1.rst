@@ -1,7 +1,7 @@
 .. role:: red
 
-Introduction to CSS
-=====================
+Introduction to CSS: Part 1
+===========================
 
 In this section, we will explore CSS and how it helps with designing a website.
 this includes problems such as coloring (text/background), making the content display at a certain location,
@@ -206,7 +206,7 @@ However, the similarities stop there, as there are some key differences.
 
 .. warning::
 
-   Most code editors usually do not if an ID is only placed on a single element. 
+   Most code editors usually do not detect if an ID is only placed on a single element. 
    This is more of a design pattern that is expected to be followed. 
    With that in mind please be mindful of not accidentally using ID's in multiple places.
 
@@ -409,11 +409,147 @@ Inline styles
 Combinators
 -----------
 
-Specificity and Inheritance
----------------------------
+While considered a selector, combinators are used to select elements based on their relationship to other elements. 
+Here we detail some of the most useful combinators.
 
-The Box model
--------------
+A full list of combinators can be found here: `CSS Combinators <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors>`_.
+
+Descendant Combinator
+~~~~~~~~~~~~~~~~~~~~~
+
+| The **descendant combinator** is used to select elements that are descendants of a specified element.  
+| This is done by placing a space between the two selectors.  
+| Selectors that utilize this combinator are called **descendant selectors**.
+
+.. code-block:: css
+    :linenos:
+
+    main p {
+        color: red;
+    }
+
+This will select all ``p`` elements that are descendants of a ``main`` element.
+
+You can also use this to select elements that are descendants of a class or id.
+
+.. code-block:: css
+    :linenos:
+
+    .main p {
+        color: red;
+    }
+
+This will select all ``p`` elements that are descendants of an element with the class ``title``.
+
+Child Combinator
+~~~~~~~~~~~~~~~~
+
+| The **child combinator** is used to select elements that are direct children of a specified element.
+| This is done by placing a greater than sign (``>``) between the two selectors.
+
+.. code-block:: css
+    :linenos:
+
+    ul > li {
+        color: red;
+    }
+
+This will select all ``li`` elements that are direct children of a ``ul`` element.
+
+Next-Sibling Combinator
+~~~~~~~~~~~~~~~~~~~~~~~
+
+| The **next-sibling combinator** is used to select elements that are the next sibling of a specified element.
+| This is done by placing a tilde (``+``) between the two selectors.
+| For example, to select all ``p`` elements that are next siblings of a ``div`` element:
+
+.. code-block:: css
+    :linenos:
+
+    div + p {
+        color: red;
+    }
+
+| This will select all ``p`` elements that are next siblings of a ``div`` element.
+| A common usecase is to do something with a paragraph that is directly after a header.
+
+.. code-block:: css
+    :linenos:
+
+    h2 + p {
+        color: red;
+    }
+
+| This will select all ``p`` elements that are next siblings of a ``h2`` element.
+
+Subsequent-Sibling Combinator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| The **subsequent-sibling combinator** is used to select elements that are siblings of a specified element.
+| This is done by placing a tilde (``~``) between the two selectors.
+| This will select all siblings even if they are not directly adjacent to the element.
+| For example, to select all ``img`` that come *anywhere* after a ``h1`` element:
+
+.. code-block:: css
+    :linenos:
+
+    h1 ~ img {
+        border: 1px solid red;
+    }
+
+| This will select all ``img`` elements that are siblings of a ``h1`` element.
+
+Complex Selectors
+~~~~~~~~~~~~~~~~~
+
+You can use nesting to create rules that use combinaors to create more complex rules.
+
+.. code-block:: css
+    :linenos:
+
+    p {
+    ~ img {
+      }
+    }
+    /* This is parsed by the browser as */
+    p ~ img {
+    }
+
+The ``&`` can also be used to create complex selectors.
+
+.. code-block:: css
+    :linenos:
+
+    p {
+    & img {
+      }
+    }
+    /* This is parsed by the browser as */
+    p img {
+    }
+
+Combining Selectors
+~~~~~~~~~~~~~~~~~~~
+
+You can also combine selectors to create more complex rules.
+For example, say you want to select al ``li`` elements with the class ``point`` that are descendants of a ``ul`` element.
+
+.. code-block:: css
+    :linenos:
+
+    ul > li[class="point"] {
+        color: red;
+    }
+
+.. note::
+
+   Be mindful when creating a big list of selectors to select very specific parts. 
+   This can make it hard to reuse styles and can make it hard to maintain.
+   It is often better to create a simple class or id to apply to the elements you want to style.
+
+Exercise 2
+~~~~~~~~~~
+
 
 Additional Resources
 --------------------
