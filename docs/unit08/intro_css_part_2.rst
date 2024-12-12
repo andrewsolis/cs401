@@ -31,15 +31,11 @@ Specificity and Inheritance
 The Box model
 -------------
 
-CSS Layout
-----------
-
 Flexbox
-~~~~~~~
+-------
 
 Responsive Design
-~~~~~~~~~~~~~~~~~
-
+-----------------
 
 Additional Resources
 --------------------
