@@ -556,8 +556,7 @@ Make the following changes to your ``style.css`` file using combinators.
 - Select all ``p`` elements that are siblings of headers and change their font size.
 - Select all ``img`` elements that are siblings of headers and change their border to 7px solid black.
 
-
-
+Feel free to add classes and ids to your HTML elements to make it easier to select them with certain combinators. 
 
 Additional Resources
 --------------------
