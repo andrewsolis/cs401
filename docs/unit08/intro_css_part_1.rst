@@ -286,11 +286,10 @@ Exercise 1
 ~~~~~~~~~~
 
 Remove all CSS in your current ``style.css`` file.
-Apply the following changes to your ``index.html`` file.
 
 Apply the follwing styles in your stylesheet file. Be sure to set your attributes as needed in your ``index.html`` file.
 
-- Give each header a different `color <https://www.w3schools.com/cssref/pr_text_color.php>`_ using a **class** selector
+- Give each header element (h1 - h6) a different `color <https://www.w3schools.com/cssref/pr_text_color.php>`_ using a **class** selector
 - Give each header the **same** `font-family <https://developer.mozilla.org/en-US/docs/Web/CSS/font-family>`_ using a **class** selector
 - Set the **font-family** for the footer paragraph with the copyright using an **id** selector
 - set the color of all links in the ``nav`` HTML element using **any** selector
@@ -549,6 +548,15 @@ For example, say you want to select al ``li`` elements with the class ``point`` 
 
 Exercise 2
 ~~~~~~~~~~
+
+Make the following changes to your ``style.css`` file using combinators.
+
+- Select all ``li`` elements that are descendants of a ``ul`` element and ``nav`` element and change their color.
+- Select all ``li`` elements that are descendants of a ``ul`` element and ``main`` element and change their color.
+- Select all ``p`` elements that are siblings of headers and change their font size.
+- Select all ``img`` elements that are siblings of headers and change their border to 7px solid black.
+
+
 
 
 Additional Resources
