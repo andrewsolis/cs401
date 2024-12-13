@@ -5,9 +5,13 @@ Introduction to CSS: Part 1
 
 In this section, we will explore CSS and how it helps with designing a website.
 this includes problems such as coloring (text/background), making the content display at a certain location,
-and "decorating" with images and color schemes. After this module, you should understand:
+and "decorating" with images and color schemes. After this module, students should be able to:
 
-:red:`list of what they will learn.`
+* Understand the basics of CSS
+* Understand how to apply CSS to a webpage
+* Understand the different types of CSS selectors
+* Understand how to use CSS units
+
 
 Setup and Installation
 ----------------------
