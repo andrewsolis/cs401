@@ -671,7 +671,11 @@ Thee most common values are:
 * ``inline-block``: The element is displayed as an inline element, but can have padding and margins.
 * ``flex``: The element is displayed as a flex container, allowing you to use the flexbox layout model.
 
-For the ``flex`` layout we will cover later on what this exactly means and does.
+.. note::
+
+    Flexbox, or the Flexible Box Layout, is a layout model designed to provide a more efficient way to lay out, 
+    align, and distribute space among items in a container, even when their size is unknown or dynamic.
+    You can learn more about flexbox here: https://css-tricks.com/snippets/css/a-guide-to-flexbox/.
 
 Each box taking up space has the following properties:
 
@@ -688,7 +692,7 @@ For example, say we have a box with the following CSS:
     .box {
         width: 250px;
         height: 350px;
-        margin: 10px;
+        margin: 10px 20px;
         padding: 0px 20px 10px 20px;
         border: 10px solid black;
     }
@@ -696,12 +700,34 @@ For example, say we have a box with the following CSS:
 Then we would have a box that would follow the following properties:
 
 * The content of the box would be **250px** wide and **350px** tall.
-* The margin would be **10px** on all sides.
+* The margin would be **10px** on the top and bottom, and **20px** on the left and right.
 * The padding would be **0px** on the top, **20px** on the right, **10px** on the bottom, and **20px** on the left.
 * The border would be **10px** wide and **solid black**.
 
 You can learn more about the box model here: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model.
 
+Exercise 3
+~~~~~~~~~~
+
+Make the following changes to your ``style.css`` file to apply different CSS styles.
+
+* Add a border to the ``body`` element with a width of 10px, a style of ``solid``, and a color of ``black``.
+* Add a padding to the ``body`` element with **20px** for the top and bottom, and **30px** for the left and right.
+* Give your ``body`` and ``html`` elements separate background colors.
+* Set the margin for your body tag to ``0 auto``. What does it do?
+* Set the margin for your image to be the same as the body tag above and the display to ``block``.
+
+.. note::
+    
+        The ``0 auto`` margin is a shorthand for setting the top and bottom margins to 0 and the left and right margins to auto.
+        This centers the element horizontally on the page by dividing the remaining space equally between the left and right margins.
+
+
+Why do we set the image display to be ``block``?
+
+.. note::
+    Image elements are inline elements by default, which means they will not respect the margin properties.
+    By setting the display to block, we can make the image an inline-block element, which will respect the margin properties.
 
 Additional Resources
 --------------------
