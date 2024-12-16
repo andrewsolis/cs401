@@ -12,8 +12,7 @@ well as what modern technologies are used for websites today.
    :maxdepth: 1
 
    intro_html
-   intro_css_part_1
-   intro_css_part_2
+   intro_css
    intro_javascript
    web_frameworks
    
