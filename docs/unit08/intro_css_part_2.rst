@@ -159,10 +159,10 @@ For example, say we have a box with the following CSS:
 
 Then we would have a box that would follow the following properties:
 
-* The content of the box would be 250px wide and 350px tall.
-* The margin would be 10px on all sides.
-* The padding would be 0px on the top, 20px on the right, 10px on the bottom, and 20px on the left.
-* The border would be 10px wide and solid black.
+* The content of the box would be **250px** wide and **350px** tall.
+* The margin would be **10px** on all sides.
+* The padding would be **0px** on the top, **20px** on the right, **10px** on the bottom, and **20px** on the left.
+* The border would be **10px** wide and **solid black**.
 
 You can learn more about the box model here: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model.
 
