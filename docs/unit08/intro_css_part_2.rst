@@ -119,10 +119,57 @@ You can learn more about these properties here: https://developer.mozilla.org/en
 The Box model
 -------------
 
+CSS layouts are mostly based on the box model. The box model is a way of representing elements on a page as boxes with content, padding, borders, and margins.
 
+.. figure:: ./images/box_model.png
+    :width: 350px
+    :align: center
+
+    CSS Box Model
+
+You can define an elements ``display`` value which specifies how the element is laid out on the page.
+Thee most common values are:
+
+* ``block``: The element is displayed as a block, taking up the full width of the page.
+* ``inline``: The element is displayed as an inline element, taking up only as much width as it needs.
+* ``inline-block``: The element is displayed as an inline element, but can have padding and margins.
+* ``flex``: The element is displayed as a flex container, allowing you to use the flexbox layout model.
+
+For the ``flex`` layout we will cover later on what this exactly means and does.
+
+Each box taking up space has the following properties:
+
+* ``Content``: The actual content of the box, such as text or images.
+* ``Padding``: The space between the content and the border.
+* ``Border``: The border around the box.
+* ``Margin``: The space between the border and other elements on the page.
+
+For example, say we have a box with the following CSS:
+
+.. code-block:: css
+    :linenos:
+
+    .box {
+        width: 250px;
+        height: 350px;
+        margin: 10px;
+        padding: 0px 20px 10px 20px;
+        border: 10px solid black;
+    }
+
+Then we would have a box that would follow the following properties:
+
+* The content of the box would be 250px wide and 350px tall.
+* The margin would be 10px on all sides.
+* The padding would be 0px on the top, 20px on the right, 10px on the bottom, and 20px on the left.
+* The border would be 10px wide and solid black.
+
+You can learn more about the box model here: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model.
 
 Flexbox
 -------
+
+
 
 Responsive Design
 -----------------
