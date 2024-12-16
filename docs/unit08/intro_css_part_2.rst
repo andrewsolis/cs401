@@ -32,6 +32,9 @@ Run the following command to setup your small webserver, and navigate to http://
 Specificity and Inheritance
 ---------------------------
 
+Specificity
+~~~~~~~~~~~
+
 At a certain time when you are styling a page, you will notice that some styles are not being applied as you expect.
 This is because of the way CSS handles specificity and inheritance.
 
@@ -66,7 +69,25 @@ Say we have two separate selectors: one using an element selector and the other 
     }
 
 The style with the class selector will be applied, because it is more specific than the style with the element selector.
-This is the case even if the ``h1`` selectora appears further down in the CSS file.
+This is the case even if the ``h1`` selector appears further down in the CSS file.
+
+| The amount of specificity a selector has is measured on a three column value of three categories, or weights: ID, CLASS and TYPE.
+| This is usually represented as notation as ``(A, B, C)``
+| A number to the left has a higher weight than a number to the right.
+
+For example:
+
+* The selector ``h1`` has a specificity of ``(0,0,1)``, because it has one TYPE selector.
+* The selector ``.heading`` has a specificity value ``(0,1,0)`` because it has one CLASS selector.
+* The selector ``#main`` has a specificity value of ``(1,0,0)``, because it has one ID selector.
+* The selector ``h1.heading`` has a specificity value of ``(0,1,1)``, because it has one TYPE selector and one CLASS selector.
+* The selector ``h1#main`` has a specificity value of ``(1,0,1)``, because it has one TYPE selector and one ID selector.
+* The selector ``h1.heading#main`` has a specificity value of ``(1,1,1)``, because it has one TYPE selector, one CLASS selector, and one ID selector.
+
+You can learn more about specificity here: https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity.
+
+Inheritance
+~~~~~~~~~~~
 
 Inheritance is the way CSS determines which styles are applied to an element based on the styles of its parent elements.
 Some CSS property values are inherited from a parent by it's childresn, and some aren't.
@@ -97,6 +118,8 @@ You can learn more about these properties here: https://developer.mozilla.org/en
 
 The Box model
 -------------
+
+
 
 Flexbox
 -------
