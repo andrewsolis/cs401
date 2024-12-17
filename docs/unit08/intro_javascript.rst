@@ -315,15 +315,28 @@ For example, place the following code in your **script.js** file.
 | In this example, we have three different scopes: the global scope, the scope of the event listener function, and the scope of the inner function.
 | Variables declared in the global scope are accessible from all scopes, but variables declared in the inner function are only accessible within that function.
 | Give it a try and see what happens when you try to access variables outside of their scope.
-    
+
+DOM Manipulation and Events
+---------------------------
+
+| The **Document Object Model (DOM)** a data representation of the objects that makeup a webpage.
+| It is a tree-like structure that represents the different elements on a webpage, and allows you to interact with those elements using JavaScript.
+| We actually saw this previously when we used the ``document`` object to select our input element on the page.
+
+Here we will go into further detail of selecting DOM elements, modifying them, and handling events.
+
+Selecting Elements
+~~~~~~~~~~~~~~~~~~
+
+There are two methods that are generally recommended for selecting DOM elements
+
+1. `querySelector() <https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector>`_ - This returns the first 
+matching ``Element`` in a nodes tree.
+
 
 Lecture Outline
 ----------------
 
-4. Functions
-    * Function Declaration and Expression
-    * Arrow Functions
-    * Scope and Closures
 6. DOM Manipulation
     * Selecting Elements
     * Modifying Elements
