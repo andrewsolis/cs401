@@ -204,6 +204,9 @@ For example, say we wanted to take to strings and create a "Full Name":
 
 **Functions** that are a part of objects are called **methods**.
 
+Anonymous and Arrow Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Though you can create functions this way, there are a few other ways to define functions in JavaScript.
 
 .. code-block:: javascript
@@ -211,6 +214,107 @@ Though you can create functions this way, there are a few other ways to define f
     ( function() {
         console.log('Hello, World!');
     });
+    
+| This type of function is called an **anonymous function** because it has no name.
+| These functions are common for functions that are passed as arguments to other functions.
+
+| For example, say we want to print the type of key that a user presses on a keyboard when typing into a text box.
+| In order to detect this we add an **event listener** to the textbox object.
+
+Add the following code your html file.
+
+.. code-block:: html
+        ...
+        <input type="text" id="myInput">
+    </main>
+
+Then add the following code to your **script.js** file.
+
+.. code-block:: javascript
+
+    const input = document.getElementById('myInput');
+
+    input.addEventListener('keypress', function(event) {
+        console.log(event.key);
+    });
+
+You could define your function like this, or instead pass an anonymous function to the ``addEventListener``:
+
+.. code-block:: javascript
+
+    input.addEventListener('keypress', function(event) {
+        console.log(event.key);
+    });
+
+There is also an alternative form you can use, called an **arrow function**.
+
+.. code-block:: javascript
+
+    input.addEventListener('keypress', (event) => {
+        console.log(event.key);
+    });
+
+Arrow functions are a more concise way to define functions, and are often used in modern JavaScript code.
+
+If your function only takes one parameter, you can omit the parentheses.
+
+.. code-block:: javascript
+
+    input.addEventListener('keypress', event => {
+        console.log(event.key);
+    });
+
+If your function only has one line of code, you can omit the curly braces, as well as the return statement.
+
+.. code-block:: javascript
+
+    input.addEventListener('keypress', event => console.log(event.key));
+
+
+Scope and Closures
+~~~~~~~~~~~~~~~~~~
+
+| Scope in JavaScript refers to the visibility of variables within a program.
+| When you create a function, you create a new scope, and variables declared within that function are only accessible within that scope.
+| The top-level outside all functions is called the **global scope**.
+
+For example, place the following code in your **script.js** file.
+
+.. code-block:: javascript
+
+    // Global scope
+    let globalVar = 'I am a global variable';
+
+    input.addEventListener('keypress', (event) => 
+    {
+        console.log(event.key)
+        // Local scope within EventListener function
+        let outerVar = 'I am an outer variable';
+        
+        const innerFunction = () => {
+            // Local scope within innerFunction
+            let innerVar = 'I am an inner variable';
+    
+            console.log(globalVar); // Accessible
+            console.log(outerVar);  // Accessible
+            console.log(innerVar);  // Accessible
+        };
+    
+        innerFunction();
+        console.log(globalVar); // Accessible
+        console.log(outerVar);  // Accessible
+        // console.log(innerVar); // Not accessible, would cause an error
+
+    });
+
+    console.log(globalVar); // Accessible
+    // console.log(outerVar); // Not accessible, would cause an error
+    // console.log(innerVar); // Not accessible, would cause an error
+
+
+| In this example, we have three different scopes: the global scope, the scope of the event listener function, and the scope of the inner function.
+| Variables declared in the global scope are accessible from all scopes, but variables declared in the inner function are only accessible within that function.
+| Give it a try and see what happens when you try to access variables outside of their scope.
     
 
 Lecture Outline
