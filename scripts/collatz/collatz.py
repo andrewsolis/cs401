@@ -4,6 +4,8 @@
 Collatz code for CS 401
 
 Author: Andrew Solis
+Student: Johnny Bae
+Term: Spring 2025
 '''
 
 from typing import List
