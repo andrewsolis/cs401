@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
-'''
-Collatz code for CS 401
 
-Author: Andrew Solis
-'''
 
 from typing import List
 
@@ -60,7 +56,7 @@ def print_collatz( collatz_list : List[int] ):
 
 def main():
 
-    print('Collatz')
+    print('collapsing neighbor')
     print('=======\n')
 
     with open('input.txt') as file:
