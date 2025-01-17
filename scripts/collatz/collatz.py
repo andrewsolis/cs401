@@ -4,6 +4,7 @@
 Collatz code for CS 401
 
 Author: Andrew Solis
+Editor: Christian Raquepo
 '''
 
 from typing import List
