@@ -6,6 +6,8 @@ Collatz code for CS 401
 Author: Andrew Solis
 '''
 
+## adding comment and modifying fork (test)
+
 from typing import List
 
 
