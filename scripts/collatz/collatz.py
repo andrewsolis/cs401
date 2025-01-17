@@ -1,3 +1,6 @@
+#Homework 1 Part 3 Step 2 Modify the collatz.py file located at scripts/collatz/collatz.py
+	#I deleted a few lines 
+
 #!/usr/bin/env python3
 
 '''
@@ -7,7 +10,6 @@ Author: Andrew Solis
 '''
 
 from typing import List
-
 
 def compute_collatz( num : int ) -> List[int]:
     '''
@@ -57,7 +59,6 @@ def print_collatz( collatz_list : List[int] ):
     # put ending of line 
     print()
 
-
 def main():
 
     print('Collatz')
@@ -78,9 +79,6 @@ def main():
             print_collatz( num_collatz )
 
             print(f'num sequences: {len(num_collatz) - 1}\n' )
-
-
-
 
 if __name__ == '__main__':
     main()
