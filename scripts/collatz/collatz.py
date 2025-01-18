@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+#adding a few lines 
+#to commit changes
+#for homework1
+
 '''
 Collatz code for CS 401
 
