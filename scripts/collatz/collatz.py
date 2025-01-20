@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# changes made by quinn 
 '''
 Collatz code for CS 401
 
