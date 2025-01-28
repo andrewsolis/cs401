@@ -39,8 +39,8 @@ Calendar
 |                   |            |  * Dockerfile                                                                                               |            | * docker-compose.yml                                                                                     |
 |                   |            |  * FROM, RUN, COPY, ENV                                                                                     |            | * docker compose run                                                                                     |
 |                   |            |  * docker push                                                                                              |            | * docker compose up/down                                                                                 |
-|                   |            |  * docker push                                                                                              |            |                                                                                                          |
-|                   |            |  * docker push                                                                                              |            | **Homework 2 Released**                                                                                  |
+|                   |            |                                                                                                             |            |                                                                                                          |
+|                   |            |                                                                                                             |            | **Homework 2 Released**                                                                                  |
 +-------------------+------------+-------------------------------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
 
 4: Week of 27 Jan
