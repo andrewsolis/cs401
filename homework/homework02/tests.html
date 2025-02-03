@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        
+    </style>
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Homework 2</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="tests.html">Tests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 overflow-auto">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Tests</h1>
+          <p class="lead">You can use this page to verify that outputs were succesful. Use it to make sure it runs first outside of containers, and then again within a container.</p>
+        </div>
+        <hr>
+
+        <label for="inputPath" class="form-label">Path</label>
+        <input type="text" id="inputPath" class="form-control" aria-describedby="pathHelp">
+        <div id="pathHelp" class="form-text">
+            Path to results file that you wish to verify data.
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary get-data" onclick="runtests()">Run Tests</button>
+            </div>
+            <div class="col-md-12"></div>
+        </div>
+
+        <div class="collapse" id="test-results">
+          
+          <hr>
+          
+            <div class="col-md-12">
+              <h2>Test Results</h2>
+              <div id="test-results">
+                <div class="row">
+                  <div class="col-md-2">Test 1</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 2</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 3</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 4</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 5</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 6</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 7</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 8</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 9</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">Test 10</div>
+                  <div class="col-md-10">
+                    <div class="alert alert-danger" role="alert">Failed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <footer class="py-3 my-4 mt-auto">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="tests.html" class="nav-link px-2 text-body-secondary">Tests</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link px-2 text-body-secondary">Contact</a></li>
+        </ul>
+        <p class="text-center text-body-secondary">© 2025 TACC, Chaminade University</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      const answers = [ [ 16952, 26466, 12996, 22668, 11316, 19118, 15854, 16305, 19081, 17664 ],
+                        [ 21080, 20607, 31533, 20237, 27983, 16707, 30518, 27127, 23244, 25979 ],
+                        [ 29840, 23694, 26609, 27910, 25746, 22083, 27132, 30763, 14106, 12648 ],
+                        [ 27516, 21015, 26455, 35943, 40650, 19297, 24627, 27854, 24557, 25977 ],
+                        [ 21584, 32556, 16025, 28859, 30242, 21840, 16712, 30241, 21982, 26946 ],
+                        [ 19699, 18192, 18852, 20120, 20457, 14707, 19873, 21936, 24156, 16286 ],
+                        [ 24681, 26852, 28523, 16942, 25200, 36731, 26153, 25424, 29898, 18956 ],
+                        [ 21799, 22562, 12867, 17712, 24870, 17395, 20668, 26493, 20390, 16114 ],
+                        [ 33711, 16039, 19025, 32291, 20300, 28564, 29412, 24240, 26395, 23799 ],
+                        [ 24033, 24788, 21297, 23903, 20411, 22859, 28680, 28903, 18798, 19577 ],
+                      ];
+
+      async function runtests() {
+
+        const path = document.getElementById('inputPath').value;
+
+        const computer = await fetch(path);
+
+        const data = await computer.text();
+        const computer_data = data.split(/\s/);
+        const computer_data_arr = computer_data.filter( n => n);
+                
+        const testResultsDiv = document.getElementById('test-results');
+        const testDivs = testResultsDiv.querySelectorAll('.row');
+        
+        // grade tests
+        for( let i = 0; i < 10; i++) 
+        {
+          let correct = true;
+
+          for( let j = 0; j < 10; j++ )
+          {
+            if( computer_data_arr[ i * 10 + j ] != answers[i][j] )
+            {
+              correct = false;
+              break;
+            }
+          }
+
+          if( correct )
+          {
+            testDivs[i].querySelector('.col-md-10').innerHTML = '<div class="alert alert-success" role="alert">Test Passed.</div>';
+          }
+        }
+        
+        var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
+        var collapseList = collapseElementList.map(function (collapseEl) {
+          return new bootstrap.Collapse(collapseEl)
+        })
+      }
+
+    </script>
+</body>
+</html>
