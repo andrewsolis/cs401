@@ -16,8 +16,8 @@
 
 ### - check if port in use with:
 #### docker container ls
-### if anything comes up, copy the <ID>, and run:
-#### docker stop <ID>
+### if anything comes up, copy the ID, and run:
+#### docker stop (the ID)
 ### Once port is free, run:
 #### docker-compose up --build
 ### then run:
