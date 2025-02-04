@@ -1,0 +1,9 @@
+FROM python:3.12
+
+COPY index.html /code/index.html
+COPY tests.html /code/tests.html
+COPY contact.html /code/contact.html
+
+CMD ["python", "-m", "http.server"]
+
+

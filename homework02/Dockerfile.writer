@@ -1,0 +1,7 @@
+FROM python:3.9
+
+RUN pip install numpy
+COPY writer.py /code/writer.py
+RUN chmod +rx /code/writer.py
+
+ENV PATH="/code:$PATH"

@@ -1,0 +1,7 @@
+FROM python:3.9
+
+RUN pip install numpy
+COPY computer.py /code/computer.py
+RUN chmod +rx /code/computer.py
+
+ENV PATH="/code:$PATH"

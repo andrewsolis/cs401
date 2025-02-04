@@ -1,0 +1,36 @@
+--- 
+
+services:
+   writer-service:
+      build:
+            context: ./
+            dockerfile: ./Dockerfile.writer
+      image: quinnmchenry/homework02-writer:1.0
+      volumes:
+            - ./data:/data/
+      command: writer.py /data/results.txt
+
+   computer-service:
+      build:
+            context: ./
+            dockerfile: ./Dockerfile.computer
+      depends_on:
+            - writer-service
+      image: quinnmchenry/homework02-computer:1.0
+      volumes:
+            - ./data:/data/
+      command: computer.py /data/results.txt
+   web-service:
+      build:
+            context: ./
+            dockerfile: ./Dockerfile.html
+      depends_on:
+            - writer-service
+            - computer-service
+      image: quinnmchenry/homework02-html:1.0
+      volumes:
+            - ./data/results.txt:/data/results.txt
+      command: python -m http.server
+      ports:
+         - "8000:8000"
+
