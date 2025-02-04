@@ -2,17 +2,15 @@
 
 ## to build images from dockerfiles, run:
 
-### - docker run -v $PWD/data:/data/ homework02-writer (for writer.py) 
-### - docker run -v $PWD/data:/data/ homework02-computer (for computer.py) 
-### - docker run -d -p 8000:8000 -v $PWD/data:/data homework02-html (for htmls)
-
-## to run without docker compose, do these:
-
 ### - docker build -t homework02-writer -f Dockerfile.writer . (for writer)
 ### - docker build -t homework02-computer -f Dockerfile.computer . (for computer)
 ### - docker build -t homework02-html -f Dockerfile.html  . (for htmls)
 
-### THEN, run the docker run commands above
+## to run without docker compose, do these:
+
+### - docker run -v $PWD/data:/data/ homework02-writer (for writer.py) 
+### - docker run -v $PWD/data:/data/ homework02-computer (for computer.py) 
+### - docker run -d -p 8000:8000 -v $PWD/data:/data homework02-html (for htmls)
 
 ## to build/run with docker compose:
 
