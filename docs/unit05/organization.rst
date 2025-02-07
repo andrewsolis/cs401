@@ -83,7 +83,7 @@ calls into a main function:
 
         return float( total_quantity / len( a_list_of_dicts ) )
 
-    def check_total_price( price, quantity ):
+    def calc_total_price( price, quantity ):
         total_price = price * quantity
         return total_price
 
@@ -91,10 +91,10 @@ calls into a main function:
         with open('groceries.json', 'r') as f:
             grocery_data = json.load( f )
 
-        print( compute_average_quantity( grocery_data, 'quantity' ) )
+        print( compute_average_quantity( grocery_data['items'], 'quantity' ) )
 
-        for row in grocery_data:
-            total_price = check_total_price( float( row['price']), float( row['quantity'] ) ) 
+        for row in grocery_data['items']:
+            total_price = calc_total_price( float( row['price']), float( row['quantity'] ) ) 
             print(f'Total Price: {total_price:.2f}')
 
     if __name__ == '__main__':
