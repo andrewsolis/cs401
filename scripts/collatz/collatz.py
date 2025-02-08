@@ -60,27 +60,7 @@ def print_collatz( collatz_list : List[int] ):
 
 def main():
 
-    print('Collatz')
+    print('I removed a few lines - Karl')
     print('=======\n')
 
-    with open('input.txt') as file:
-
-        lines = [line.rstrip() for line in file]
-
-        for line in lines:
-
-            print( line )
-
-            num = int( line )
-
-            num_collatz = compute_collatz( num )
-
-            print_collatz( num_collatz )
-
-            print(f'num sequences: {len(num_collatz) - 1}\n' )
-
-
-
-
-if __name__ == '__main__':
-    main()
+ 
