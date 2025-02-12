@@ -37,11 +37,8 @@ a virtual environment if you are using one (which we highly recommend!).
 
 Find the `documentation here <https://docs.pytest.org>`_.
 
-Pull a copy of the
-`groceries script <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit05/scripts/groceries.py>`_
-we have been working on, and a copy of the
-`groceries json file <https://raw.githubusercontent.com/andrewsolis/cs401/refs/heads/main/docs/unit05/scripts/groceries.json>`_,
-if you don't have copies already.
+Pull a copy of the `groceries.py` file from the previous module we have been working on, and a copy of the
+`groceries.json` file, if you don't have copies already.
 
 
 Devise a Reasonable Test
