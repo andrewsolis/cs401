@@ -1,0 +1,5 @@
+imdb/
+venv/
+output_file.csv
+output_file.json
+__pycache__/
