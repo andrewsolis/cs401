@@ -210,6 +210,8 @@ And update it as follows:
 .. code-block:: python3
   :linenos:
 
+  import logging
+  
   def compute_average_quantity(a_list_of_dicts, a_key_string):
     total_quantity = 0.
     num_valid_quantities = 0
