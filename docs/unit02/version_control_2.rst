@@ -49,7 +49,7 @@ go ahead and check every box for now. At the bottom of the page is a button to "
 
 Your token will then be generated and you will see a page with the token.
 
-.. figure:: ./images/token.png
+.. figure:: ./images/newtoken.png
    :width: 800px
    :align: center
 
