@@ -8,6 +8,7 @@ Author: Andrew Solis
 
 from typing import List
 
+### boom :D
 
 def compute_collatz( num : int ) -> List[int]:
     '''
