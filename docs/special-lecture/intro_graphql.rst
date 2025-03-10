@@ -5,9 +5,66 @@ In this section, we will learn about GraphQL. We will learn about what it is, ho
 and how it can be used to manage data in an API. Throughout this module, students should
 be able to:
 
-* Describe what GraphQL is.
+* Describe the Graph Data Structure.
+* Describe what is GraphQL.
 * Understand how GraphQL works.
 * Understand the difference between REST and GraphQL APIs.
+
+What is a Graph?
+----------------------
+
+Definition
+::
+    A graph is a data structure with nodes and edges that shows relationships
+    between objects.
+
+The circles in the picture are nodes and the lines are the edges.
+Some notes about nodes and edges in graphs:
+
+.. figure:: resources/images/graph_example.png
+    :width: 600px
+    :align: center
+
+Graphs are used to show complex relationships in a succinct mantter.
+Some properties of graphs are the following:
+
+1. Edges can be directed or undirected.
+2. Edges can have weights.
+3. Edges can have labels.
+4. Nodes can have types.
+5. Nodes can have labels.
+
+Let's take a look a graph data structure representing the relationship between two authors,
+Isaac Asimov and Ray Bradbury, and the books they wrote.
+
+.. figure:: resources/images/sci_fi_books_graph.png
+    :width: 600px
+    :align: center
+
+
+Some other types of graphs are the following.
+
+1. Directed Graphs. Sometimes graphs can only move in one direction.
+::
+    C -> A -> R
+2. Cyclic Graphs. Graphs that have cycles. A cycle is a path that starts and ends at the same node.
+::
+    A -> B -> C -> A
+3. Weighted Graphs. Graphs that have weights on their edges.
+::
+    A -> B (5)
+
+
+Graphs are commonly used in our every day lives. Some examples are:
+    - Maps that are used for navigation. Apple Maps or Google Maps.
+        - These are graphs with weights representing both distance and time to find the shortest path from point A to point B.
+    - Social Networks. Facebook, X, Instagram.
+        - They link our friends to other friends via graphs.
+    - Recommendation Systems.
+        - Spotify creates graphs between the music we like to determine new suggestions for us.
+    - AI and Machine Learning.
+        - Graphs are used to represent complex relationships between data points.
+          Such as given input `X, Y, Z`, calculate output `W`?
 
 What is GraphQL?
 ----------------------
