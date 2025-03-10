@@ -35,7 +35,7 @@ Syllabus
 | **Slack**: https://cs401-sp25.slack.com/
 |   Join slack here: https://join.slack.com/t/cs401-sp25/shared_invite/zt-2w4ouha2u-w8JFcoDsREl5QWh9QVMjEQ
 | **Github**: https://github.com/andrewsolis/cs401/
-| **Zoom**: https://utexas.zoom.us/j/93208711393?pwd=hkDEAP0qlx7QgESOyXJHyykjnWUnkJ.1
+| **Zoom**: https://utexas.zoom.us/j/95063230503?pwd=0TUjbKM5NMFHvWUSB7brmmkbGWemZX.1
 
 
 **Catalog Description**
