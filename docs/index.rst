@@ -18,6 +18,7 @@ the concepts and topics discussed.
    unit04/overview
    unit05/overview
    unit06/overview
+   special-lecture/overview
    
 
 Additional Resources

@@ -1,0 +1,38 @@
+h1.main_header {
+    color: #fd1e1e;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+h2.sub_header {
+    color: #1e90fd;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+h3.sub_sub_header {
+    color: #1efd1e;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.header_text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#footer-text {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a.link-color {
+    color: #1e90fd;
+    text-decoration: none;
+}
+
+a.hover-link:hover {
+    color: #fd1e1e;
+    text-decoration: underline;
+}
