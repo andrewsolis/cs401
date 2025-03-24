@@ -1,0 +1,27 @@
+h1#main_title {
+    font-style: italic;
+}
+
+.gr {
+    color: green;
+}
+
+.bl {
+    color: blue;
+}
+
+.or {
+    color: orange;
+}
+
+.family {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+main p {
+    background-color: lightpink;
+}
+
+ul > li {
+    color: red;
+}
