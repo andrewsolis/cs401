@@ -13,5 +13,5 @@ and how to setup a database for an example web application.
    :maxdepth: 1
 
    intro_databases
-   flask-sqlalchemy
+   flask_sqlalchemy
    connections
