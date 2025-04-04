@@ -1,7 +1,18 @@
 from database.config import db
+from dataclasses import dataclass
 
 # Movies Model
+@dataclass
 class Movie(db.Model):
+    id: int
+    title : str
+    year  : int
+    directors: list[str]
+    theatre: bool = True
+    MPA   : str = None
+    genres: list[str] = None
+    duration: int = None
+    rating: float = None
 
     id        = db.Column(db.Integer, primary_key=True)
     title     = db.Column(db.String(80), nullable=False)
