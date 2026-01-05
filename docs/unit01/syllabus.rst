@@ -128,7 +128,7 @@ Contact the Chaminade IT Helpdesk for technical issues:  helpdesk@chaminade.edu,
 +---------------------------------+-----------+
 | Assessments                     |  Points   |
 +=================================+===========+
-| Participation and Communication |    10     |
+| Attendance & Participation      |    10     |
 +---------------------------------+-----------+
 | Assignments (4x)                |    20     |
 +---------------------------------+-----------+
