@@ -1,0 +1,55 @@
+h1 {
+    color: red
+}
+
+h2 {
+    color: blue
+}
+
+h3 {
+    color: green
+}
+
+.header-font {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#footer {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav-link {
+    color:brown;
+}
+
+.aside-link:hover {
+    color:orange;
+}
+
+nav ul li[class="nav-link"] {
+    color: aqua;
+}
+
+main ul li[class="aside-link"] {
+    color: yellow;
+}
+
+h2 + p {
+    font-size: 20px;
+}
+
+header img {
+    border: 7px solid black;
+    margin: 0 auto;
+    display: block;
+}
+
+body {
+    border: 10px solid black;
+    margin: 0 auto;
+    background-color: burlywood;
+}
+
+html {
+    background-color: darkgray;
+}

@@ -1,0 +1,6 @@
+docs/_build/
+docs/docsenv/
+docs/html/
+venv/
+.DS_Store
+.idea/
