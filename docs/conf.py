@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'CS 401: Software Engineering & Design'
-copyright = '2025, Chaminade University, Texas Advanced Computing Center.'
+copyright = '2026, Chaminade University, Texas Advanced Computing Center'
 author = 'Andrew Solis, M.S.'
 
 

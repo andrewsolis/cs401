@@ -1,4 +1,4 @@
-# CS 401: Software Engineering and Design, Spring 2025
+# CS 401: Software Engineering and Design, Spring 2026
 
 [![Documentation Status](https://readthedocs.org/projects/cs401/badge/?version=latest)](https://cs401.readthedocs.io/en/latest/?badge=latest)
 
