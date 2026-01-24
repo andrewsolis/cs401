@@ -2,8 +2,9 @@
 
 '''
 Collatz code for CS 401
-
+Modification made here!
 Author: Andrew Solis
+Co-author: Tallen Vidal
 '''
 
 from typing import List
