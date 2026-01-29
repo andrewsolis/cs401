@@ -7,7 +7,7 @@ Author: Andrew Solis
 '''
 
 from typing import List
-
+print ("Hello!")
 
 def compute_collatz( num : int ) -> List[int]:
     '''
