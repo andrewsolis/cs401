@@ -41,17 +41,17 @@ Calendar
 +-----------------------------------+------------+-------------------------------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
 | Monday                            | Tuesday    | Wednesday                                                                                                   | Thursday   | Friday                                                                                                   |
 +===================================+============+=============================================================================================================+============+==========================================================================================================+
-| `Advanced Containers`_            |            |                                                                                                             |            |                                                                                                          |
+| `Advanced Containers`_            |            | `Advanced Containers`_                                                                                      |            | `Docker Compose`_                                                                                        |
 |                                   |            |                                                                                                             |            |                                                                                                          |
-| * Containerize Code Interactively |            |                                                                                                             |            |                                                                                                          |
-| * Dependencies                    |            |                                                                                                             |            |                                                                                                          |
-| * Dockerfile                      |            |                                                                                                             |            |                                                                                                          |
-| * FROM, RUN, COPY                 |            |                                                                                                             |            |                                                                                                          |
+| * Containerize Code Interactively |            | * Building the Image                                                                                        |            | * Multiple Dockerfiles                                                                                   |
+| * Dependencies                    |            | * Testing the Image                                                                                         |            | * Compose File                                                                                           |
+| * Dockerfile                      |            | * CMD                                                                                                       |            | * docker compose run                                                                                     |
+| * FROM, RUN, COPY                 |            | * Sharing Docker Image                                                                                      |            |                                                                                                          |
 |                                   |            |                                                                                                             |            |                                                                                                          |
 +-----------------------------------+------------+-------------------------------------------------------------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
 
 .. _Advanced Containers: https://cs401.readthedocs.io/en/latest/unit03/containers_2.html
-
+.. _Docker Compose: https://cs401.readthedocs.io/en/latest/unit03/docker_compose.html
 
 4: Week of 2 Feb
 -----------------
