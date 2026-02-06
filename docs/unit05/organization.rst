@@ -74,7 +74,7 @@ calls into a main function:
 
 .. code-block:: python3
     :linenos:
-    :emphasize-lines: 14,26-27
+    :emphasize-lines: 15,29-30
 
     import json
 
@@ -85,23 +85,26 @@ calls into a main function:
 
         return float( total_quantity / len( a_list_of_dicts ) )
 
-    def check_total_price( price, quantity ):
+    def calc_total_price( price, quantity ):
         total_price = price * quantity
         return total_price
 
+
     def main():
+
         with open('groceries.json', 'r') as f:
             grocery_data = json.load( f )
 
-        print( compute_average_quantity( grocery_data, 'quantity' ) )
 
-        for row in grocery_data:
+        print( compute_average_quantity( grocery_data['items'], 'quantity' ) )
+
+        for row in grocery_data['items']:
             item_name = row['product_name']
             item_count = row['quantity']
             total_price = calc_total_price( float( row['price']), float( row['quantity'] ) )
             print(f'Total Price for {item_count} items of {item_name}: ${total_price:,.2f}')
 
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         main()
 
 
