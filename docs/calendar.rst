@@ -111,7 +111,7 @@ Calendar
 | * pytest         |            |                                                                                                        |            | * Common Errors                                                                                 |
 | * assert         |            |                                                                                                        |            | * traceback message                                                                             |
 | * exceptions     |            |                                                                                                        |            | * xxxError                                                                                      |
-| * standard out   |            |                                                                                                        |            |  try, except                                                                                    |
+| * standard out   |            |                                                                                                        |            | * try, except                                                                                   |
 +------------------+------------+--------------------------------------------------------------------------------------------------------+------------+-------------------------------------------------------------------------------------------------+
 
 .. _Unit Testing: https://cs401.readthedocs.io/en/latest/unit05/unittest.html
