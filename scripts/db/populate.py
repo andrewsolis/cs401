@@ -1,5 +1,4 @@
-from database.config import db, app
-from database.models import Movie
+from app import db, app, Movie
 from sqlalchemy_utils import database_exists, create_database, drop_database
 
 def reset_database():
