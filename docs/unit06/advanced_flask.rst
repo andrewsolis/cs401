@@ -1,6 +1,7 @@
 Advanced Flask
 ==============
 
+
 We continue using Flask in this module with a look at more complex endpoints and data retrieval
 functions for our REST API. After going through this module, students should be able to:
 
