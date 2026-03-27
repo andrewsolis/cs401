@@ -1,6 +1,7 @@
 Introduction to HTML
 =====================
 
+
 In this section, we will explore HTML and how it is used to create website.
 We will better understand the structure of HTML, certain paradigms to follow, 
 and explore ways to personalize and create a website. After going through
