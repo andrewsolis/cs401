@@ -77,7 +77,7 @@ def main():
 
             print_collatz( num_collatz )
 
-            print(f'num sequences: {len(num_collatz) - 1}\n' )
+            print(f'Total steps to reach 1: {len(num_collatz) - 1}\n')
 
 
 
