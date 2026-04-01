@@ -20,7 +20,7 @@ def compute_collatz( num : int ) -> List[int]:
     Returns:
         result( List[int] ): Collatz sequence.
     '''
-
+ 
     result = []
 
     result.append( num )
