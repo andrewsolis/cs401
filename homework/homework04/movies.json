@@ -1,5 +1,612 @@
 [
     {
+        "Title": "A Quiet Place Part II",
+        "Movie Link": "https://www.imdb.com/title/tt8332922/?ref_=sr_t_2",
+        "Year": 2020,
+        "Duration": "1h 37m",
+        "MPA": "PG-13",
+        "Rating": 7.2,
+        "Votes": "296K",
+        "budget": 61000000.0,
+        "grossWorldWide": 297372261.0,
+        "gross_US_Canada": 160072261.0,
+        "opening_weekend_Gross": 47547231.0,
+        "directors": [
+            "John Krasinski"
+        ],
+        "writers": [
+            "John Krasinski",
+            "Bryan Woods",
+            "Scott Beck"
+        ],
+        "stars": [
+            "Emily Blunt",
+            "Millicent Simmonds",
+            "Cillian Murphy"
+        ],
+        "genres": [
+            "Alien Invasion",
+            "Monster Horror",
+            "Supernatural Horror",
+            "Drama",
+            "Horror",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "countries_origin": [
+            "United States"
+        ],
+        "filming_locations": [
+            "Buffalo, New York, USA"
+        ],
+        "production_companies": [
+            "Paramount Pictures",
+            "Platinum Dunes",
+            "Sunday Night"
+        ],
+        "Languages": [
+            "English",
+            "American Sign Language"
+        ],
+        "wins": 0,
+        "nominations": 44,
+        "oscars": 1,
+        "release_date": 2020,
+        "id": 1
+    },
+    {
+        "Title": "Sonic the Hedgehog",
+        "Movie Link": "https://www.imdb.com/title/tt3794354/?ref_=sr_t_3",
+        "Year": 2020,
+        "Duration": "1h 39m",
+        "MPA": "PG",
+        "Rating": 6.5,
+        "Votes": "171K",
+        "budget": 85000000.0,
+        "grossWorldWide": 319715683.0,
+        "gross_US_Canada": 148974665.0,
+        "opening_weekend_Gross": 58018348.0,
+        "directors": [
+            "Jeff Fowler"
+        ],
+        "writers": [
+            "Pat Casey",
+            "Josh Miller",
+            "Yuji Naka"
+        ],
+        "stars": [
+            "Ben Schwartz",
+            "James Marsden",
+            "Jim Carrey"
+        ],
+        "genres": [
+            "Animal Adventure",
+            "Buddy Comedy",
+            "Road Trip",
+            "Slapstick",
+            "Superhero",
+            "Supernatural Fantasy",
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Family"
+        ],
+        "countries_origin": [
+            "United States",
+            "Japan",
+            "Canada",
+            "United Kingdom"
+        ],
+        "filming_locations": [
+            "Ladysmith, British Columbia, Canada"
+        ],
+        "production_companies": [
+            "Paramount Pictures",
+            "Sega Sammy Group",
+            "Original Film"
+        ],
+        "Languages": [
+            "English",
+            "French",
+            "Persian"
+        ],
+        "wins": 0,
+        "nominations": 12,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 2
+    },
+    {
+        "Title": "Birds of Prey and the Fantabulous Emancipation of One Harley Quinn",
+        "Movie Link": "https://www.imdb.com/title/tt7713068/?ref_=sr_t_4",
+        "Year": 2020,
+        "Duration": "1h 49m",
+        "MPA": "R",
+        "Rating": 6.1,
+        "Votes": "271K",
+        "budget": 84500000.0,
+        "grossWorldWide": 205537933.0,
+        "gross_US_Canada": 84172791.0,
+        "opening_weekend_Gross": 33010017.0,
+        "directors": [
+            "Cathy Yan"
+        ],
+        "writers": [
+            "Christina Hodson",
+            "Paul Dini",
+            "Bruce Timm"
+        ],
+        "stars": [
+            "Margot Robbie",
+            "Rosie Perez",
+            "Mary Elizabeth Winstead"
+        ],
+        "genres": [
+            "Dark Comedy",
+            "Superhero",
+            "Action",
+            "Comedy",
+            "Crime"
+        ],
+        "countries_origin": [
+            "United States",
+            "United Kingdom"
+        ],
+        "filming_locations": [
+            "Los Angeles, California, USA"
+        ],
+        "production_companies": [
+            "Clubhouse Pictures (II)",
+            "DC Entertainment",
+            "Kroll & Co. Entertainment"
+        ],
+        "Languages": [
+            "English",
+            "Chinese"
+        ],
+        "wins": 0,
+        "nominations": 83,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 3
+    },
+    {
+        "Title": "Dolittle",
+        "Movie Link": "https://www.imdb.com/title/tt6673612/?ref_=sr_t_5",
+        "Year": 2020,
+        "Duration": "1h 41m",
+        "MPA": "PG",
+        "Rating": 5.6,
+        "Votes": "73K",
+        "budget": 175000000.0,
+        "grossWorldWide": 251410631.0,
+        "gross_US_Canada": 77047065.0,
+        "opening_weekend_Gross": 21844045.0,
+        "directors": [
+            "Stephen Gaghan"
+        ],
+        "writers": [
+            "Stephen Gaghan",
+            "Dan Gregor",
+            "Doug Mand"
+        ],
+        "stars": [
+            "Robert Downey Jr.",
+            "Antonio Banderas",
+            "Michael Sheen"
+        ],
+        "genres": [
+            "Animal Adventure",
+            "Quest",
+            "Adventure",
+            "Comedy",
+            "Family",
+            "Fantasy"
+        ],
+        "countries_origin": [
+            "United States",
+            "China",
+            "United Kingdom",
+            "Japan"
+        ],
+        "filming_locations": [
+            "Menai Suspension Bridge, Anglesey, Wales, UK"
+        ],
+        "production_companies": [
+            "Universal Pictures",
+            "Perfect World Pictures",
+            "Roth/Kirschenbaum Films"
+        ],
+        "Languages": [
+            "English",
+            "French"
+        ],
+        "wins": 0,
+        "nominations": 9,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 4
+    },
+    {
+        "Title": "The Invisible Man",
+        "Movie Link": "https://www.imdb.com/title/tt1051906/?ref_=sr_t_6",
+        "Year": 2020,
+        "Duration": "2h 4m",
+        "MPA": "R",
+        "Rating": 7.1,
+        "Votes": "266K",
+        "budget": 7000000.0,
+        "grossWorldWide": 144492724.0,
+        "gross_US_Canada": 70410000.0,
+        "opening_weekend_Gross": 28205665.0,
+        "directors": [
+            "Leigh Whannell"
+        ],
+        "writers": [
+            "Leigh Whannell",
+            "H.G. Wells"
+        ],
+        "stars": [
+            "Elisabeth Moss",
+            "Oliver Jackson-Cohen",
+            "Harriet Dyer"
+        ],
+        "genres": [
+            "Psychological Horror",
+            "Psychological Thriller",
+            "Suspense Mystery",
+            "Drama",
+            "Horror",
+            "Mystery",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "countries_origin": [
+            "Australia",
+            "United States"
+        ],
+        "filming_locations": [
+            "Headland House, Gerringong, New South Wales, Australia"
+        ],
+        "production_companies": [
+            "Universal Pictures",
+            "Blumhouse Productions",
+            "Goalpost Pictures"
+        ],
+        "Languages": [
+            "English"
+        ],
+        "wins": 0,
+        "nominations": 85,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 5
+    },
+    {
+        "Title": "The Call of the Wild",
+        "Movie Link": "https://www.imdb.com/title/tt7504726/?ref_=sr_t_7",
+        "Year": 2020,
+        "Duration": "1h 40m",
+        "MPA": "PG",
+        "Rating": 6.7,
+        "Votes": "60K",
+        "budget": 135000000.0,
+        "grossWorldWide": 111166669.0,
+        "gross_US_Canada": 62342368.0,
+        "opening_weekend_Gross": 24791624.0,
+        "directors": [
+            "Chris Sanders"
+        ],
+        "writers": [
+            "Michael Green",
+            "Jack London",
+            "Egerton Ryerson Young"
+        ],
+        "stars": [
+            "Harrison Ford",
+            "Omar Sy",
+            "Cara Gee"
+        ],
+        "genres": [
+            "Adventure Epic",
+            "Animal Adventure",
+            "Mountain Adventure",
+            "Quest",
+            "Survival",
+            "Adventure",
+            "Drama",
+            "Family"
+        ],
+        "countries_origin": [
+            "United States",
+            "Canada"
+        ],
+        "filming_locations": [
+            "Yukon, Canada"
+        ],
+        "production_companies": [
+            "20th Century Studios",
+            "TSG Entertainment",
+            "3 Arts Entertainment"
+        ],
+        "Languages": [
+            "English",
+            "French"
+        ],
+        "wins": 0,
+        "nominations": 8,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 6
+    },
+    {
+        "Title": "Onward",
+        "Movie Link": "https://www.imdb.com/title/tt7146812/?ref_=sr_t_8",
+        "Year": 2020,
+        "Duration": "1h 42m",
+        "MPA": "PG",
+        "Rating": 7.4,
+        "Votes": "176K",
+        "budget": 175000000.0,
+        "grossWorldWide": 141940042.0,
+        "gross_US_Canada": 61555145.0,
+        "opening_weekend_Gross": 39119861.0,
+        "directors": [
+            "Dan Scanlon"
+        ],
+        "writers": [
+            "Dan Scanlon",
+            "Keith Bunin",
+            "Jason Headley"
+        ],
+        "stars": [
+            "Tom Holland",
+            "Chris Pratt",
+            "Julia Louis-Dreyfus"
+        ],
+        "genres": [
+            "Adventure Epic",
+            "Computer Animation",
+            "Epic",
+            "Fantasy Epic",
+            "Quest",
+            "Supernatural Fantasy",
+            "Sword & Sorcery",
+            "Adventure",
+            "Animation",
+            "Comedy"
+        ],
+        "countries_origin": [
+            "United States",
+            "Japan"
+        ],
+        "filming_locations": [
+            "Los Angeles, California, USA"
+        ],
+        "production_companies": [
+            "Walt Disney Pictures",
+            "Pixar Animation Studios"
+        ],
+        "Languages": [
+            "English"
+        ],
+        "wins": 0,
+        "nominations": 66,
+        "oscars": 1,
+        "release_date": 2020,
+        "id": 7
+    },
+    {
+        "Title": "The Croods: A New Age",
+        "Movie Link": "https://www.imdb.com/title/tt2850386/?ref_=sr_t_9",
+        "Year": 2020,
+        "Duration": "1h 35m",
+        "MPA": "PG",
+        "Rating": 6.9,
+        "Votes": "56K",
+        "budget": 65000000.0,
+        "grossWorldWide": 215905815.0,
+        "gross_US_Canada": 58568815.0,
+        "opening_weekend_Gross": 9724200.0,
+        "directors": [
+            "Joel Crawford"
+        ],
+        "writers": [
+            "Kevin Hageman",
+            "Dan Hageman",
+            "Paul Fisher"
+        ],
+        "stars": [
+            "Nicolas Cage",
+            "Emma Stone",
+            "Ryan Reynolds"
+        ],
+        "genres": [
+            "Computer Animation",
+            "Adventure",
+            "Animation",
+            "Comedy",
+            "Family",
+            "Fantasy"
+        ],
+        "countries_origin": [
+            "United States",
+            "Japan"
+        ],
+        "filming_locations": [],
+        "production_companies": [
+            "DreamWorks Animation",
+            "Dentsu"
+        ],
+        "Languages": [
+            "English"
+        ],
+        "wins": 0,
+        "nominations": 0,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 8
+    },
+    {
+        "Title": "Tenet",
+        "Movie Link": "https://www.imdb.com/title/tt6723592/?ref_=sr_t_10",
+        "Year": 2020,
+        "Duration": "2h 30m",
+        "MPA": "PG-13",
+        "Rating": 7.3,
+        "Votes": "617K",
+        "budget": 205000000.0,
+        "grossWorldWide": 365304105.0,
+        "gross_US_Canada": 58504105.0,
+        "opening_weekend_Gross": 9353090.0,
+        "directors": [
+            "Christopher Nolan"
+        ],
+        "writers": [
+            "Christopher Nolan"
+        ],
+        "stars": [
+            "John David Washington",
+            "Robert Pattinson",
+            "Elizabeth Debicki"
+        ],
+        "genres": [
+            "Time Travel",
+            "Action",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "countries_origin": [
+            "United States",
+            "United Kingdom"
+        ],
+        "filming_locations": [
+            "Linnahall, Tallinn, Estonia"
+        ],
+        "production_companies": [
+            "Warner Bros.",
+            "Syncopy",
+            "Warner Bros."
+        ],
+        "Languages": [
+            "English"
+        ],
+        "wins": 0,
+        "nominations": 136,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 9
+    },
+    {
+        "Title": "Demon Slayer: Kimetsu no Yaiba - The Movie: Mugen Train",
+        "Movie Link": "https://www.imdb.com/title/tt11032374/?ref_=sr_t_11",
+        "Year": 2020,
+        "Duration": "1h 57m",
+        "MPA": "TV-MA",
+        "Rating": 8.2,
+        "Votes": "80K",
+        "budget": 15000000.0,
+        "grossWorldWide": 473230408.0,
+        "gross_US_Canada": 49505008.0,
+        "opening_weekend_Gross": 21234994.0,
+        "directors": [
+            "Haruo Sotozaki"
+        ],
+        "writers": [
+            "Koyoharu Gotouge"
+        ],
+        "stars": [
+            "Natsuki Hanae",
+            "Akari Kit\u00f4",
+            "Yoshitsugu Matsuoka"
+        ],
+        "genres": [
+            "Adult Animation",
+            "Anime",
+            "Dark Fantasy",
+            "Sh\u014dnen",
+            "Superhero",
+            "Supernatural Fantasy",
+            "Sword & Sorcery",
+            "Action",
+            "Adventure",
+            "Animation"
+        ],
+        "countries_origin": [
+            "Japan"
+        ],
+        "filming_locations": [
+            "Tokyo, Japan"
+        ],
+        "production_companies": [
+            "Shueisha",
+            "Aniplex",
+            "Ufotable"
+        ],
+        "Languages": [
+            "Japanese"
+        ],
+        "wins": 0,
+        "nominations": 6,
+        "oscars": 0,
+        "release_date": 2020,
+        "id": 10
+    },
+    {
+        "Title": "Spider-Man: No Way Home",
+        "Movie Link": "https://www.imdb.com/title/tt10872600/?ref_=sr_t_1",
+        "Year": 2021,
+        "Duration": "2h 28m",
+        "MPA": "PG-13",
+        "Rating": 8.2,
+        "Votes": "926K",
+        "budget": 200000000.0,
+        "grossWorldWide": 1952723719.0,
+        "gross_US_Canada": 814866759.0,
+        "opening_weekend_Gross": 260138569.0,
+        "directors": [
+            "Jon Watts"
+        ],
+        "writers": [
+            "Chris McKenna",
+            "Erik Sommers",
+            "Stan Lee"
+        ],
+        "stars": [
+            "Tom Holland",
+            "Zendaya",
+            "Benedict Cumberbatch"
+        ],
+        "genres": [
+            "Superhero",
+            "Supernatural Fantasy",
+            "Urban Adventure",
+            "Action",
+            "Adventure",
+            "Fantasy",
+            "Sci-Fi"
+        ],
+        "countries_origin": [
+            "United States"
+        ],
+        "filming_locations": [
+            "Iceland"
+        ],
+        "production_companies": [
+            "Columbia Pictures",
+            "Pascal Pictures",
+            "Marvel Studios"
+        ],
+        "Languages": [
+            "English"
+        ],
+        "wins": 0,
+        "nominations": 71,
+        "oscars": 1,
+        "release_date": 2021,
+        "id": 11
+    },
+    {
         "Title": "Shang-Chi and the Legend of the Ten Rings",
         "Movie Link": "https://www.imdb.com/title/tt9376612/?ref_=sr_t_2",
         "Year": 2021,
@@ -53,7 +660,7 @@
         "nominations": 67,
         "oscars": 1,
         "release_date": 2021,
-        "id": 1
+        "id": 12
     },
     {
         "Title": "Venom: Let There Be Carnage",
@@ -108,7 +715,7 @@
         "nominations": 6,
         "oscars": 0,
         "release_date": 2021,
-        "id": 2
+        "id": 13
     },
     {
         "Title": "Black Widow",
@@ -163,7 +770,7 @@
         "nominations": 34,
         "oscars": 0,
         "release_date": 2021,
-        "id": 3
+        "id": 14
     },
     {
         "Title": "F9: The Fast Saga",
@@ -219,7 +826,7 @@
         "nominations": 13,
         "oscars": 0,
         "release_date": 2021,
-        "id": 4
+        "id": 15
     },
     {
         "Title": "Eternals",
@@ -278,7 +885,7 @@
         "nominations": 18,
         "oscars": 0,
         "release_date": 2021,
-        "id": 5
+        "id": 16
     },
     {
         "Title": "Sing 2",
@@ -332,7 +939,7 @@
         "nominations": 21,
         "oscars": 0,
         "release_date": 2021,
-        "id": 6
+        "id": 17
     },
     {
         "Title": "No Time to Die",
@@ -393,7 +1000,7 @@
         "nominations": 77,
         "oscars": 0,
         "release_date": 2021,
-        "id": 7
+        "id": 18
     },
     {
         "Title": "Ghostbusters: Afterlife",
@@ -446,7 +1053,7 @@
         "nominations": 21,
         "oscars": 1,
         "release_date": 2021,
-        "id": 8
+        "id": 19
     },
     {
         "Title": "Free Guy",
@@ -504,70 +1111,7 @@
         "nominations": 29,
         "oscars": 1,
         "release_date": 2021,
-        "id": 9
-    },
-    {
-        "Title": "Jungle Cruise",
-        "Movie Link": "https://www.imdb.com/title/tt0870154/?ref_=sr_t_11",
-        "Year": 2021,
-        "Duration": "2h 7m",
-        "MPA": "PG-13",
-        "Rating": 6.6,
-        "Votes": "219K",
-        "budget": 200000000.0,
-        "grossWorldWide": 220889446.0,
-        "gross_US_Canada": 116987516.0,
-        "opening_weekend_Gross": 35018731.0,
-        "directors": [
-            "Jaume Collet-Serra"
-        ],
-        "writers": [
-            "Michael Green",
-            "Glenn Ficarra",
-            "John Requa"
-        ],
-        "stars": [
-            "Dwayne Johnson",
-            "Emily Blunt",
-            "Edgar Ram\u00edrez"
-        ],
-        "genres": [
-            "High-Concept Comedy",
-            "Jungle Adventure",
-            "Quest",
-            "Action",
-            "Adventure",
-            "Comedy",
-            "Fantasy"
-        ],
-        "countries_origin": [
-            "United States",
-            "Hungary",
-            "Canada"
-        ],
-        "filming_locations": [
-            "Kaua'i, Hawaii, USA"
-        ],
-        "production_companies": [
-            "Davis Entertainment",
-            "Flynn Picture Company",
-            "Seven Bucks Productions"
-        ],
-        "Languages": [
-            "English",
-            "German",
-            "Spanish",
-            "Tupi",
-            "Italian",
-            "Portuguese",
-            "Latin",
-            "French"
-        ],
-        "wins": 0,
-        "nominations": 9,
-        "oscars": 0,
-        "release_date": 2021,
-        "id": 10
+        "id": 20
     },
     {
         "Title": "Top Gun: Maverick",
@@ -618,7 +1162,7 @@
         "nominations": 238,
         "oscars": 0,
         "release_date": 2022,
-        "id": 11
+        "id": 21
     },
     {
         "Title": "Avatar: The Way of Water",
@@ -673,7 +1217,7 @@
         "nominations": 152,
         "oscars": 0,
         "release_date": 2022,
-        "id": 12
+        "id": 22
     },
     {
         "Title": "Black Panther: Wakanda Forever",
@@ -728,7 +1272,7 @@
         "nominations": 175,
         "oscars": 0,
         "release_date": 2022,
-        "id": 13
+        "id": 23
     },
     {
         "Title": "Doctor Strange in the Multiverse of Madness",
@@ -781,7 +1325,7 @@
         "nominations": 30,
         "oscars": 0,
         "release_date": 2022,
-        "id": 14
+        "id": 24
     },
     {
         "Title": "Jurassic World Dominion",
@@ -838,7 +1382,7 @@
         "nominations": 26,
         "oscars": 0,
         "release_date": 2022,
-        "id": 15
+        "id": 25
     },
     {
         "Title": "Minions: The Rise of Gru",
@@ -894,7 +1438,7 @@
         "nominations": 18,
         "oscars": 0,
         "release_date": 2022,
-        "id": 16
+        "id": 26
     },
     {
         "Title": "The Batman",
@@ -953,7 +1497,7 @@
         "nominations": 185,
         "oscars": 3,
         "release_date": 2022,
-        "id": 17
+        "id": 27
     },
     {
         "Title": "Thor: Love and Thunder",
@@ -1005,7 +1549,7 @@
         "nominations": 22,
         "oscars": 0,
         "release_date": 2022,
-        "id": 18
+        "id": 28
     },
     {
         "Title": "Sonic the Hedgehog 2",
@@ -1069,7 +1613,7 @@
         "nominations": 3,
         "oscars": 0,
         "release_date": 2022,
-        "id": 19
+        "id": 29
     },
     {
         "Title": "Puss in Boots: The Last Wish",
@@ -1126,7 +1670,7 @@
         "nominations": 58,
         "oscars": 1,
         "release_date": 2022,
-        "id": 20
+        "id": 30
     },
     {
         "Title": "Barbie",
@@ -1180,7 +1724,7 @@
         "nominations": 433,
         "oscars": 0,
         "release_date": 2023,
-        "id": 21
+        "id": 31
     },
     {
         "Title": "The Super Mario Bros. Movie",
@@ -1237,7 +1781,7 @@
         "nominations": 48,
         "oscars": 0,
         "release_date": 2023,
-        "id": 22
+        "id": 32
     },
     {
         "Title": "Spider-Man: Across the Spider-Verse",
@@ -1294,7 +1838,7 @@
         "nominations": 164,
         "oscars": 1,
         "release_date": 2023,
-        "id": 23
+        "id": 33
     },
     {
         "Title": "Guardians of the Galaxy Vol. 3",
@@ -1351,7 +1895,7 @@
         "nominations": 88,
         "oscars": 1,
         "release_date": 2023,
-        "id": 24
+        "id": 34
     },
     {
         "Title": "Oppenheimer",
@@ -1410,7 +1954,7 @@
         "nominations": 369,
         "oscars": 0,
         "release_date": 2023,
-        "id": 25
+        "id": 35
     },
     {
         "Title": "The Little Mermaid",
@@ -1466,7 +2010,7 @@
         "nominations": 31,
         "oscars": 0,
         "release_date": 2023,
-        "id": 26
+        "id": 36
     },
     {
         "Title": "Wonka",
@@ -1523,7 +2067,7 @@
         "nominations": 42,
         "oscars": 1,
         "release_date": 2023,
-        "id": 27
+        "id": 37
     },
     {
         "Title": "Ant-Man and the Wasp: Quantumania",
@@ -1577,7 +2121,7 @@
         "nominations": 0,
         "oscars": 0,
         "release_date": 2023,
-        "id": 28
+        "id": 38
     },
     {
         "Title": "John Wick: Chapter 4",
@@ -1639,7 +2183,7 @@
         "nominations": 47,
         "oscars": 0,
         "release_date": 2023,
-        "id": 29
+        "id": 39
     },
     {
         "Title": "Sound of Freedom",
@@ -1694,7 +2238,7 @@
         "nominations": 4,
         "oscars": 0,
         "release_date": 2023,
-        "id": 30
+        "id": 40
     },
     {
         "Title": "Inside Out 2",
@@ -1750,7 +2294,7 @@
         "nominations": 63,
         "oscars": 0,
         "release_date": 2024,
-        "id": 31
+        "id": 41
     },
     {
         "Title": "Deadpool & Wolverine",
@@ -1810,7 +2354,7 @@
         "nominations": 35,
         "oscars": 0,
         "release_date": 2024,
-        "id": 32
+        "id": 42
     },
     {
         "Title": "Wicked",
@@ -1866,7 +2410,7 @@
         "nominations": 172,
         "oscars": 0,
         "release_date": 2024,
-        "id": 33
+        "id": 43
     },
     {
         "Title": "Moana 2",
@@ -1924,7 +2468,7 @@
         "nominations": 12,
         "oscars": 0,
         "release_date": 2024,
-        "id": 34
+        "id": 44
     },
     {
         "Title": "Despicable Me 4",
@@ -1976,7 +2520,7 @@
         "nominations": 3,
         "oscars": 0,
         "release_date": 2024,
-        "id": 35
+        "id": 45
     },
     {
         "Title": "Beetlejuice Beetlejuice",
@@ -2035,7 +2579,7 @@
         "nominations": 35,
         "oscars": 0,
         "release_date": 2024,
-        "id": 36
+        "id": 46
     },
     {
         "Title": "Dune: Part Two",
@@ -2098,7 +2642,7 @@
         "nominations": 242,
         "oscars": 0,
         "release_date": 2024,
-        "id": 37
+        "id": 47
     },
     {
         "Title": "Twisters",
@@ -2150,7 +2694,7 @@
         "nominations": 0,
         "oscars": 0,
         "release_date": 2024,
-        "id": 38
+        "id": 48
     },
     {
         "Title": "Godzilla x Kong: The New Empire",
@@ -2208,7 +2752,7 @@
         "nominations": 5,
         "oscars": 0,
         "release_date": 2024,
-        "id": 39
+        "id": 49
     },
     {
         "Title": "Kung Fu Panda 4",
@@ -2266,597 +2810,6 @@
         "nominations": 0,
         "oscars": 0,
         "release_date": 2024,
-        "id": 40
-    },
-    {
-        "Title": "Captain America: Brave New World",
-        "Movie Link": 2025,
-        "Year": "1h 58m",
-        "Duration": "PG-13",
-        "MPA": 5.9,
-        "Rating": "82K",
-        "Votes": 42.0,
-        "budget": "Sam Wilson, the new Captain America, finds himself in the middle of an international incident and must discover the motive behind a nefarious global plan.",
-        "grossWorldWide": "https://www.imdb.com/title/tt14513804/?ref_=sr_i_1",
-        "gross_US_Canada": [
-            "Rob Edwards",
-            "Malcolm Spellman",
-            "Dalan Musson"
-        ],
-        "opening_weekend_Gross": [
-            "Julius Onah"
-        ],
-        "directors": [
-            "Anthony Mackie",
-            "Harrison Ford",
-            "Danny Ramirez",
-            "Shira Haas",
-            "Carl Lumbly",
-            "Tim Blake Nelson",
-            "Giancarlo Esposito",
-            "Xosha Roquemore",
-            "J\u00f3hannes Haukur J\u00f3hannesson",
-            "William Mark McCullough"
-        ],
-        "writers": "$180,000,000 (estimated)",
-        "stars": "$88,842,603",
-        "genres": "$402,240,065",
-        "countries_origin": "$192,958,204",
-        "filming_locations": "February 14, 2025",
-        "production_companies": [
-            "United States",
-            "Canada"
-        ],
-        "Languages": [
-            "Atlanta, Georgia, USA"
-        ],
-        "wins": [
-            "Marvel Studios",
-            "British Columbia Film Commission"
-        ],
-        "nominations": "Awards, 1 nomination total",
-        "oscars": [
-            "Action Epic",
-            "Adventure Epic",
-            "Sci-Fi Epic",
-            "Superhero",
-            "Action",
-            "Adventure",
-            "Sci-Fi"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 41
-    },
-    {
-        "Title": "Dog Man",
-        "Movie Link": 2025,
-        "Year": "1h 29m",
-        "Duration": "PG",
-        "MPA": 6.3,
-        "Rating": "7.4K",
-        "Votes": 66.0,
-        "budget": "Dog Man, half dog and half man, he is sworn to protect and serve as he doggedly pursues the feline supervillain Petey the Cat.",
-        "grossWorldWide": "https://www.imdb.com/title/tt10954718/?ref_=sr_i_2",
-        "gross_US_Canada": [
-            "Peter Hastings",
-            "Dav Pilkey"
-        ],
-        "opening_weekend_Gross": [
-            "Peter Hastings"
-        ],
-        "directors": [
-            "Pete Davidson",
-            "Poppy Liu",
-            "Lil Rel Howery",
-            "Isla Fisher",
-            "Billy Boyd",
-            "Rahnuma Panthaky",
-            "Maggie Wheeler",
-            "Peter Hastings",
-            "Luenell",
-            "Melissa Villase\u00f1or"
-        ],
-        "writers": "$40,000,000 (estimated)",
-        "stars": "$36,001,940",
-        "genres": "$130,234,395",
-        "countries_origin": "$96,059,395",
-        "filming_locations": "January 31, 2025",
-        "production_companies": [
-            "United States"
-        ],
-        "Languages": "",
-        "wins": [
-            "DreamWorks Animation",
-            "Treehouse Comix",
-            "Universal Pictures"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Animal Adventure",
-            "Computer Animation",
-            "Superhero",
-            "Action",
-            "Adventure",
-            "Animation",
-            "Comedy",
-            "Crime",
-            "Family",
-            "Fantasy"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 42
-    },
-    {
-        "Title": "One of Them Days",
-        "Movie Link": 2025,
-        "Year": "1h 37m",
-        "Duration": "R",
-        "MPA": 6.6,
-        "Rating": "8.5K",
-        "Votes": 71.0,
-        "budget": "When best friends and roommates Dreux and Alyssa discover Alyssa's boyfriend has blown their rent money, the duo finds themselves going to extremes in a race against the clock to avoid eviction and keep their friendship intact.",
-        "grossWorldWide": "https://www.imdb.com/title/tt32221196/?ref_=sr_i_3",
-        "gross_US_Canada": [
-            "Syreeta Singleton"
-        ],
-        "opening_weekend_Gross": [
-            "Lawrence Lamont"
-        ],
-        "directors": [
-            "Keke Palmer",
-            "SZA",
-            "Vanessa Bell Calloway",
-            "Lil Rel Howery",
-            "Katt Williams",
-            "Maude Apatow",
-            "Patrick Cage",
-            "Gabrielle Dennis",
-            "Janelle James",
-            "Amin Joseph"
-        ],
-        "writers": "$14,000,000 (estimated)",
-        "stars": "$11,807,731",
-        "genres": "$51,092,296",
-        "countries_origin": "$49,651,692",
-        "filming_locations": "January 17, 2025",
-        "production_companies": [
-            "United States"
-        ],
-        "Languages": [
-            "Los Angeles, California, USA (Location)"
-        ],
-        "wins": [
-            "Big Boss Entertainment",
-            "Color Creative Television",
-            "ColorCreative"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Buddy Comedy",
-            "Comedy"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 43
-    },
-    {
-        "Title": "Snow White",
-        "Movie Link": 2025,
-        "Year": "1h 49m",
-        "Duration": "PG",
-        "MPA": 1.6,
-        "Rating": "152K",
-        "Votes": 50.0,
-        "budget": "A princess joins forces with seven dwarfs to liberate her kingdom from her cruel stepmother the Evil Queen.",
-        "grossWorldWide": "https://www.imdb.com/title/tt6208148/?ref_=sr_i_4",
-        "gross_US_Canada": [
-            "Erin Cressida Wilson",
-            "Jacob Grimm",
-            "Wilhelm Grimm"
-        ],
-        "opening_weekend_Gross": [
-            "Marc Webb"
-        ],
-        "directors": [
-            "Rachel Zegler",
-            "Emilia Faucher",
-            "Gal Gadot",
-            "Andrew Burnap",
-            "Andrew Barth Feldman",
-            "Tituss Burgess",
-            "Martin Klebba",
-            "Jason Kravits",
-            "George Salazar",
-            "Jeremy Swift"
-        ],
-        "writers": "$250,000,000 (estimated)",
-        "stars": "$42,206,415",
-        "genres": "$92,629,251",
-        "countries_origin": "$48,722,185",
-        "filming_locations": "March 21, 2025",
-        "production_companies": [
-            "United States"
-        ],
-        "Languages": [
-            "Pinewood Studios, Iver Heath, Buckinghamshire, England, UK"
-        ],
-        "wins": [
-            "Walt Disney Pictures",
-            "Marc Platt Productions"
-        ],
-        "nominations": "Awards, 1 nomination total",
-        "oscars": [
-            "Fairy Tale",
-            "Feel-Good Romance",
-            "Adventure",
-            "Family",
-            "Fantasy",
-            "Musical",
-            "Romance"
-        ],
-        "release_date": [
-            "English",
-            "German"
-        ],
-        "id": 44
-    },
-    {
-        "Title": "Mickey 17",
-        "Movie Link": 2025,
-        "Year": "2h 17m",
-        "Duration": "R",
-        "MPA": 7.0,
-        "Rating": "60K",
-        "Votes": 72.0,
-        "budget": "Mickey 17, known as an \"expendable,\" goes on a dangerous journey to colonize an ice planet.",
-        "grossWorldWide": "https://www.imdb.com/title/tt12299608/?ref_=sr_i_5",
-        "gross_US_Canada": [
-            "Bong Joon Ho",
-            "Edward Ashton"
-        ],
-        "opening_weekend_Gross": [
-            "Bong Joon Ho"
-        ],
-        "directors": [
-            "Robert Pattinson",
-            "Steven Yeun",
-            "Michael Monroe",
-            "Patsy Ferran",
-            "Cameron Britton",
-            "Christian Patterson",
-            "Lloyd Hutchinson",
-            "Samuel Blenkin",
-            "Ian Hanmore",
-            "Sabet Choudhury"
-        ],
-        "writers": "$118,000,000 (estimated)",
-        "stars": "$19,002,852",
-        "genres": "$110,750,369",
-        "countries_origin": "$40,950,369",
-        "filming_locations": "March 7, 2025",
-        "production_companies": [
-            "United States",
-            "South Korea"
-        ],
-        "Languages": [
-            "Warner Bros. Studios Leavesden, Warner Drive, Leavesden, Watford, Hertfordshire, England, UK (Studio)"
-        ],
-        "wins": [
-            "Warner Bros.",
-            "Plan B Entertainment",
-            "Offscreen"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Alien Invasion",
-            "Dark Comedy",
-            "Space Sci-Fi",
-            "Adventure",
-            "Comedy",
-            "Fantasy",
-            "Sci-Fi"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 45
-    },
-    {
-        "Title": "The Monkey",
-        "Movie Link": 2025,
-        "Year": "1h 38m",
-        "Duration": "R",
-        "MPA": 6.3,
-        "Rating": "23K",
-        "Votes": 62.0,
-        "budget": "When twin brothers Bill and Hal find their father's old monkey toy in the attic, a series of gruesome deaths start. The siblings decide to throw the toy away and move on with their lives, growing apart over the years.",
-        "grossWorldWide": "https://www.imdb.com/title/tt27714946/?ref_=sr_i_6",
-        "gross_US_Canada": [
-            "Osgood Perkins",
-            "Stephen King"
-        ],
-        "opening_weekend_Gross": [
-            "Osgood Perkins"
-        ],
-        "directors": [
-            "Theo James",
-            "Tatiana Maslany",
-            "Christian Convery",
-            "Colin O'Brien",
-            "Elijah Wood",
-            "Rohan Campbell",
-            "Sarah Levy",
-            "Osgood Perkins",
-            "Tess Degenstein",
-            "Danica Dreyer"
-        ],
-        "writers": "$10,000,000 (estimated)",
-        "stars": "$14,014,649",
-        "genres": "$61,919,789",
-        "countries_origin": "$37,973,690",
-        "filming_locations": "February 21, 2025",
-        "production_companies": [
-            "United States",
-            "United Kingdom",
-            "Canada"
-        ],
-        "Languages": [
-            "Vancouver, British Columbia, Canada"
-        ],
-        "wins": [
-            "Atomic Monster",
-            "Black Bear International",
-            "British Columbia Film Commission"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Dark Comedy",
-            "Splatter Horror",
-            "Horror"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 46
-    },
-    {
-        "Title": "Den of Thieves: Pantera",
-        "Movie Link": 2025,
-        "Year": "2h 24m",
-        "Duration": "R",
-        "MPA": 6.3,
-        "Rating": "21K",
-        "Votes": 60.0,
-        "budget": "Big Nick is back on the hunt in Europe and closing in on Donnie, who is embroiled in the treacherous world of diamond thieves and the infamous Panther mafia, as they plot a massive heist of the world's largest diamond exchange.",
-        "grossWorldWide": "https://www.imdb.com/title/tt8008948/?ref_=sr_i_7",
-        "gross_US_Canada": [
-            "Christian Gudegast",
-            "Paul T. Scheuring"
-        ],
-        "opening_weekend_Gross": [
-            "Christian Gudegast"
-        ],
-        "directors": [
-            "Gerard Butler",
-            "O'Shea Jackson Jr.",
-            "Evin Ahmad",
-            "Salvatore Esposito",
-            "Orli Shuka",
-            "St\u00e9phane Coulon",
-            "Cristian Solimeno",
-            "Nazmiye Oral",
-            "Mark Grosy",
-            "Joshua Gabriel Li\u00e8ge"
-        ],
-        "writers": "$40,000,000 (estimated)",
-        "stars": "$15,022,909",
-        "genres": "$57,349,303",
-        "countries_origin": "$36,015,016",
-        "filming_locations": "January 10, 2025",
-        "production_companies": [
-            "United States",
-            "Canada",
-            "Spain"
-        ],
-        "Languages": [
-            "Tenerife, Canary Islands, Spain"
-        ],
-        "wins": [
-            "Atmosphere Entertainment MM",
-            "Diamond Film Productions",
-            "Eone Entertainment"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Action",
-            "Crime",
-            "Drama",
-            "Thriller"
-        ],
-        "release_date": [
-            "English",
-            "French"
-        ],
-        "id": 47
-    },
-    {
-        "Title": "Heart Eyes",
-        "Movie Link": 2025,
-        "Year": "1h 37m",
-        "Duration": "R",
-        "MPA": 6.1,
-        "Rating": "14K",
-        "Votes": 61.0,
-        "budget": "For the past several years, the \"Heart Eyes Killer\" has wreaked havoc on Valentine's Day by stalking and murdering romantic couples. This Valentine's Day, no couple is safe.",
-        "grossWorldWide": "https://www.imdb.com/title/tt32558992/?ref_=sr_i_8",
-        "gross_US_Canada": [
-            "Phillip Murphy",
-            "Christopher Landon",
-            "Michael Kennedy"
-        ],
-        "opening_weekend_Gross": [
-            "Josh Ruben"
-        ],
-        "directors": [
-            "Mason Gooding",
-            "Olivia Holt",
-            "Gigi Zumbado",
-            "Michaela Watkins",
-            "Alex Walker",
-            "Lauren O'Hara",
-            "Latham Gaines",
-            "Alex McColl",
-            "Karlton Laing",
-            "Amy L. Workman"
-        ],
-        "writers": "$18,000,000 (estimated)",
-        "stars": "$8,305,156",
-        "genres": "$32,935,391",
-        "countries_origin": "$30,400,072",
-        "filming_locations": "February 7, 2025",
-        "production_companies": [
-            "United States",
-            "New Zealand"
-        ],
-        "Languages": [
-            "Auckland, New Zealand"
-        ],
-        "wins": [
-            "Screen Gems",
-            "Divide/Conquer",
-            "Ground Control"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Dark Comedy",
-            "Slasher Horror",
-            "Splatter Horror",
-            "Whodunnit",
-            "Comedy",
-            "Horror",
-            "Mystery"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 48
-    },
-    {
-        "Title": "Flight Risk",
-        "Movie Link": 2025,
-        "Year": "1h 31m",
-        "Duration": "R",
-        "MPA": 5.3,
-        "Rating": "22K",
-        "Votes": 38.0,
-        "budget": "A pilot transports an Air Marshal accompanying a fugitive to trial. As they cross the Alaskan wilderness, tensions soar and trust is tested, as not everyone on board is who they seem.",
-        "grossWorldWide": "https://www.imdb.com/title/tt10078772/?ref_=sr_i_9",
-        "gross_US_Canada": [
-            "Jared Rosenberg"
-        ],
-        "opening_weekend_Gross": [
-            "Mel Gibson"
-        ],
-        "directors": [
-            "Michelle Dockery",
-            "Mark Wahlberg",
-            "Topher Grace",
-            "Leah Remini",
-            "Maaz Ali",
-            "Paul Ben-Victor",
-            "Eilise Patton",
-            "Senor Pablo",
-            "Savanah Joeckel",
-            "Mark Schotz"
-        ],
-        "writers": "$26,000,000 (estimated)",
-        "stars": "$11,583,488",
-        "genres": "$44,112,532",
-        "countries_origin": "$29,783,527",
-        "filming_locations": "January 24, 2025",
-        "production_companies": [
-            "United States"
-        ],
-        "Languages": [
-            "Mesquite, Nevada, USA"
-        ],
-        "wins": [
-            "Lionsgate",
-            "Media Capital Technologies",
-            "Hammerstone Studios"
-        ],
-        "nominations": "",
-        "oscars": [
-            "Action",
-            "Crime",
-            "Drama",
-            "Thriller"
-        ],
-        "release_date": [
-            "English"
-        ],
-        "id": 49
-    },
-    {
-        "Title": "Companion",
-        "Movie Link": 2025,
-        "Year": "1h 37m",
-        "Duration": "R",
-        "MPA": 7.0,
-        "Rating": "67K",
-        "Votes": 70.0,
-        "budget": "A weekend getaway with friends at a remote cabin turns into chaos after it's revealed that one of the guests is not what they seem.",
-        "grossWorldWide": "https://www.imdb.com/title/tt26584495/?ref_=sr_i_10",
-        "gross_US_Canada": [
-            "Drew Hancock"
-        ],
-        "opening_weekend_Gross": [
-            "Drew Hancock"
-        ],
-        "directors": [
-            "Sophie Thatcher",
-            "Jack Quaid",
-            "Lukas Gage",
-            "Megan Suri",
-            "Harvey Guill\u00e9n",
-            "Rupert Friend",
-            "Jaboukie Young-White",
-            "Matt McCarthy",
-            "Marc Menchaca",
-            "Woody Fu"
-        ],
-        "writers": "$10,000,000 (estimated)",
-        "stars": "$9,300,113",
-        "genres": "$36,709,101",
-        "countries_origin": "$20,809,101",
-        "filming_locations": "January 31, 2025",
-        "production_companies": [
-            "United States"
-        ],
-        "Languages": [
-            "Putnam County, New York, USA"
-        ],
-        "wins": [
-            "BoulderLight Pictures",
-            "New Line Cinema",
-            "Vertigo Entertainment"
-        ],
-        "nominations": "Awards, 1 win total",
-        "oscars": [
-            "Artificial Intelligence",
-            "Dark Comedy",
-            "Psychological Thriller",
-            "Sci-Fi",
-            "Thriller"
-        ],
-        "release_date": [
-            "English"
-        ],
         "id": 50
     }
 ]
