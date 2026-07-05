@@ -37,6 +37,11 @@ def compute_collatz( num : int ) -> List[int]:
             num = 3 * num + 1
             result.append( num )
 
+
+
+## :)
+    
+
     return result
 
 def print_collatz( collatz_list : List[int] ):
